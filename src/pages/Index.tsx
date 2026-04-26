@@ -1,16 +1,54 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import TrustBar from "@/components/TrustBar";
+import Products from "@/components/Products";
+import Story from "@/components/Story";
+import Cinematic from "@/components/Cinematic";
+import Gifts from "@/components/Gifts";
+import HowToOrder from "@/components/HowToOrder";
+import Testimonials from "@/components/Testimonials";
+import Gallery from "@/components/Gallery";
+import OrderCTA from "@/components/OrderCTA";
+import Footer from "@/components/Footer";
+import CartDrawer from "@/components/CartDrawer";
+import WhatsAppModal from "@/components/WhatsAppModal";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ScrollProgress from "@/components/ScrollProgress";
+import { useEffect } from "react";
+import { useStore } from "@/lib/store";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const lang = useStore((s) => s.lang);
+  useEffect(() => {
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = lang;
+    document.title = "Zey's Sweetness — Pâtisserie Artisanale à Casablanca";
+    const m = document.querySelector('meta[name="description"]');
+    if (m) m.setAttribute("content", "Cookies, brownies et coffrets maison à Casablanca. Commandez sur WhatsApp. Livraison 24h.");
+  }, [lang]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="bg-background min-h-screen">
+      <ScrollProgress />
+      <Navbar />
+      <main>
+        <Hero />
+        <TrustBar />
+        <Products />
+        <Story />
+        <Cinematic />
+        <Gifts />
+        <HowToOrder />
+        <Testimonials />
+        <Gallery />
+        <OrderCTA />
+      </main>
+      <Footer />
+      <CartDrawer />
+      <WhatsAppModal />
+      <FloatingWhatsApp />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
