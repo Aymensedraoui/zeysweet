@@ -1,10 +1,11 @@
 import cookie from "@/assets/cookie-cinematic.jpg";
-import { useStore } from "@/lib/store";
+import { useStore, localized } from "@/lib/store";
 import { products } from "@/lib/products";
 import { toast } from "sonner";
+import { t } from "@/lib/i18n";
 
 export default function Cinematic() {
-  const add = useStore((s) => s.add);
+  const { add, lang } = useStore();
   const cookieProduct = products.find((p) => p.id === "cookie")!;
 
   return (
@@ -22,23 +23,23 @@ export default function Cinematic() {
         </div>
 
         <div className="space-y-6">
-          <p className="font-hand text-2xl text-rose">Le bestseller absolu</p>
+          <p className="font-hand text-2xl text-rose">{t("cine.eyebrow", lang)}</p>
           <h2 className="font-display font-bold italic text-5xl lg:text-6xl text-cream leading-tight">
-            Le Cookie qui a <span className="text-rose">tout changé.</span>
+            {t("cine.title.a", lang)} <span className="text-rose">{t("cine.title.b", lang)}</span>
           </h2>
           <ul className="space-y-3 text-cream/85 text-lg">
-            <li className="flex gap-3"><span className="text-caramel">✦</span> Pâte maison fermentée 24h</li>
-            <li className="flex gap-3"><span className="text-caramel">✦</span> Chocolat noir 70% de qualité</li>
-            <li className="flex gap-3"><span className="text-caramel">✦</span> Cuit frais à chaque commande</li>
+            <li className="flex gap-3"><span className="text-caramel">✦</span> {t("cine.b1", lang)}</li>
+            <li className="flex gap-3"><span className="text-caramel">✦</span> {t("cine.b2", lang)}</li>
+            <li className="flex gap-3"><span className="text-caramel">✦</span> {t("cine.b3", lang)}</li>
           </ul>
           <button
             onClick={() => {
               add(cookieProduct);
-              toast.success("Cookie Signature ajouté ✓");
+              toast.success(`${localized(cookieProduct.name, lang)} ✓`);
             }}
             className="btn-caramel"
           >
-            Commander le Cookie Signature →
+            {t("cine.cta", lang)}
           </button>
         </div>
       </div>

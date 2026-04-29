@@ -8,6 +8,7 @@
 @import "@fontsource/dm-sans/600.css";
 @import "@fontsource/caveat/400.css";
 @import "@fontsource/caveat/700.css";
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -76,7 +77,28 @@
     line-height: 1.15;
     letter-spacing: -0.01em;
   }
-  [dir="rtl"] body { font-family: 'DM Sans', 'Cairo', sans-serif; }
+  [dir="rtl"] body,
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4,
+  [dir="rtl"] p,
+  [dir="rtl"] a,
+  [dir="rtl"] button,
+  [dir="rtl"] span,
+  [dir="rtl"] li,
+  [dir="rtl"] input,
+  [dir="rtl"] textarea,
+  [dir="rtl"] select {
+    font-family: 'Tajawal', 'DM Sans', system-ui, sans-serif;
+    letter-spacing: 0;
+  }
+  /* Keep handwritten Caveat only for Latin script */
+  [dir="rtl"] .font-hand { font-family: 'Tajawal', sans-serif; font-weight: 500; font-style: italic; }
+  /* Mirror marquee for RTL */
+  [dir="rtl"] .animate-marquee { animation-direction: reverse; }
+  /* Flip ribbon to the right side */
+  [dir="rtl"] .ribbon { left: auto; right: 1rem; }
 }
 
 @layer utilities {

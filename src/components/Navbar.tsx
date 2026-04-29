@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useStore } from "@/lib/store";
+import { t } from "@/lib/i18n";
 
 const links = [
-  { href: "#products", fr: "Nos Douceurs", ar: "حلوياتنا" },
-  { href: "#story", fr: "Notre Histoire", ar: "قصتنا" },
-  { href: "#gifts", fr: "Coffrets Cadeaux", ar: "علب الهدايا" },
-  { href: "#order", fr: "Commander", ar: "اطلب" },
+  { href: "#products", k: "nav.products" as const },
+  { href: "#story", k: "nav.story" as const },
+  { href: "#gifts", k: "nav.gifts" as const },
+  { href: "#order", k: "nav.order" as const },
 ];
 
 export default function Navbar() {
@@ -43,7 +44,7 @@ export default function Navbar() {
                 href={l.href}
                 className="text-sm font-medium text-cocoa/80 hover:text-cocoa relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-rose after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300"
               >
-                {lang === "fr" ? l.fr : l.ar}
+                {t(l.k, lang)}
               </a>
             ))}
           </nav>
@@ -54,15 +55,15 @@ export default function Navbar() {
               className="text-xs font-semibold text-cocoa/70 hover:text-cocoa border border-cocoa/20 rounded-full px-3 py-1.5"
               aria-label="Changer de langue"
             >
-              {lang === "fr" ? "FR | عر" : "عر | FR"}
+              {t("nav.lang", lang)}
             </button>
             <a href="#order" className="hidden sm:inline-flex btn-rose !py-2.5 !px-5 text-sm">
-              {lang === "fr" ? "Commander" : "اطلب"}
+              {t("nav.cta", lang)}
             </a>
             <button
               onClick={() => setCartOpen(true)}
               className="relative p-2 rounded-full hover:bg-cocoa/5 transition"
-              aria-label="Panier"
+              aria-label={t("nav.cart", lang)}
             >
               <ShoppingBag className="w-5 h-5 text-cocoa" />
               {count > 0 && (
@@ -74,7 +75,7 @@ export default function Navbar() {
             <button
               onClick={() => setOpen(true)}
               className="lg:hidden p-2"
-              aria-label="Menu"
+              aria-label={t("nav.menu", lang)}
             >
               <Menu className="w-6 h-6 text-cocoa" />
             </button>
@@ -86,7 +87,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 bg-cocoa text-cream flex flex-col animate-fade-up">
           <div className="container mx-auto h-[72px] flex items-center justify-between">
             <span className="font-display font-bold text-xl">Zey's Sweetness</span>
-            <button onClick={() => setOpen(false)} aria-label="Fermer"><X className="w-6 h-6" /></button>
+            <button onClick={() => setOpen(false)} aria-label={t("nav.close", lang)}><X className="w-6 h-6" /></button>
           </div>
           <nav className="flex-1 flex flex-col items-center justify-center gap-8">
             {links.map((l) => (
@@ -96,7 +97,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="font-display text-4xl italic text-cream hover:text-rose transition"
               >
-                {lang === "fr" ? l.fr : l.ar}
+                {t(l.k, lang)}
               </a>
             ))}
           </nav>

@@ -7,6 +7,7 @@ import Cinematic from "@/components/Cinematic";
 import Gifts from "@/components/Gifts";
 import HowToOrder from "@/components/HowToOrder";
 import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 import Gallery from "@/components/Gallery";
 import OrderCTA from "@/components/OrderCTA";
 import Footer from "@/components/Footer";
@@ -40,6 +41,7 @@ const Index = () => {
         <Gifts />
         <HowToOrder />
         <Testimonials />
+        <FAQ />
         <Gallery />
         <OrderCTA />
       </main>

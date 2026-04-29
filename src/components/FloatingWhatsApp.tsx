@@ -5,7 +5,7 @@ import { useStore, buildWhatsAppLink } from "@/lib/store";
 export default function FloatingWhatsApp() {
   const { cart, giftMessage, lang, setModalOpen } = useStore();
   const [shown, setShown] = useState(false);
-  useEffect(() => { const t = setTimeout(() => setShown(true), 2000); return () => clearTimeout(t); }, []);
+  useEffect(() => { const t = setTimeout(() => setShown(true), 1500); return () => clearTimeout(t); }, []);
 
   const handle = () => {
     if (cart.length) setModalOpen(true);
@@ -15,8 +15,8 @@ export default function FloatingWhatsApp() {
   return (
     <button
       onClick={handle}
-      aria-label="Commander via WhatsApp"
-      title="Commander via WhatsApp"
+      aria-label="WhatsApp"
+      title="WhatsApp"
       className={`fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-warm transition-all duration-500 ${
         shown ? "scale-100 opacity-100" : "scale-0 opacity-0"
       }`}
