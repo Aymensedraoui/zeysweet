@@ -1,6 +1,9 @@
 import portrait from "@/assets/zey-portrait.jpg";
+import { useStore } from "@/lib/store";
+import { t } from "@/lib/i18n";
 
 export default function Story() {
+  const { lang } = useStore();
   return (
     <section id="story" className="py-24 lg:py-32 bg-cream">
       <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -13,23 +16,18 @@ export default function Story() {
             className="relative rounded-3xl shadow-warm img-warm w-full max-w-[520px] mx-auto"
           />
           <div className="absolute -bottom-6 -right-2 sm:right-8 bg-cocoa text-cream rounded-full px-5 py-3 font-hand text-xl shadow-lg rotate-3">
-            ✿ Depuis 2022
+            {t("story.since", lang)}
           </div>
         </div>
 
         <div className="order-1 lg:order-2 space-y-6 max-w-lg">
-          <p className="font-hand text-2xl text-caramel">Notre histoire</p>
+          <p className="font-hand text-2xl text-caramel">{t("story.eyebrow", lang)}</p>
           <h2 className="font-display font-bold italic text-4xl lg:text-5xl text-cocoa leading-tight">
-            Tout a commencé dans une <span className="text-rose">petite cuisine.</span>
+            {t("story.title.a", lang)} <span className="text-rose">{t("story.title.b", lang)}</span>
           </h2>
-          <p className="text-cocoa/75 text-lg">
-            Zey's Sweetness est née d'une passion simple : rendre les gens heureux avec de bonnes choses.
-          </p>
-          <p className="text-cocoa/70">
-            Chaque bouchée est préparée à la main, avec des ingrédients soigneusement choisis et beaucoup, beaucoup
-            d'amour. Pas de raccourcis, pas d'industriel — juste du vrai, du bon, du fait avec le cœur.
-          </p>
-          <a href="#order" className="btn-outline-cocoa">En savoir plus sur Zey →</a>
+          <p className="text-cocoa/75 text-lg">{t("story.p1", lang)}</p>
+          <p className="text-cocoa/70">{t("story.p2", lang)}</p>
+          <a href="#order" className="btn-outline-cocoa">{t("story.cta", lang)}</a>
         </div>
       </div>
     </section>

@@ -1,17 +1,22 @@
-const steps = [
-  { n: "01", icon: "🍪", title: "Choisissez vos douceurs", sub: "Parcourez nos créations du moment." },
-  { n: "02", icon: "💬", title: "Passez votre commande", sub: "Sur WhatsApp ou directement ici." },
-  { n: "03", icon: "📦", title: "Recevez avec amour", sub: "Livré chez vous en 24h à Casa." },
+import { useStore } from "@/lib/store";
+import { t } from "@/lib/i18n";
+import type { Key } from "@/lib/i18n";
+
+const steps: { n: string; icon: string; tk: Key; sk: Key }[] = [
+  { n: "01", icon: "🍪", tk: "how.s1.t", sk: "how.s1.s" },
+  { n: "02", icon: "💬", tk: "how.s2.t", sk: "how.s2.s" },
+  { n: "03", icon: "📦", tk: "how.s3.t", sk: "how.s3.s" },
 ];
 
 export default function HowToOrder() {
+  const { lang } = useStore();
   return (
     <section className="py-24 lg:py-32 relative" style={{ background: "hsl(var(--pistachio) / 0.08)" }}>
       <div className="container mx-auto">
         <div className="text-center max-w-xl mx-auto mb-14">
-          <p className="font-hand text-2xl text-pistachio">— Étape par étape —</p>
+          <p className="font-hand text-2xl text-pistachio">{t("how.eyebrow", lang)}</p>
           <h2 className="font-display font-bold italic text-4xl lg:text-5xl text-cocoa mt-2">
-            Commander, c'est simple.
+            {t("how.title", lang)}
           </h2>
         </div>
 
@@ -26,8 +31,8 @@ export default function HowToOrder() {
                 {s.icon}
               </div>
               <p className="font-hand text-3xl text-caramel mt-6">{s.n}</p>
-              <h3 className="font-display font-bold text-xl text-cocoa mt-2">{s.title}</h3>
-              <p className="text-sm text-cocoa/60 mt-2">{s.sub}</p>
+              <h3 className="font-display font-bold text-xl text-cocoa mt-2">{t(s.tk, lang)}</h3>
+              <p className="text-sm text-cocoa/60 mt-2">{t(s.sk, lang)}</p>
             </div>
           ))}
         </div>
