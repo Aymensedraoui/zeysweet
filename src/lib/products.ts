@@ -10,34 +10,55 @@ import giftCustom from "@/assets/gift-custom.jpg";
 import { Product } from "./store";
 
 export const products: Product[] = [
-  { id: "cookie", name: "Le Cookie Signature", desc: "Chocolat noir & noix de pécan", price: 35, image: cookie, badge: "bestseller" },
-  { id: "brownie", name: "Brownie Caramel Salé", desc: "Fondant, intense, irrésistible", price: 30, image: brownie, badge: "nouveau" },
-  { id: "cheesecake", name: "Cheesecake Framboise", desc: "Onctueux, frais, à tomber", price: 45, image: cheesecake },
-  { id: "dates", name: "Dates Farcies aux Cajou", desc: "Boîte de 12 — luxe doré", price: 120, image: dates },
-  { id: "cake", name: "Cake Citron Pavot", desc: "Entier — moelleux & zesté", price: 180, image: cake },
-  { id: "box", name: "Box Surprise Zey", desc: "Assortiment du moment", price: 220, image: giftbox, badge: "coup" },
+  {
+    id: "cookie",
+    name: { fr: "Le Cookie Signature", ar: "كوكيز التوقيع" },
+    desc: { fr: "Chocolat noir & noix de pécan", ar: "شوكولاتة سوداء وجوز البقان" },
+    price: 35,
+    image: cookie,
+    badge: "bestseller",
+  },
+  {
+    id: "brownie",
+    name: { fr: "Brownie Caramel Salé", ar: "براوني الكراميل المملح" },
+    desc: { fr: "Fondant, intense, irrésistible", ar: "ذائب، قوي، لا يقاوم" },
+    price: 30,
+    image: brownie,
+    badge: "nouveau",
+  },
+  {
+    id: "cheesecake",
+    name: { fr: "Cheesecake Framboise", ar: "تشيز كيك التوت" },
+    desc: { fr: "Onctueux, frais, à tomber", ar: "كريمي، منعش، رائع" },
+    price: 45,
+    image: cheesecake,
+  },
+  {
+    id: "dates",
+    name: { fr: "Dates Farcies aux Cajou", ar: "تمر محشي بالكاجو" },
+    desc: { fr: "Boîte de 12 — luxe doré", ar: "علبة 12 — فخامة ذهبية" },
+    price: 120,
+    image: dates,
+  },
+  {
+    id: "cake",
+    name: { fr: "Cake Citron Pavot", ar: "كيك الليمون والخشخاش" },
+    desc: { fr: "Entier — moelleux & zesté", ar: "كامل — طري ومنعش" },
+    price: 180,
+    image: cake,
+  },
+  {
+    id: "box",
+    name: { fr: "Box Surprise Zey", ar: "علبة مفاجأة زي" },
+    desc: { fr: "Assortiment du moment", ar: "تشكيلة اللحظة" },
+    price: 220,
+    image: giftbox,
+    badge: "coup",
+  },
 ];
 
 export const giftBoxes = [
-  {
-    id: "gift-disc",
-    name: "Coffret Découverte",
-    price: 150,
-    image: giftDiscovery,
-    contents: "4 cookies · 4 brownies · 1 carte personnalisée",
-  },
-  {
-    id: "gift-prem",
-    name: "Coffret Premium",
-    price: 280,
-    image: giftPremium,
-    contents: "8 douceurs assorties · dates · cheesecake mini · ruban soie",
-  },
-  {
-    id: "gift-custom",
-    name: "Coffret Sur Mesure",
-    price: 0,
-    image: giftCustom,
-    contents: "Composez votre coffret — prix selon contenu",
-  },
+  { id: "gift-disc", price: 150, image: giftDiscovery, nameKey: "gifts.disc.name" as const, descKey: "gifts.disc.desc" as const },
+  { id: "gift-prem", price: 280, image: giftPremium, nameKey: "gifts.prem.name" as const, descKey: "gifts.prem.desc" as const },
+  { id: "gift-custom", price: 0, image: giftCustom, nameKey: "gifts.cust.name" as const, descKey: "gifts.cust.desc" as const },
 ];
