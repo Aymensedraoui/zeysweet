@@ -1,13 +1,13 @@
-import { Leaf, HandHeart, Package, Heart } from "lucide-react";
+import { ChefHat, Sparkles, Truck, MessageCircle } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { t } from "@/lib/i18n";
 import type { Key } from "@/lib/i18n";
 
 const items: { icon: any; tk: Key; sk: Key }[] = [
-  { icon: Leaf, tk: "trust.1.t", sk: "trust.1.s" },
-  { icon: HandHeart, tk: "trust.2.t", sk: "trust.2.s" },
-  { icon: Package, tk: "trust.3.t", sk: "trust.3.s" },
-  { icon: Heart, tk: "trust.4.t", sk: "trust.4.s" },
+  { icon: ChefHat, tk: "trust.1.t", sk: "trust.1.s" },
+  { icon: Sparkles, tk: "trust.2.t", sk: "trust.2.s" },
+  { icon: Truck, tk: "trust.3.t", sk: "trust.3.s" },
+  { icon: MessageCircle, tk: "trust.4.t", sk: "trust.4.s" },
 ];
 
 export default function TrustBar() {
