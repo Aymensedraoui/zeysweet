@@ -61,9 +61,9 @@ export default function Navbar() {
             >
               {t("nav.lang", lang)}
             </button>
-            <a href="#order" className="hidden sm:inline-flex btn-rose !py-2.5 !px-5 text-sm">
+            <button onClick={onOrder} className="hidden sm:inline-flex btn-rose !py-2.5 !px-5 text-sm">
               {t("nav.cta", lang)}
-            </a>
+            </button>
             <button
               onClick={() => setCartOpen(true)}
               className="relative p-2 rounded-full hover:bg-cocoa/5 transition"
