@@ -9,6 +9,7 @@ export const dict = {
   "nav.story":          { fr: "Notre Histoire",    ar: "قصتنا" },
   "nav.gifts":          { fr: "Coffrets Cadeaux",  ar: "علب الهدايا" },
   "nav.order":          { fr: "Commander",          ar: "اطلب الآن" },
+  "nav.contact":        { fr: "Contact",            ar: "تواصل" },
   "nav.lang":           { fr: "FR | عر",            ar: "عر | FR" },
   "nav.cta":            { fr: "Commander",          ar: "اطلب" },
   "nav.cart":           { fr: "Panier",             ar: "السلة" },
