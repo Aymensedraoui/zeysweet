@@ -45,6 +45,7 @@ const Index = () => {
         <FAQ />
         <Gallery />
         <OrderCTA />
+        <Contact />
       </main>
       <Footer />
       <CartDrawer />
