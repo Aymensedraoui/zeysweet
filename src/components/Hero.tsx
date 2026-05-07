@@ -1,11 +1,15 @@
 import heroCookie from "@/assets/hero-cookie.jpg";
-import { useStore } from "@/lib/store";
+import { useStore, buildWhatsAppLink } from "@/lib/store";
 import { t } from "@/lib/i18n";
 
 const marqueeItems = ["Cookies", "Brownies", "Cheesecakes", "Dates", "Cakes", "Coffrets"];
 
 export default function Hero() {
-  const { lang } = useStore();
+  const { lang, cart, giftMessage, setModalOpen } = useStore();
+  const onOrder = () => {
+    if (cart.length) setModalOpen(true);
+    else window.open(buildWhatsAppLink([], giftMessage, lang), "_blank");
+  };
   return (
     <section className="relative min-h-screen pt-[72px] flex flex-col">
       <div className="container mx-auto flex-1 grid lg:grid-cols-2 gap-12 items-center py-12 lg:py-20">
@@ -26,8 +30,8 @@ export default function Hero() {
             {t("hero.subtitle", lang)}
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.65s" }}>
-            <a href="#products" className="btn-rose">{t("hero.cta1", lang)}</a>
-            <a href="#gifts" className="btn-outline-caramel">{t("hero.cta2", lang)}</a>
+            <button onClick={onOrder} className="btn-rose">{t("hero.cta1", lang)}</button>
+            <a href="#products" className="btn-outline-caramel">{t("hero.cta2", lang)}</a>
           </div>
           <div className="flex items-center gap-6 pt-4 animate-fade-up" style={{ animationDelay: "0.85s" }}>
             <div className="flex -space-x-2">

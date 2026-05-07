@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 import { ShoppingBag, Menu, X } from "lucide-react";
-import { useStore } from "@/lib/store";
+import { useStore, buildWhatsAppLink } from "@/lib/store";
 import { t } from "@/lib/i18n";
 
 const links = [
   { href: "#products", k: "nav.products" as const },
   { href: "#story", k: "nav.story" as const },
   { href: "#gifts", k: "nav.gifts" as const },
-  { href: "#order", k: "nav.order" as const },
+  { href: "#contact", k: "nav.contact" as const },
 ];
 
 export default function Navbar() {
-  const { cart, setCartOpen, lang, setLang } = useStore();
+  const { cart, setCartOpen, lang, setLang, giftMessage, setModalOpen } = useStore();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const count = cart.reduce((s, i) => s + i.qty, 0);
+  const onOrder = () => {
+    if (cart.length) setModalOpen(true);
+    else window.open(buildWhatsAppLink([], giftMessage, lang), "_blank");
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -57,9 +61,9 @@ export default function Navbar() {
             >
               {t("nav.lang", lang)}
             </button>
-            <a href="#order" className="hidden sm:inline-flex btn-rose !py-2.5 !px-5 text-sm">
+            <button onClick={onOrder} className="hidden sm:inline-flex btn-rose !py-2.5 !px-5 text-sm">
               {t("nav.cta", lang)}
-            </a>
+            </button>
             <button
               onClick={() => setCartOpen(true)}
               className="relative p-2 rounded-full hover:bg-cocoa/5 transition"

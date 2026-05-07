@@ -9,6 +9,7 @@ export const dict = {
   "nav.story":          { fr: "Notre Histoire",    ar: "قصتنا" },
   "nav.gifts":          { fr: "Coffrets Cadeaux",  ar: "علب الهدايا" },
   "nav.order":          { fr: "Commander",          ar: "اطلب الآن" },
+  "nav.contact":        { fr: "Contact",            ar: "تواصل" },
   "nav.lang":           { fr: "FR | عر",            ar: "عر | FR" },
   "nav.cta":            { fr: "Commander",          ar: "اطلب" },
   "nav.cart":           { fr: "Panier",             ar: "السلة" },
@@ -21,8 +22,8 @@ export const dict = {
   "hero.title.b":       { fr: "tout oublier.",      ar: "كل شيء" },
   "hero.subtitle":      { fr: "Des pâtisseries artisanales préparées à la main, avec des ingrédients vrais et beaucoup d'amour.",
                           ar: "حلويات مصنوعة يدويا بمكونات حقيقية وحب كبير." },
-  "hero.cta1":          { fr: "Découvrir nos créations →", ar: "اكتشف إبداعاتنا →" },
-  "hero.cta2":          { fr: "Offrir en cadeau",   ar: "أهديها كهدية" },
+ "hero.cta1":          { fr: "💬 Commander sur WhatsApp", ar: "💬 اطلب عبر واتساب" },
+ "hero.cta2":          { fr: "Voir nos créations →",   ar: "شاهد إبداعاتنا →" },
   "hero.social":        { fr: "+500 clients heureux à Casablanca", ar: "+500 زبون سعيد في الدار البيضاء" },
   "hero.badge.coup":    { fr: "Coup de",            ar: "الأكثر" },
   "hero.badge.heart":   { fr: "cœur",               ar: "حبا" },
@@ -30,14 +31,14 @@ export const dict = {
   "hero.quote.author":  { fr: "— Sara, Casablanca", ar: "— سارة، الدار البيضاء" },
 
   // Trust
-  "trust.1.t":          { fr: "Ingrédients naturels", ar: "مكونات طبيعية" },
-  "trust.1.s":          { fr: "Sans conservateurs",   ar: "بدون مواد حافظة" },
-  "trust.2.t":          { fr: "Fait à la main",       ar: "صنع يدوي" },
-  "trust.2.s":          { fr: "Petites fournées",     ar: "دفعات صغيرة" },
-  "trust.3.t":          { fr: "Livraison soignée",    ar: "توصيل بعناية" },
-  "trust.3.s":          { fr: "Casablanca 24h",       ar: "الدار البيضاء 24 ساعة" },
-  "trust.4.t":          { fr: "Fait avec amour",      ar: "صنع بحب" },
-  "trust.4.s":          { fr: "Chaque bouchée",       ar: "في كل قضمة" },
+ "trust.1.t":          { fr: "Fait maison",            ar: "صنع منزلي" },
+ "trust.1.s":          { fr: "Chaque jour, à Casa",    ar: "كل يوم في الدار البيضاء" },
+ "trust.2.t":          { fr: "Ingrédients sélectionnés", ar: "مكونات مختارة" },
+ "trust.2.s":          { fr: "Beurre, chocolat, amour", ar: "زبدة، شوكولاتة، حب" },
+ "trust.3.t":          { fr: "Livraison Casablanca",   ar: "توصيل بالدار البيضاء" },
+ "trust.3.s":          { fr: "Sous 24h, soignée",      ar: "خلال 24 ساعة بعناية" },
+ "trust.4.t":          { fr: "Commande sur WhatsApp",  ar: "اطلب عبر واتساب" },
+ "trust.4.s":          { fr: "Simple et rapide",       ar: "بسيط وسريع" },
 
   // Products
   "products.eyebrow":   { fr: "— Nos Créations —",   ar: "— إبداعاتنا —" },
@@ -182,6 +183,18 @@ export const dict = {
   "faq.a4":             { fr: "Cash à la livraison ou virement bancaire. Le paiement en ligne par carte sera bientôt disponible.", ar: "الدفع نقدا عند التسليم أو تحويل بنكي. الدفع الإلكتروني قريبا." },
   "faq.q5":             { fr: "Combien de temps se conservent les pâtisseries ?", ar: "كم تدوم الحلويات ؟" },
   "faq.a5":             { fr: "Nos cookies et brownies se conservent 5 jours à température ambiante. Cheesecakes : 3 jours au frais.", ar: "الكوكيز والبراوني تدوم 5 أيام في درجة حرارة الغرفة. التشيز كيك : 3 أيام في الثلاجة." },
+
+  // Contact
+  "contact.eyebrow":    { fr: "Restons en contact", ar: "ابقَ على تواصل" },
+  "contact.title":      { fr: "Une envie ? Un message suffit.", ar: "فكرة حلوة ؟ رسالة واحدة تكفي." },
+  "contact.sub":        { fr: "Réponse en moins d'une heure, du lundi au samedi.", ar: "نرد في أقل من ساعة، من الإثنين إلى السبت." },
+  "contact.whatsapp":   { fr: "WhatsApp",           ar: "واتساب" },
+  "contact.zone":       { fr: "Zone de livraison", ar: "منطقة التوصيل" },
+  "contact.zone.v":     { fr: "Casablanca & périphérie · Autres villes sur demande", ar: "الدار البيضاء وضواحيها · مدن أخرى عند الطلب" },
+  "contact.hours":      { fr: "Horaires",           ar: "ساعات العمل" },
+  "contact.hours.v":    { fr: "Lun – Sam · 10h – 20h", ar: "الإثنين – السبت · 10ص – 8م" },
+  "contact.cta":        { fr: "💬 Écrire sur WhatsApp", ar: "💬 راسلنا على واتساب" },
+  "contact.insta":      { fr: "Suivez-nous",        ar: "تابعنا" },
 } as const;
 
 export type Key = keyof typeof dict;

@@ -10,6 +10,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Gallery from "@/components/Gallery";
 import OrderCTA from "@/components/OrderCTA";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import WhatsAppModal from "@/components/WhatsAppModal";
@@ -44,6 +45,7 @@ const Index = () => {
         <FAQ />
         <Gallery />
         <OrderCTA />
+        <Contact />
       </main>
       <Footer />
       <CartDrawer />
