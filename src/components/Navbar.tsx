@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ShoppingBag, Menu, X } from "lucide-react";
-import { useStore } from "@/lib/store";
+import { useStore, buildWhatsAppLink } from "@/lib/store";
 import { t } from "@/lib/i18n";
 
 const links = [
