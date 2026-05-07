@@ -7,7 +7,7 @@ const links = [
   { href: "#products", k: "nav.products" as const },
   { href: "#story", k: "nav.story" as const },
   { href: "#gifts", k: "nav.gifts" as const },
-  { href: "#order", k: "nav.order" as const },
+  { href: "#contact", k: "nav.contact" as const },
 ];
 
 export default function Navbar() {
