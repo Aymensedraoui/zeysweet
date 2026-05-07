@@ -30,14 +30,14 @@ export const dict = {
   "hero.quote.author":  { fr: "— Sara, Casablanca", ar: "— سارة، الدار البيضاء" },
 
   // Trust
-  "trust.1.t":          { fr: "Ingrédients naturels", ar: "مكونات طبيعية" },
-  "trust.1.s":          { fr: "Sans conservateurs",   ar: "بدون مواد حافظة" },
-  "trust.2.t":          { fr: "Fait à la main",       ar: "صنع يدوي" },
-  "trust.2.s":          { fr: "Petites fournées",     ar: "دفعات صغيرة" },
-  "trust.3.t":          { fr: "Livraison soignée",    ar: "توصيل بعناية" },
-  "trust.3.s":          { fr: "Casablanca 24h",       ar: "الدار البيضاء 24 ساعة" },
-  "trust.4.t":          { fr: "Fait avec amour",      ar: "صنع بحب" },
-  "trust.4.s":          { fr: "Chaque bouchée",       ar: "في كل قضمة" },
+ "trust.1.t":          { fr: "Fait maison",            ar: "صنع منزلي" },
+ "trust.1.s":          { fr: "Chaque jour, à Casa",    ar: "كل يوم في الدار البيضاء" },
+ "trust.2.t":          { fr: "Ingrédients sélectionnés", ar: "مكونات مختارة" },
+ "trust.2.s":          { fr: "Beurre, chocolat, amour", ar: "زبدة، شوكولاتة، حب" },
+ "trust.3.t":          { fr: "Livraison Casablanca",   ar: "توصيل بالدار البيضاء" },
+ "trust.3.s":          { fr: "Sous 24h, soignée",      ar: "خلال 24 ساعة بعناية" },
+ "trust.4.t":          { fr: "Commande sur WhatsApp",  ar: "اطلب عبر واتساب" },
+ "trust.4.s":          { fr: "Simple et rapide",       ar: "بسيط وسريع" },
 
   // Products
   "products.eyebrow":   { fr: "— Nos Créations —",   ar: "— إبداعاتنا —" },
