@@ -182,6 +182,18 @@ export const dict = {
   "faq.a4":             { fr: "Cash à la livraison ou virement bancaire. Le paiement en ligne par carte sera bientôt disponible.", ar: "الدفع نقدا عند التسليم أو تحويل بنكي. الدفع الإلكتروني قريبا." },
   "faq.q5":             { fr: "Combien de temps se conservent les pâtisseries ?", ar: "كم تدوم الحلويات ؟" },
   "faq.a5":             { fr: "Nos cookies et brownies se conservent 5 jours à température ambiante. Cheesecakes : 3 jours au frais.", ar: "الكوكيز والبراوني تدوم 5 أيام في درجة حرارة الغرفة. التشيز كيك : 3 أيام في الثلاجة." },
+
+  // Contact
+  "contact.eyebrow":    { fr: "Restons en contact", ar: "ابقَ على تواصل" },
+  "contact.title":      { fr: "Une envie ? Un message suffit.", ar: "فكرة حلوة ؟ رسالة واحدة تكفي." },
+  "contact.sub":        { fr: "Réponse en moins d'une heure, du lundi au samedi.", ar: "نرد في أقل من ساعة، من الإثنين إلى السبت." },
+  "contact.whatsapp":   { fr: "WhatsApp",           ar: "واتساب" },
+  "contact.zone":       { fr: "Zone de livraison", ar: "منطقة التوصيل" },
+  "contact.zone.v":     { fr: "Casablanca & périphérie · Autres villes sur demande", ar: "الدار البيضاء وضواحيها · مدن أخرى عند الطلب" },
+  "contact.hours":      { fr: "Horaires",           ar: "ساعات العمل" },
+  "contact.hours.v":    { fr: "Lun – Sam · 10h – 20h", ar: "الإثنين – السبت · 10ص – 8م" },
+  "contact.cta":        { fr: "💬 Écrire sur WhatsApp", ar: "💬 راسلنا على واتساب" },
+  "contact.insta":      { fr: "Suivez-nous",        ar: "تابعنا" },
 } as const;
 
 export type Key = keyof typeof dict;
