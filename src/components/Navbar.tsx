@@ -11,10 +11,14 @@ const links = [
 ];
 
 export default function Navbar() {
-  const { cart, setCartOpen, lang, setLang } = useStore();
+  const { cart, setCartOpen, lang, setLang, giftMessage, setModalOpen } = useStore();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const count = cart.reduce((s, i) => s + i.qty, 0);
+  const onOrder = () => {
+    if (cart.length) setModalOpen(true);
+    else window.open(buildWhatsAppLink([], giftMessage, lang), "_blank");
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
