@@ -30,8 +30,8 @@ export default function Hero() {
             {t("hero.subtitle", lang)}
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.65s" }}>
-            <a href="#products" className="btn-rose">{t("hero.cta1", lang)}</a>
-            <a href="#gifts" className="btn-outline-caramel">{t("hero.cta2", lang)}</a>
+            <button onClick={onOrder} className="btn-rose">{t("hero.cta1", lang)}</button>
+            <a href="#products" className="btn-outline-caramel">{t("hero.cta2", lang)}</a>
           </div>
           <div className="flex items-center gap-6 pt-4 animate-fade-up" style={{ animationDelay: "0.85s" }}>
             <div className="flex -space-x-2">
