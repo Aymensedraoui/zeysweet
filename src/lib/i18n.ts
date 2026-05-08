@@ -111,9 +111,9 @@ export const dict = {
   "tst.3.c":            { fr: "Marrakech",          ar: "مراكش" },
 
   // Gallery
-  "gal.eyebrow":        { fr: "@zeys.sweetness",    ar: "@zeys.sweetness" },
+  "gal.eyebrow":        { fr: "@zeysweetness",    ar: "@zeysweetness" },
   "gal.title":          { fr: "La vie est plus douce avec Zey's.", ar: "الحياة أحلى مع زي." },
-  "gal.follow":         { fr: "Suivre @zeys.sweetness", ar: "تابع @zeys.sweetness" },
+  "gal.follow":         { fr: "Suivre @zeysweetness", ar: "تابع @zeysweetness" },
 
   // Order CTA
   "cta.eyebrow":        { fr: "Prête à craquer ?",  ar: "هل أنت مستعدة ؟" },
