@@ -5,7 +5,7 @@ import { t } from "@/lib/i18n";
 import { toast } from "sonner";
 
 export default function Products() {
-  const { add, lang } = useStore();
+  const { add, lang, setCartOpen } = useStore();
   return (
     <section id="products" className="py-24 lg:py-32 paper-texture">
       <div className="container mx-auto">
@@ -51,6 +51,7 @@ export default function Products() {
                     <button
                       onClick={() => {
                         add(p);
+                        setCartOpen(true);
                         toast.success(t("products.added", lang), { description: name });
                       }}
                       className="btn-rose !py-2.5 !px-4 text-sm"

@@ -25,7 +25,7 @@ export default function Gallery() {
           {imgs.map((src, i) => (
             <a
               key={i}
-              href="https://instagram.com"
+              href="https://www.instagram.com/zeysweetness/"
               target="_blank"
               rel="noopener noreferrer"
               className="relative aspect-square overflow-hidden rounded-2xl group block"
@@ -38,7 +38,7 @@ export default function Gallery() {
           ))}
         </div>
         <div className="text-center mt-10">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="btn-outline-cocoa">
+          <a href="https://www.instagram.com/zeysweetness/" target="_blank" rel="noopener noreferrer" className="btn-outline-cocoa">
             <Instagram className="w-4 h-4" /> {t("gal.follow", lang)}
           </a>
         </div>

@@ -10,7 +10,7 @@ export const dict = {
   "nav.gifts":          { fr: "Coffrets Cadeaux",  ar: "علب الهدايا" },
   "nav.order":          { fr: "Commander",          ar: "اطلب الآن" },
   "nav.contact":        { fr: "Contact",            ar: "تواصل" },
-  "nav.lang":           { fr: "FR | عر",            ar: "عر | FR" },
+  "nav.lang":           { fr: "العربية",            ar: "Français" },
   "nav.cta":            { fr: "Commander",          ar: "اطلب" },
   "nav.cart":           { fr: "Panier",             ar: "السلة" },
   "nav.menu":           { fr: "Menu",               ar: "القائمة" },
@@ -43,8 +43,8 @@ export const dict = {
   // Products
   "products.eyebrow":   { fr: "— Nos Créations —",   ar: "— إبداعاتنا —" },
   "products.title":     { fr: "Ce qui rend nos clients accros.", ar: "ما يجعل زبائننا مدمنين." },
-  "products.add":       { fr: "Ajouter",             ar: "أضف" },
-  "products.added":     { fr: "Ajouté au panier ✓",  ar: "أضيف إلى السلة ✓" },
+  "products.add":       { fr: "Commander",           ar: "اطلب" },
+  "products.added":     { fr: "Ajouté à votre commande ✓",  ar: "أضيف إلى طلبك ✓" },
   "products.badge.bestseller": { fr: "Coup de cœur", ar: "الأكثر مبيعا" },
   "products.badge.nouveau":    { fr: "Nouveau",      ar: "جديد" },
 
