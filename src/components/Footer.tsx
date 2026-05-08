@@ -1,6 +1,10 @@
 import { Instagram, MessageCircle, Mail } from "lucide-react";
-import { useStore } from "@/lib/store";
+import { Link } from "react-router-dom";
+import { useStore, WHATSAPP_NUMBER } from "@/lib/store";
 import { t } from "@/lib/i18n";
+
+const IG_URL = "https://www.instagram.com/zeysweetness/";
+const WA_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export default function Footer() {
   const { lang } = useStore();
@@ -19,33 +23,45 @@ export default function Footer() {
         <div>
           <h4 className="font-display font-semibold text-cream mb-4">{t("ft.links", lang)}</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#products" className="hover:text-rose">{t("nav.products", lang)}</a></li>
-            <li><a href="#gifts" className="hover:text-rose">{t("nav.gifts", lang)}</a></li>
-            <li><a href="#story" className="hover:text-rose">{t("nav.story", lang)}</a></li>
-            <li><a href="#order" className="hover:text-rose">{t("nav.order", lang)}</a></li>
+            <li><a href="/#products" className="hover:text-rose">{t("nav.products", lang)}</a></li>
+            <li><a href="/#gifts" className="hover:text-rose">{t("nav.gifts", lang)}</a></li>
+            <li><a href="/#story" className="hover:text-rose">{t("nav.story", lang)}</a></li>
+            <li><a href="/#contact" className="hover:text-rose">{t("nav.contact", lang)}</a></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-display font-semibold text-cream mb-4">{t("ft.contact", lang)}</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2"><Instagram className="w-4 h-4 text-rose" /> @zeys.sweetness</li>
-            <li className="flex items-center gap-2"><MessageCircle className="w-4 h-4 text-rose" /> +212 6 00 00 00 00</li>
-            <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-rose" /> contact@zeyssweetness.ma</li>
+            <li>
+              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose">
+                <Instagram className="w-4 h-4 text-rose" /> @zeysweetness
+              </a>
+            </li>
+            <li>
+              <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose">
+                <MessageCircle className="w-4 h-4 text-rose" /> +212 6 00 00 00 00
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contact@zeyssweetness.ma" className="flex items-center gap-2 hover:text-rose">
+                <Mail className="w-4 h-4 text-rose" /> contact@zeyssweetness.ma
+              </a>
+            </li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-display font-semibold text-cream mb-4">{t("ft.payment", lang)}</h4>
           <div className="flex flex-wrap gap-2">
-            {["WhatsApp", "Cash", "CMI", "Visa"].map((p) => (
+            {["Cash à la livraison", "Virement bancaire", "WhatsApp"].map((p) => (
               <span key={p} className="px-3 py-1.5 rounded-md bg-cream/10 text-xs">{p}</span>
             ))}
           </div>
           <ul className="mt-6 space-y-2 text-xs text-cream/60">
-            <li><a href="#" className="hover:text-rose">{t("ft.legal", lang)}</a></li>
-            <li><a href="#" className="hover:text-rose">{t("ft.cgv", lang)}</a></li>
-            <li><a href="#" className="hover:text-rose">{t("ft.privacy", lang)}</a></li>
+            <li><Link to="/legal/mentions-legales" className="hover:text-rose">{t("ft.legal", lang)}</Link></li>
+            <li><Link to="/legal/cgv" className="hover:text-rose">{t("ft.cgv", lang)}</Link></li>
+            <li><Link to="/legal/confidentialite" className="hover:text-rose">{t("ft.privacy", lang)}</Link></li>
           </ul>
         </div>
       </div>

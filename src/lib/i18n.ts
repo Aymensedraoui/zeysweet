@@ -10,7 +10,7 @@ export const dict = {
   "nav.gifts":          { fr: "Coffrets Cadeaux",  ar: "علب الهدايا" },
   "nav.order":          { fr: "Commander",          ar: "اطلب الآن" },
   "nav.contact":        { fr: "Contact",            ar: "تواصل" },
-  "nav.lang":           { fr: "FR | عر",            ar: "عر | FR" },
+  "nav.lang":           { fr: "العربية",            ar: "Français" },
   "nav.cta":            { fr: "Commander",          ar: "اطلب" },
   "nav.cart":           { fr: "Panier",             ar: "السلة" },
   "nav.menu":           { fr: "Menu",               ar: "القائمة" },
@@ -43,8 +43,8 @@ export const dict = {
   // Products
   "products.eyebrow":   { fr: "— Nos Créations —",   ar: "— إبداعاتنا —" },
   "products.title":     { fr: "Ce qui rend nos clients accros.", ar: "ما يجعل زبائننا مدمنين." },
-  "products.add":       { fr: "Ajouter",             ar: "أضف" },
-  "products.added":     { fr: "Ajouté au panier ✓",  ar: "أضيف إلى السلة ✓" },
+  "products.add":       { fr: "Commander",           ar: "اطلب" },
+  "products.added":     { fr: "Ajouté à votre commande ✓",  ar: "أضيف إلى طلبك ✓" },
   "products.badge.bestseller": { fr: "Coup de cœur", ar: "الأكثر مبيعا" },
   "products.badge.nouveau":    { fr: "Nouveau",      ar: "جديد" },
 
@@ -111,9 +111,9 @@ export const dict = {
   "tst.3.c":            { fr: "Marrakech",          ar: "مراكش" },
 
   // Gallery
-  "gal.eyebrow":        { fr: "@zeys.sweetness",    ar: "@zeys.sweetness" },
+  "gal.eyebrow":        { fr: "@zeysweetness",    ar: "@zeysweetness" },
   "gal.title":          { fr: "La vie est plus douce avec Zey's.", ar: "الحياة أحلى مع زي." },
-  "gal.follow":         { fr: "Suivre @zeys.sweetness", ar: "تابع @zeys.sweetness" },
+  "gal.follow":         { fr: "Suivre @zeysweetness", ar: "تابع @zeysweetness" },
 
   // Order CTA
   "cta.eyebrow":        { fr: "Prête à craquer ?",  ar: "هل أنت مستعدة ؟" },
