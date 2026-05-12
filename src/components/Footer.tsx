@@ -54,7 +54,7 @@ export default function Footer() {
         <div>
           <h4 className="font-display font-semibold text-cream mb-4">{t("ft.payment", lang)}</h4>
           <div className="flex flex-wrap gap-2">
-            {["Cash à la livraison", "Virement bancaire", "WhatsApp"].map((p) => (
+            {[t("ft.pay.cash", lang), t("ft.pay.transfer", lang), t("ft.pay.whatsapp", lang)].map((p) => (
               <span key={p} className="px-3 py-1.5 rounded-md bg-cream/10 text-xs">{p}</span>
             ))}
           </div>
