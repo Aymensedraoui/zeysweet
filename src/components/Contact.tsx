@@ -47,6 +47,10 @@ export default function Contact() {
           })}
         </div>
 
+        <p className="text-center text-sm text-cocoa/70 max-w-2xl mx-auto mb-6">
+          💵 {t("contact.payment", lang)}
+        </p>
+
         <div className="text-center">
           <button onClick={onOrder} className="btn-cocoa">{t("contact.cta", lang)}</button>
         </div>

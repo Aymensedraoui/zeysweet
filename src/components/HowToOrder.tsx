@@ -41,6 +41,10 @@ export default function HowToOrder() {
             </div>
           ))}
         </div>
+
+        <p className="mt-12 text-center text-sm text-cocoa/70 max-w-2xl mx-auto">
+          {PAYMENT_NOTE[lang]}
+        </p>
       </div>
     </section>
   );

@@ -168,6 +168,9 @@ export const dict = {
   "ft.legal":           { fr: "Mentions légales",   ar: "إشعارات قانونية" },
   "ft.cgv":             { fr: "CGV",                ar: "الشروط العامة" },
   "ft.privacy":         { fr: "Confidentialité",    ar: "الخصوصية" },
+  "ft.pay.cash":        { fr: "Cash à la livraison", ar: "نقدا عند التسليم" },
+  "ft.pay.transfer":    { fr: "Virement (sur demande)", ar: "تحويل بنكي (عند الطلب)" },
+  "ft.pay.whatsapp":    { fr: "WhatsApp",            ar: "واتساب" },
   "ft.copyright":       { fr: "© 2026 Zey's Sweetness — Fait avec ❤ au Maroc", ar: "© 2026 حلاوة زي — صنع بحب في المغرب" },
 
   // FAQ
@@ -180,9 +183,13 @@ export const dict = {
   "faq.q3":             { fr: "Puis-je commander sur mesure ?", ar: "هل يمكنني الطلب حسب الطلب ؟" },
   "faq.a3":             { fr: "Bien sûr ! Pour les coffrets sur mesure ou commandes spéciales (mariage, événement), contactez-nous 5 jours à l'avance.", ar: "بالطبع ! للعلب المخصصة أو الطلبات الخاصة، تواصل معنا 5 أيام مسبقا." },
   "faq.q4":             { fr: "Quels sont les modes de paiement ?", ar: "ما هي وسائل الدفع ؟" },
-  "faq.a4":             { fr: "Cash à la livraison ou virement bancaire. Le paiement en ligne par carte sera bientôt disponible.", ar: "الدفع نقدا عند التسليم أو تحويل بنكي. الدفع الإلكتروني قريبا." },
+  "faq.a4":             { fr: "Cash à la livraison pour toute commande à Casablanca. Pour les coffrets cadeaux et commandes corporate au-delà de 500 MAD, un virement bancaire (RIB envoyé sur WhatsApp) est possible. Aucun paiement en ligne par carte pour le moment.", ar: "الدفع نقدا عند التسليم لجميع الطلبات بالدار البيضاء. لعلب الهدايا وطلبات الشركات فوق 500 درهم، يمكن التحويل البنكي (الحساب يرسل عبر واتساب). لا يوجد دفع إلكتروني حاليا." },
   "faq.q5":             { fr: "Combien de temps se conservent les pâtisseries ?", ar: "كم تدوم الحلويات ؟" },
   "faq.a5":             { fr: "Nos cookies et brownies se conservent 5 jours à température ambiante. Cheesecakes : 3 jours au frais.", ar: "الكوكيز والبراوني تدوم 5 أيام في درجة حرارة الغرفة. التشيز كيك : 3 أيام في الثلاجة." },
+  "faq.q6":             { fr: "Puis-je annuler ou modifier ma commande ?", ar: "هل يمكنني إلغاء أو تعديل طلبي ؟" },
+  "faq.a6":             { fr: "Oui, jusqu'à 12h avant le créneau de livraison. Envoyez-nous simplement un message WhatsApp et nous ajusterons.", ar: "نعم، حتى 12 ساعة قبل موعد التوصيل. أرسل لنا رسالة واتساب وسنعدل الطلب." },
+  "faq.q7":             { fr: "Faut-il un acompte pour les gros coffrets ?", ar: "هل يلزم دفع مسبق للعلب الكبيرة ؟" },
+  "faq.a7":             { fr: "Pour les commandes corporate ou événements (au-delà de 500 MAD), nous demandons un acompte de 30% par virement à la confirmation. Le reste se règle à la livraison.", ar: "لطلبات الشركات أو المناسبات (فوق 500 درهم)، نطلب عربون 30% عبر التحويل عند التأكيد. الباقي يدفع عند التسليم." },
 
   // Contact
   "contact.eyebrow":    { fr: "Restons en contact", ar: "ابقَ على تواصل" },
@@ -195,6 +202,7 @@ export const dict = {
   "contact.hours.v":    { fr: "Lun – Sam · 10h – 20h", ar: "الإثنين – السبت · 10ص – 8م" },
   "contact.cta":        { fr: "💬 Écrire sur WhatsApp", ar: "💬 راسلنا على واتساب" },
   "contact.insta":      { fr: "Suivez-nous",        ar: "تابعنا" },
+  "contact.payment":    { fr: "Paiement à la livraison (cash) · Virement bancaire sur demande pour les coffrets et commandes corporate.", ar: "الدفع نقدا عند التسليم · تحويل بنكي عند الطلب لعلب الهدايا وطلبات الشركات." },
 } as const;
 
 export type Key = keyof typeof dict;
