@@ -20,8 +20,8 @@ export const dict = {
   "hero.eyebrow":       { fr: "✦ Fait maison · Fait avec amour", ar: "✦ صنع منزلي · بكل حب" },
   "hero.title.a":       { fr: "La douceur qui fait", ar: "الحلاوة التي تنسي" },
   "hero.title.b":       { fr: "tout oublier.",      ar: "كل شيء" },
-  "hero.subtitle":      { fr: "Des pâtisseries artisanales préparées à la main, avec des ingrédients vrais et beaucoup d'amour.",
-                          ar: "حلويات مصنوعة يدويا بمكونات حقيقية وحب كبير." },
+  "hero.subtitle":      { fr: "On lance la maison avec deux signatures : nos Cookies Signature et nos Dates Farcies aux cajou — préparés à la main à Casablanca. Le reste du catalogue arrive très bientôt.",
+                          ar: "نطلق الموسم بحلوتين علامة : كوكيز التوقيع والتمر المحشي بالكاجو — مصنوع يدويا بالدار البيضاء. باقي القائمة قريبا." },
  "hero.cta1":          { fr: "💬 Commander sur WhatsApp", ar: "💬 اطلب عبر واتساب" },
  "hero.cta2":          { fr: "Voir nos créations →",   ar: "شاهد إبداعاتنا →" },
   "hero.social":        { fr: "+500 clients heureux à Casablanca", ar: "+500 زبون سعيد في الدار البيضاء" },
@@ -85,7 +85,7 @@ export const dict = {
   "gifts.prem.name":    { fr: "Coffret Premium",    ar: "علبة بريميوم" },
   "gifts.prem.desc":    { fr: "8 douceurs assorties · dates · cheesecake mini · ruban soie", ar: "8 حلويات متنوعة · تمر · ميني تشيز كيك · شريط حرير" },
   "gifts.cust.name":    { fr: "Coffret Sur Mesure", ar: "علبة حسب الطلب" },
-  "gifts.cust.desc":    { fr: "Composez votre coffret — prix selon contenu", ar: "اختر مكونات علبتك — السعر حسب المحتوى" },
+  "gifts.cust.desc":    { fr: "Composez votre coffret avec nos deux signatures : Cookies Signature et Dates Farcies aux cajou. Quantité, ruban et message personnalisés sur WhatsApp.", ar: "اختر مكونات علبتك من حلوتينا المميزتين : كوكيز التوقيع والتمر المحشي بالكاجو. الكمية والشريط والرسالة عبر واتساب." },
 
   // How to order
   "how.eyebrow":        { fr: "— Étape par étape —", ar: "— خطوة بخطوة —" },
@@ -179,7 +179,7 @@ export const dict = {
   "faq.q1":             { fr: "Quels sont les délais de livraison ?", ar: "ما هي مدة التوصيل ؟" },
   "faq.a1":             { fr: "Nous livrons à Casablanca en 24h. Pour les autres villes, comptez 48 à 72h selon la destination.", ar: "نوصل في الدار البيضاء خلال 24 ساعة. للمدن الأخرى، من 48 إلى 72 ساعة حسب الوجهة." },
   "faq.q2":             { fr: "Les produits contiennent-ils des allergènes ?", ar: "هل تحتوي المنتجات على مسببات حساسية ؟" },
-  "faq.a2":             { fr: "Nos pâtisseries contiennent gluten, œufs, lait et fruits à coque. Indiquez-nous toute allergie sur WhatsApp.", ar: "تحتوي حلوياتنا على الغلوتين والبيض والحليب والمكسرات. أخبرنا بأي حساسية عبر واتساب." },
+  "faq.a2":             { fr: "Nos Cookies Signature contiennent gluten, beurre, œufs et fruits à coque (pécan). Nos Dates Farcies contiennent des noix de cajou. Indiquez-nous toute allergie sur WhatsApp avant de commander.", ar: "كوكيز التوقيع تحتوي على الغلوتين والزبدة والبيض والمكسرات (البقان). التمر المحشي يحتوي على الكاجو. أخبرنا بأي حساسية عبر واتساب قبل الطلب." },
   "faq.q3":             { fr: "Puis-je commander sur mesure ?", ar: "هل يمكنني الطلب حسب الطلب ؟" },
   "faq.a3":             { fr: "Bien sûr ! Pour les coffrets sur mesure ou commandes spéciales (mariage, événement), contactez-nous 5 jours à l'avance.", ar: "بالطبع ! للعلب المخصصة أو الطلبات الخاصة، تواصل معنا 5 أيام مسبقا." },
   "faq.q4":             { fr: "Quels sont les modes de paiement ?", ar: "ما هي وسائل الدفع ؟" },

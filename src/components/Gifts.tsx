@@ -18,7 +18,7 @@ export default function Gifts() {
           <p className="text-cocoa/70 mt-4">{t("gifts.sub", lang)}</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-1 gap-6 lg:gap-8 max-w-md mx-auto">
           {giftBoxes.map((g, i) => {
             const name = t(g.nameKey, lang);
             return (

@@ -2,7 +2,7 @@ import heroCookie from "@/assets/hero-cookie.jpg";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
 import { t } from "@/lib/i18n";
 
-const marqueeItems = ["Cookies", "Brownies", "Cheesecakes", "Dates", "Cakes", "Coffrets"];
+const marqueeItems = ["Cookies Signature", "Dates Farcies", "Fait maison", "Casablanca", "Livraison 24h"];
 
 export default function Hero() {
   const { lang, cart, giftMessage, setModalOpen } = useStore();

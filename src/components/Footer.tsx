@@ -40,7 +40,7 @@ export default function Footer() {
             </li>
             <li>
               <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose">
-                <MessageCircle className="w-4 h-4 text-rose" /> +212 6 00 00 00 00
+                <MessageCircle className="w-4 h-4 text-rose" /> +212 620 35 53 25
               </a>
             </li>
             <li>
