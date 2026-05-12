@@ -11,7 +11,7 @@ const steps: { n: string; icon: string; tk: Key; sk: Key }[] = [
 const PAYMENT_NOTE: { fr: string; ar: string } = {
   fr: "💵 Paiement à la livraison (cash) — virement bancaire possible pour les coffrets cadeaux et commandes corporate.",
   ar: "💵 الدفع نقدا عند التسليم — التحويل البنكي ممكن لعلب الهدايا وطلبات الشركات.",
-];
+};
 
 export default function HowToOrder() {
   const { lang } = useStore();
