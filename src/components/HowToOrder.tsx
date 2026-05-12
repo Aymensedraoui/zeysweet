@@ -8,6 +8,11 @@ const steps: { n: string; icon: string; tk: Key; sk: Key }[] = [
   { n: "03", icon: "📦", tk: "how.s3.t", sk: "how.s3.s" },
 ];
 
+const PAYMENT_NOTE: { fr: string; ar: string } = {
+  fr: "💵 Paiement à la livraison (cash) — virement bancaire possible pour les coffrets cadeaux et commandes corporate.",
+  ar: "💵 الدفع نقدا عند التسليم — التحويل البنكي ممكن لعلب الهدايا وطلبات الشركات.",
+};
+
 export default function HowToOrder() {
   const { lang } = useStore();
   return (
@@ -36,6 +41,10 @@ export default function HowToOrder() {
             </div>
           ))}
         </div>
+
+        <p className="mt-12 text-center text-sm text-cocoa/70 max-w-2xl mx-auto">
+          {PAYMENT_NOTE[lang]}
+        </p>
       </div>
     </section>
   );

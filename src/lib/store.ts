@@ -159,6 +159,8 @@ export const buildWhatsAppLink = (
       lines.push(`💌 Message cadeau : ${gift}`);
     }
     lines.push("");
+    lines.push("💵 Paiement : cash à la livraison (sauf accord contraire).");
+    lines.push("");
     lines.push("Merci 🤍");
   } else {
     lines.push("مرحبا حلاوة زي 🍪");
@@ -192,6 +194,8 @@ export const buildWhatsAppLink = (
       lines.push("");
       lines.push(`💌 رسالة الهدية : ${gift}`);
     }
+    lines.push("");
+    lines.push("💵 الدفع : نقدا عند التسليم (ما لم يتفق على غير ذلك).");
     lines.push("");
     lines.push("شكرا 🤍");
   }
