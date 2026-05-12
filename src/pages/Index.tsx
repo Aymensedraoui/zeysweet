@@ -24,9 +24,9 @@ const Index = () => {
   useEffect(() => {
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = lang;
-    document.title = "Zey's Sweetness — Pâtisserie Artisanale à Casablanca";
+    document.title = "Zey's Sweetness — Cookies & Dates Farcies à Casablanca";
     const m = document.querySelector('meta[name="description"]');
-    if (m) m.setAttribute("content", "Cookies, brownies et coffrets maison à Casablanca. Commandez sur WhatsApp. Livraison 24h.");
+    if (m) m.setAttribute("content", "Zey's Sweetness — pâtisserie artisanale à Casablanca. Cookies Signature & Dates Farcies aux cajou faits maison. Commande WhatsApp, livraison 24h.");
   }, [lang]);
 
   return (
