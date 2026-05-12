@@ -2,13 +2,11 @@ import { Instagram } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { t } from "@/lib/i18n";
 import cookie from "@/assets/product-cookie.jpg";
-import brownie from "@/assets/product-brownie.jpg";
-import cheese from "@/assets/product-cheesecake.jpg";
 import dates from "@/assets/product-dates.jpg";
-import cake from "@/assets/product-cake.jpg";
-import gift from "@/assets/product-giftbox.jpg";
+import giftCustom from "@/assets/gift-custom.jpg";
 
-const imgs = [cookie, brownie, cheese, dates, cake, gift];
+// Launch week: only show photos of products we actually sell.
+const imgs = [cookie, dates, giftCustom, dates, cookie, giftCustom];
 
 export default function Gallery() {
   const { lang } = useStore();

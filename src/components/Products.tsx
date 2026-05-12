@@ -16,7 +16,7 @@ export default function Products() {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
           {products.map((p, i) => {
             const badgeText =
               p.badge === "nouveau"

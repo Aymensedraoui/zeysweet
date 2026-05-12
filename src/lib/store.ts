@@ -5,7 +5,7 @@ import type { Lang } from "./i18n";
 // === IMPORTANT ===
 // Replace the digits below with Zey's real WhatsApp Business number.
 // Format: country code + number, no "+", no spaces. e.g. "212612345678".
-export const WHATSAPP_NUMBER = "212600000000";
+export const WHATSAPP_NUMBER = "212620355325";
 
 export const MIN_ORDER_MAD = 150;
 

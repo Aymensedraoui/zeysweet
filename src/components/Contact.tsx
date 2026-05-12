@@ -10,7 +10,7 @@ export default function Contact() {
   };
 
   const cards = [
-    { icon: MessageCircle, t: "contact.whatsapp", v: "+212 6 00 00 00 00", href: `https://wa.me/${WHATSAPP_NUMBER}` },
+    { icon: MessageCircle, t: "contact.whatsapp", v: "+212 620 35 53 25", href: `https://wa.me/${WHATSAPP_NUMBER}` },
     { icon: MapPin, t: "contact.zone", v: t("contact.zone.v", lang) },
     { icon: Clock, t: "contact.hours", v: t("contact.hours.v", lang) },
     { icon: Instagram, t: "contact.insta", v: "@zeysweetness", href: "https://www.instagram.com/zeysweetness/" },
