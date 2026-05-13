@@ -146,9 +146,9 @@ export const buildWhatsAppLink = (
       lines.push(
         `Zone : ${
           customer.zone === "center"
-            ? "Casablanca centre"
+            ? "Rabat"
             : customer.zone === "peri"
-            ? "Casablanca périphérie"
+            ? "Témara / Harhoura / Salé"
             : "Autre ville"
         }`
       );
@@ -182,9 +182,9 @@ export const buildWhatsAppLink = (
       lines.push(
         `المنطقة : ${
           customer.zone === "center"
-            ? "وسط الدار البيضاء"
+            ? "الرباط"
             : customer.zone === "peri"
-            ? "ضواحي الدار البيضاء"
+            ? "تمارة / هرهورة / سلا"
             : "مدينة أخرى"
         }`
       );
