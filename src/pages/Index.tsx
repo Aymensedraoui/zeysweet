@@ -18,15 +18,17 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollProgress from "@/components/ScrollProgress";
 import { useEffect } from "react";
 import { useStore } from "@/lib/store";
+import { useReveal } from "@/hooks/useReveal";
 
 const Index = () => {
   const lang = useStore((s) => s.lang);
+  useReveal();
   useEffect(() => {
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = lang;
-    document.title = "Zey's Sweetness — Cookies & Dates Farcies à Casablanca";
+    document.title = "Zey's Sweetness — Maison de douceurs · Rabat & Témara";
     const m = document.querySelector('meta[name="description"]');
-    if (m) m.setAttribute("content", "Zey's Sweetness — pâtisserie artisanale à Casablanca. Cookies Signature & Dates Farcies aux cajou faits maison. Commande WhatsApp, livraison 24h.");
+    if (m) m.setAttribute("content", "Maison de douceurs artisanale à Rabat & Témara. Cookies Signature et Dattes Farcies aux noix de cajou, faits main en petite série. Commande WhatsApp, livraison 24h.");
   }, [lang]);
 
   return (
