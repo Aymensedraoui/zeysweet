@@ -1,15 +1,46 @@
+import { useEffect, useRef } from "react";
 import heroCookie from "@/assets/hero-cookie.jpg";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
 import { t } from "@/lib/i18n";
 
-const marqueeItems = ["Cookies Signature", "Dates Farcies", "Fait maison", "Casablanca", "Livraison 24h"];
+const marqueeItems = [
+  "Cookies Signature",
+  "Dattes Farcies aux cajou",
+  "Fait main",
+  "Rabat & Témara",
+  "Petite série",
+  "Livraison 24h",
+];
 
 export default function Hero() {
   const { lang, cart, giftMessage, setModalOpen } = useStore();
+  const imgWrapRef = useRef<HTMLDivElement>(null);
+
+  // Subtle scroll parallax on the hero image
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (imgWrapRef.current && y < 900) {
+          imgWrapRef.current.style.transform = `translate3d(0, ${y * 0.08}px, 0)`;
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   const onOrder = () => {
     if (cart.length) setModalOpen(true);
     else window.open(buildWhatsAppLink([], giftMessage, lang), "_blank");
   };
+
   return (
     <section className="relative min-h-screen pt-[72px] flex flex-col">
       <div className="container mx-auto flex-1 grid lg:grid-cols-2 gap-12 items-center py-12 lg:py-20">
@@ -30,55 +61,50 @@ export default function Hero() {
             {t("hero.subtitle", lang)}
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.65s" }}>
-            <button onClick={onOrder} className="btn-rose">{t("hero.cta1", lang)}</button>
+            <button onClick={onOrder} className="btn-rose btn-glow">{t("hero.cta1", lang)}</button>
             <a href="#products" className="btn-outline-caramel">{t("hero.cta2", lang)}</a>
           </div>
-          <div className="flex items-center gap-6 pt-4 animate-fade-up" style={{ animationDelay: "0.85s" }}>
-            <div className="flex -space-x-2">
-              {["🍪","🍰","🧁"].map((e,i)=>(
-                <div key={i} className="w-10 h-10 rounded-full bg-cream border-2 border-rose flex items-center justify-center text-lg shadow-sm">{e}</div>
-              ))}
-            </div>
-            <div className="text-sm">
-              <div className="flex text-caramel">{"★★★★★"}</div>
-              <p className="text-cocoa/60 text-xs">{t("hero.social", lang)}</p>
-            </div>
+          <div className="flex items-center gap-4 pt-4 animate-fade-up" style={{ animationDelay: "0.85s" }}>
+            <span className="divider-ornament !w-12 !mx-0" />
+            <p className="text-cocoa/55 text-xs tracking-wide uppercase">{t("hero.social", lang)}</p>
           </div>
         </div>
 
         <div className="relative animate-fade-up" style={{ animationDelay: "0.4s" }}>
           <div className="absolute -inset-8 bg-rose/20 rounded-full blur-3xl" />
-          <div className="relative animate-bob">
-            <img
-              src={heroCookie}
-              alt="Le Cookie Signature de Zey - chocolat fondant artisanal"
-              className="relative rounded-[2rem] shadow-warm img-warm w-full aspect-square object-cover"
-              width={720}
-              height={720}
-              loading="eager"
-              fetchPriority="high"
-            />
+          <div ref={imgWrapRef} className="relative will-change-transform">
+            <div className="animate-float-soft">
+              <img
+                src={heroCookie}
+                alt="Le Cookie Signature de Zey's Sweetness — Rabat & Témara"
+                className="relative rounded-[2rem] shadow-warm img-warm w-full aspect-square object-cover"
+                width={720}
+                height={720}
+                loading="eager"
+                fetchPriority="high"
+              />
+            </div>
             <div className="absolute -top-4 -right-4 bg-rose rounded-full w-28 h-28 flex flex-col items-center justify-center text-cocoa font-hand shadow-lg rotate-12">
               <span className="text-xs">{t("hero.badge.coup", lang)}</span>
               <span className="text-2xl font-bold leading-none">{t("hero.badge.heart", lang)}</span>
               <span className="text-xs mt-1">35 MAD</span>
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-cream rounded-2xl p-4 shadow-card max-w-[220px] hidden sm:block">
-              <p className="font-hand text-caramel text-lg">{t("hero.quote", lang)}</p>
+            <div className="absolute -bottom-6 -left-6 bg-cream rounded-2xl p-4 shadow-card max-w-[240px] hidden sm:block">
+              <p className="font-hand text-caramel text-lg leading-snug">{t("hero.quote", lang)}</p>
               <p className="text-xs text-cocoa/60 mt-1">{t("hero.quote.author", lang)}</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-cocoa text-cream py-5 overflow-hidden">
+      <div className="bg-cocoa text-cream py-5 overflow-hidden border-y border-cream/5">
         <div className="flex gap-12 animate-marquee whitespace-nowrap">
           {[...Array(2)].map((_, k) => (
             <div key={k} className="flex gap-12 items-center font-display italic text-2xl">
               {marqueeItems.map((m, i) => (
-                <span key={i} className="flex items-center gap-12">
+                <span key={i} className="flex items-center gap-12 text-cream/90">
                   {m}
-                  <span className="text-rose">❤</span>
+                  <span className="text-rose/80">✦</span>
                 </span>
               ))}
             </div>
