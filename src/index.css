@@ -200,11 +200,66 @@
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
+@keyframes float-soft {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 8px 24px -10px hsl(var(--rose) / 0.55), 0 0 0 0 hsl(var(--rose) / 0.45); }
+  50% { box-shadow: 0 12px 32px -10px hsl(var(--rose) / 0.7), 0 0 0 12px hsl(var(--rose) / 0); }
+}
+@keyframes sheen {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(220%) skewX(-18deg); }
+}
 
 .animate-bob { animation: bob 3.5s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
-.animate-marquee { animation: marquee 30s linear infinite; }
+.animate-float-soft { animation: float-soft 7s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+.animate-marquee { animation: marquee 45s linear infinite; }
 .animate-pulse-ring { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 .animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Scroll-reveal — paired with useReveal() hook */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 90ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Premium CTA — subtle glow pulse + sheen on hover */
+.btn-glow { animation: glow-pulse 3.2s ease-in-out infinite; position: relative; overflow: hidden; }
+.btn-glow::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent 30%, hsl(var(--cream) / 0.55) 50%, transparent 70%);
+  transform: translateX(-120%) skewX(-18deg);
+  pointer-events: none;
+}
+.btn-glow:hover::after { animation: sheen 1.1s ease-out; }
+
+/* Premium card hover — restrained lift + warmer shadow */
+.card-premium {
+  transition:
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 60px -28px hsl(23 60% 14% / 0.35);
+}
+
+/* Elegant section divider (use as <span class="divider-ornament" />) */
+.divider-ornament {
+  display: block;
+  width: 80px; height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, hsl(var(--caramel) / 0.6), transparent);
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
