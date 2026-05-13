@@ -16,7 +16,7 @@ export default function Products() {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-6 lg:gap-10 max-w-3xl mx-auto reveal-stagger">
           {products.map((p, i) => {
             const badgeText =
               p.badge === "nouveau"
@@ -29,16 +29,15 @@ export default function Products() {
             return (
               <article
                 key={p.id}
-                className="group relative bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-warm transition-all duration-500 hover:-translate-y-1.5 animate-fade-up"
-                style={{ animationDelay: `${i * 0.08}s` }}
+                className="group relative bg-card rounded-3xl overflow-hidden shadow-card card-premium"
               >
                 {badgeText && <span className={`ribbon ${badgeCls}`}>{badgeText}</span>}
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={p.image}
-                    alt={`${name} — Zey's Sweetness`}
+                    alt={`${name} — Zey's Sweetness · Rabat & Témara`}
                     loading="lazy"
-                    className="w-full h-full object-cover img-warm transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover img-warm transition-transform duration-[1100ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.07]"
                   />
                 </div>
                 <div className="p-6 space-y-3">
