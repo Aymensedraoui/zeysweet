@@ -12,10 +12,10 @@ const CONTENT: Record<Slug, { title: string; body: { h: string; p: string }[] }>
   "mentions-legales": {
     title: "Mentions légales",
     body: [
-      { h: "Éditeur du site", p: "Zey's Sweetness — pâtisserie artisanale basée à Casablanca, Maroc. Pour toute question, contactez-nous via WhatsApp ou par email." },
+      { h: "Éditeur du site", p: "Zey's Sweetness — maison de douceurs artisanale basée à Rabat & Témara, Maroc. Pour toute question, contactez-nous via WhatsApp ou par email." },
       { h: "Hébergement", p: "Ce site est hébergé sur une infrastructure cloud sécurisée." },
       { h: "Propriété intellectuelle", p: "L'ensemble des contenus présents sur ce site (textes, photographies, identité visuelle) sont la propriété exclusive de Zey's Sweetness. Toute reproduction sans autorisation est interdite." },
-      { h: "Contact", p: "WhatsApp : +212 6 00 00 00 00 — Email : contact@zeyssweetness.ma" },
+      { h: "Contact", p: "WhatsApp : +212 620 35 53 25 — Email : contact@zeyssweetness.ma" },
     ],
   },
   cgv: {
@@ -23,7 +23,7 @@ const CONTENT: Record<Slug, { title: string; body: { h: string; p: string }[] }>
     body: [
       { h: "Commande", p: "Toute commande est passée via WhatsApp après ajout des produits au panier. Un échange de confirmation est effectué avant préparation. Commande minimum : 150 MAD." },
       { h: "Prix & paiement", p: "Les prix sont indiqués en dirhams marocains (MAD), TTC. Les modes de paiement acceptés sont : espèces à la livraison et virement bancaire." },
-      { h: "Livraison", p: "Livraison à Casablanca centre offerte sous 24h. Périphérie : +30 MAD. Autres villes : +80 MAD, sous 48 à 72h selon la destination." },
+      { h: "Livraison", p: "Livraison à Rabat offerte sous 24h. Témara, Harhoura, Salé : +30 MAD. Autres villes : +80 MAD, sous 48 à 72h selon la destination." },
       { h: "Conservation & qualité", p: "Nos produits étant artisanaux et frais, ils ne peuvent être ni repris ni échangés une fois livrés. En cas de problème, contactez-nous dans les 24h." },
       { h: "Allergènes", p: "Nos pâtisseries peuvent contenir : gluten, œufs, lait, fruits à coque. Merci de nous signaler toute allergie lors de la commande." },
     ],

@@ -27,9 +27,10 @@ export default function OrderCTA() {
         </h2>
         <p className="text-cocoa/75 text-lg mt-6 max-w-xl mx-auto">{t("cta.sub", lang)}</p>
         <div className="flex flex-wrap gap-4 justify-center mt-8">
-          <button onClick={handle} className="btn-cocoa text-base">{t("cta.btn", lang)}</button>
+          <button onClick={handle} className="btn-cocoa btn-glow text-base">{t("cta.btn", lang)}</button>
           <a href="#products" className="btn-outline-cocoa text-base">{t("cta.see", lang)}</a>
         </div>
+        <span className="divider-ornament mt-10" />
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${
-          scrolled ? "bg-cream/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+          scrolled ? "bg-cream/80 backdrop-blur-xl shadow-[0_8px_30px_-12px_hsl(23_60%_14%/0.18)] border-b border-cocoa/5" : "bg-transparent"
         }`}
       >
         <div className="container mx-auto h-[72px] flex items-center justify-between">
@@ -61,7 +61,7 @@ export default function Navbar() {
             >
               {t("nav.lang", lang)}
             </button>
-            <button onClick={onOrder} className="hidden sm:inline-flex btn-rose !py-2.5 !px-5 text-sm">
+            <button onClick={onOrder} className="hidden sm:inline-flex btn-rose btn-glow !py-2.5 !px-5 text-sm">
               {t("nav.cta", lang)}
             </button>
             <button
