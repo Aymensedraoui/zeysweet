@@ -37,7 +37,7 @@ export default function Cinematic() {
               add(cookieProduct);
               toast.success(`${localized(cookieProduct.name, lang)} ✓`);
             }}
-            className="btn-caramel"
+            className="btn-caramel btn-glow"
           >
             {t("cine.cta", lang)}
           </button>

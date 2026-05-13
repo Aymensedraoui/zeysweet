@@ -52,7 +52,7 @@ export default function Contact() {
         </p>
 
         <div className="text-center">
-          <button onClick={onOrder} className="btn-cocoa">{t("contact.cta", lang)}</button>
+          <button onClick={onOrder} className="btn-cocoa btn-glow">{t("contact.cta", lang)}</button>
         </div>
       </div>
     </section>
