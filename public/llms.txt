@@ -1,0 +1,18 @@
+# Zey's Sweetness
+
+> Maison de douceurs artisanale basée à Rabat & Témara (Maroc). Cookies Signature et Dattes Farcies aux noix de cajou, faits main en petite série, commande sur WhatsApp et livraison sous 24h.
+
+Zey's Sweetness est une marque artisanale de pâtisseries premium. Nous lançons avec deux signatures : le Cookie Signature (chocolat noir & noix de pécan, 35 MAD) et les Dattes Farcies aux Cajou (boîte de 12, 120 MAD). Commandes via WhatsApp au +212 620 35 53 25. Livraison gratuite à Rabat, +30 MAD à Témara, Harhoura et Salé.
+
+## Pages
+
+- [Accueil](/): Catalogue, histoire, livraison à Rabat & Témara, FAQ et commande WhatsApp.
+- [Mentions légales](/legal/mentions-legales): Éditeur, hébergement, propriété intellectuelle, contact.
+- [Conditions Générales de Vente](/legal/cgv): Commande, prix, livraison, conservation, allergènes.
+- [Politique de confidentialité](/legal/confidentialite): Données collectées, utilisation, conservation, droits.
+
+## Contact
+
+- WhatsApp: +212 620 35 53 25
+- Email: contact@zeyssweetness.ma
+- Instagram: https://www.instagram.com/zeysweetness/

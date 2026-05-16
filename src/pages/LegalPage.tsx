@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,6 +8,13 @@ import WhatsAppModal from "@/components/WhatsAppModal";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 type Slug = "mentions-legales" | "cgv" | "confidentialite";
+
+const META: Record<Slug, { description: string }> = {
+  "mentions-legales": { description: "Mentions légales de Zey's Sweetness — maison de douceurs artisanale à Rabat & Témara : éditeur, hébergement, propriété intellectuelle, contact." },
+  cgv: { description: "Conditions Générales de Vente Zey's Sweetness : commande WhatsApp, prix en MAD, livraison Rabat & Témara, conservation, allergènes." },
+  confidentialite: { description: "Politique de confidentialité Zey's Sweetness : données collectées, utilisation, conservation et vos droits sur vos informations." },
+};
+
 
 const CONTENT: Record<Slug, { title: string; body: { h: string; p: string }[] }> = {
   "mentions-legales": {
@@ -41,11 +49,23 @@ const CONTENT: Record<Slug, { title: string; body: { h: string; p: string }[] }>
 
 export default function LegalPage() {
   const { slug } = useParams<{ slug: Slug }>();
-  const data = (slug && CONTENT[slug]) || CONTENT["mentions-legales"];
-  useEffect(() => { document.title = `${data.title} — Zey's Sweetness`; window.scrollTo(0, 0); }, [data.title]);
+  const key = (slug && (slug in CONTENT) ? slug : "mentions-legales") as Slug;
+  const data = CONTENT[key];
+  const meta = META[key];
+  const url = `https://zeysweet.lovable.app/legal/${key}`;
+  const title = `${data.title} — Zey's Sweetness`;
+  useEffect(() => { window.scrollTo(0, 0); }, [key]);
 
   return (
     <div className="bg-background min-h-screen flex flex-col">
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={meta.description} />
+        <link rel="canonical" href={url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:url" content={url} />
+      </Helmet>
       <Navbar />
       <main className="flex-1 pt-32 pb-24">
         <div className="container mx-auto max-w-3xl">
