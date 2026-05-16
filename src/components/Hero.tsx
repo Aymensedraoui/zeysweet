@@ -66,7 +66,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-4 pt-4 animate-fade-up" style={{ animationDelay: "0.85s" }}>
             <span className="divider-ornament !w-12 !mx-0" />
-            <p className="text-cocoa/55 text-xs tracking-wide uppercase">{t("hero.social", lang)}</p>
+            <p className="text-cocoa/75 text-xs tracking-wide uppercase">{t("hero.social", lang)}</p>
           </div>
         </div>
 
