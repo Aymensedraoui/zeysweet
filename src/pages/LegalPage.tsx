@@ -49,11 +49,23 @@ const CONTENT: Record<Slug, { title: string; body: { h: string; p: string }[] }>
 
 export default function LegalPage() {
   const { slug } = useParams<{ slug: Slug }>();
-  const data = (slug && CONTENT[slug]) || CONTENT["mentions-legales"];
-  useEffect(() => { document.title = `${data.title} — Zey's Sweetness`; window.scrollTo(0, 0); }, [data.title]);
+  const key = (slug && (slug in CONTENT) ? slug : "mentions-legales") as Slug;
+  const data = CONTENT[key];
+  const meta = META[key];
+  const url = `https://zeysweet.lovable.app/legal/${key}`;
+  const title = `${data.title} — Zey's Sweetness`;
+  useEffect(() => { window.scrollTo(0, 0); }, [key]);
 
   return (
     <div className="bg-background min-h-screen flex flex-col">
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={meta.description} />
+        <link rel="canonical" href={url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:url" content={url} />
+      </Helmet>
       <Navbar />
       <main className="flex-1 pt-32 pb-24">
         <div className="container mx-auto max-w-3xl">
