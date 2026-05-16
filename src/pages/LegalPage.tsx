@@ -52,7 +52,7 @@ export default function LegalPage() {
   const key = (slug && (slug in CONTENT) ? slug : "mentions-legales") as Slug;
   const data = CONTENT[key];
   const meta = META[key];
-  const url = `https://zeysweet.lovable.app/legal/${key}`;
+  const url = `https://zeysweet.com/legal/${key}`;
   const title = `${data.title} — Zey's Sweetness`;
   useEffect(() => { window.scrollTo(0, 0); }, [key]);
 
