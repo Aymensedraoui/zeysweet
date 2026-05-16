@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,6 +8,13 @@ import WhatsAppModal from "@/components/WhatsAppModal";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 type Slug = "mentions-legales" | "cgv" | "confidentialite";
+
+const META: Record<Slug, { description: string }> = {
+  "mentions-legales": { description: "Mentions légales de Zey's Sweetness — maison de douceurs artisanale à Rabat & Témara : éditeur, hébergement, propriété intellectuelle, contact." },
+  cgv: { description: "Conditions Générales de Vente Zey's Sweetness : commande WhatsApp, prix en MAD, livraison Rabat & Témara, conservation, allergènes." },
+  confidentialite: { description: "Politique de confidentialité Zey's Sweetness : données collectées, utilisation, conservation et vos droits sur vos informations." },
+};
+
 
 const CONTENT: Record<Slug, { title: string; body: { h: string; p: string }[] }> = {
   "mentions-legales": {
