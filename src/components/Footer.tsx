@@ -27,6 +27,8 @@ export default function Footer() {
             <li><a href="/#gifts" className="hover:text-rose">{t("nav.gifts", lang)}</a></li>
             <li><a href="/#story" className="hover:text-rose">{t("nav.story", lang)}</a></li>
             <li><a href="/#contact" className="hover:text-rose">{t("nav.contact", lang)}</a></li>
+            <li><Link to="/cookies-rabat" className="hover:text-rose">Cookies à Rabat</Link></li>
+            <li><Link to="/dattes-farcies-temara" className="hover:text-rose">Dattes farcies à Témara</Link></li>
           </ul>
         </div>
 
