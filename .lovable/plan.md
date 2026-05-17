@@ -1,64 +1,83 @@
-# Launch Plan — Zey's Sweetness (today)
+# Plan SEO — zeysweet.com
 
-## 1. Wire the real WhatsApp number
-- Replace placeholder `212600000000` with `212620355325` in `src/lib/store.ts`.
-- Update displayed number to `+212 620 35 53 25` in `Footer.tsx` and `Contact.tsx`.
-- Verify all CTAs (Hero, Navbar, FloatingWhatsApp, OrderCTA, Contact, Modal) open `wa.me/212620355325` with the prefilled FR + AR messages.
+## Où on en est (état actuel)
+- ✅ Domaine canonique migré sur `https://zeysweet.com` (canonicals, OG, JSON-LD).
+- ✅ 3 propriétés GSC vérifiées : `zeysweet.com`, `www.zeysweet.com`, `zeysweet.lovable.app`.
+- ✅ Sitemaps soumis sur les 2 propriétés principales.
+- ✅ `Bakery` + `FAQPage` JSON-LD en place, robots.txt OK, llms.txt en place.
+- ⏳ Pages encore non indexées (normal : 1–7 jours).
+- ❌ Pas de Google Business Profile.
+- ❌ Pas encore de contenu dense par mot-clé local (300+ mots/section).
+- ❌ Pas d'OG image dédiée (utilise un screenshot R2).
+- ❌ Aucun backlink.
 
-## 2. Catalogue — launch with 2 products only this week
-Per your instruction, the menu will only show **two items** until the rest of the catalogue is ready:
-- **Le Cookie Signature (Classic)** — keep
-- **Dates Farcies aux Cajou** — keep
+## Ce que dit Semrush sur tes mots-clés (base `fr`)
+| Mot-clé | Volume/mo | Difficulté | Verdict |
+|---|---|---|---|
+| dattes farcies | 170 | 12/100 | ⭐ Gagnable, vise-le |
+| dattes fourrées | 590 | — | ⭐⭐ Plus gros volume (synonyme) |
+| dattes fourrées marocaine | 90 | faible | ⭐ Local + spécifique |
+| dattes farcies pour mariage | 70 | faible | ⭐ Intention cadeau |
+| cookies rabat | 20 | 0/100 | Faible volume mais facile à dominer |
+| cookies maison rabat | — | — | Trop niche pour Semrush, mais 0 concurrence |
+| pâtisserie rabat | — | — | Volume non mesuré localement |
 
-Actions:
-- In `src/lib/products.ts`, keep only `cookie` and `dates`. Comment out (don't delete) brownie, cheesecake, cake, box so they're easy to re-enable next week.
-- `Products.tsx` grid will naturally show 2 cards — adjust to a centered 2-column layout on desktop so it doesn't look empty.
-- Remove/hide the "Box Surprise" mention from Hero, Story, Gifts copy where it implies more SKUs.
-- `Gifts.tsx`: simplify to **one offer** = "Coffret personnalisé sur demande WhatsApp" (since gift boxes depend on the full catalogue). Hide Discovery / Premium boxes for now.
-- Gallery: keep only photos that match the 2 live products + ambiance shots.
-- Update FAQ + Story copy to reflect "lancement avec nos 2 best-sellers, nouveautés bientôt".
-
-## 3. SEO (Organic — Google/Bing)
-- `index.html`: title ≤60 chars, meta description ≤160 chars with keywords *cookies maison Casablanca, dattes farcies, pâtisserie artisanale*.
-- Add `<link rel="canonical">`, `og:locale="fr_MA"`, `og:url`.
-- Create `public/sitemap.xml` (homepage + 3 legal pages) and add `Sitemap:` directive in `robots.txt`.
-- Single H1, semantic H2s, alt text on all images.
-- JSON-LD in `index.html`:
-  - `Bakery` / `LocalBusiness` (name, phone +212620355325, address Casablanca, hours, areaServed, sameAs Instagram).
-  - `Product` schema for the 2 live products (injected from `Products.tsx`).
-  - `FAQPage` schema from `FAQ.tsx`.
-
-## 4. AEO (ChatGPT, Perplexity, Google AI Overviews)
-- Rewrite FAQ answers as short, quotable, factual sentences containing brand + city.
-- Add concise "À propos en bref" block (40–60 words) on homepage — easily quoted by LLMs.
-- Add quotable answers for: where to order cookies in Casablanca, delivery time, payment methods, gift options.
-- FAQPage JSON-LD makes answers machine-readable.
-
-## 5. Content polish
-- Remove placeholder copy, confirm prices, hours, delivery zones, Instagram link, email.
-
-## 6. QA before publish
-- Mobile (375px) + current viewport: Hero CTA, sticky WhatsApp, modal flow.
-- Click each CTA → confirm WhatsApp opens with prefilled message on the real number.
-- Lighthouse: title, meta, alt, contrast, mobile.
-- Legal pages reachable from footer.
+**Insight clé** : le volume "Rabat" est invisible pour Semrush (marché trop local). La vraie demande est sur **"dattes fourrées" / "dattes farcies"** côté national + recherches Google Maps côté local. Stratégie = **2 axes parallèles**.
 
 ---
 
-## Decisions locked in
-- WhatsApp: **+212 620 35 53 25** ✅
-- Launch catalogue: **Cookie Signature + Dates Farcies aux Cajou** only ✅
-- Other products: hidden, re-enabled next week.
+## Axe 1 — SEO local (Rabat / Témara) → Google Maps + "Local Pack"
+C'est ici que tu vas chopper les vraies commandes cette semaine.
 
-## Still need from you to finish today
-1. **Address / quartier** to display (e.g. "Maârif, Casablanca") — for LocalBusiness schema + trust.
-2. **Opening hours** (e.g. "Mar–Dim 10h–20h").
-3. **Delivery zones + fees** — keep centre gratuit / périphérie 30 MAD / autre 80 MAD?
-4. **Email** — confirm `contact@zeyssweetness.ma` is active, or give the real one.
-5. **Prices confirmed?** Cookie 35 MAD, Dates 120 MAD — keep or update?
-6. **Founder first name + 1–2 line bio** for Story + AEO "About".
-7. **Real testimonials** (3–5 short quotes + first names) or keep current as illustrative?
-8. **Domain** — launch on `zeysweet.lovable.app` or do you have a custom domain to connect after publish?
-9. **Logo file** (PNG/SVG) — for header + OG image. If none, I'll style a clean wordmark.
+1. **Créer Google Business Profile** "Zey's Sweetness" — Rabat, catégorie *Bakery / Dessert shop*, téléphone +212 620 35 53 25, site `zeysweet.com`, zone livraison Rabat/Témara/Harhoura/Salé, horaires, 8–10 photos produits.
+2. **Demander 5 avis Google** à des clients existants (lien direct GBP partagé sur WhatsApp).
+3. **Pages locales dédiées** (gros impact) : créer 2 routes :
+   - `/cookies-rabat` — H1 "Cookies maison à Rabat", 400 mots, prix, zones, CTA WhatsApp.
+   - `/dattes-farcies-temara` — idem pour Témara.
+   Ajouter au sitemap + canonical + JSON-LD `Product`.
+4. **Backlinks locaux gratuits** : Avito, Jumia Food, annuaires Rabat (yamli, bladi.net), Instagram bio avec `zeysweet.com`.
 
-Reply with these and I implement everything in one pass, you click **Publish**, we're live tonight.
+## Axe 2 — SEO national → "dattes fourrées/farcies"
+Volume réel chassable.
+
+1. **Densifier la page produit "Dates Farcies aux Cajou"** sur la home : passer de 1 ligne à 250 mots avec les mots-clés `dattes farcies cajou`, `dattes fourrées marocaines`, `cadeau mariage`, `apéro`.
+2. **Ajouter une section FAQ** ciblant les questions Semrush :
+   - "Comment conserver les dattes farcies ?"
+   - "Combien de dattes farcies par personne pour un mariage ?"
+   - "Dattes farcies pour apéro : combien de pièces ?"
+3. **Alt text + nom de fichier image** : `dattes-farcies-cajou-maroc.jpg` avec alt riche.
+
+## Axe 3 — Technique restant (1h)
+1. **OG image dédiée** 1200×630 (logo + cookie + dattes + "Rabat & Témara"). Je peux la générer.
+2. **Forcer redirect `www` → apex** (déjà 302, le passer à 301 si tu contrôles le DNS Lovable).
+3. **Indexation manuelle GSC** des 4 URLs via "Inspection d'URL" (manuel, ton côté).
+4. **Bing Webmaster Tools** : importer depuis GSC en 1 clic (3% du trafic mais gratuit).
+
+## Axe 4 — Tracking (à activer maintenant)
+- GSC : checker l'onglet *Performances* dans 7 jours (premières impressions).
+- Core Web Vitals : viser ≥90 mobile (déjà bon vu Vite + images optimisées).
+- Re-scan Semrush dans 30 jours pour mesurer.
+
+---
+
+## Ordre d'exécution recommandé (cette semaine)
+```
+J1 (aujourd'hui)  → Axe 3: OG image + indexation manuelle 4 URLs
+J1                → Axe 1.1: Google Business Profile (15 min, tu fais)
+J2                → Axe 2.1+2.2: densifier section dattes + FAQ
+J3                → Axe 1.3: créer /cookies-rabat + /dattes-farcies-temara
+J4–J7             → Axe 1.4: backlinks (Avito, Jumia, annuaires)
+J7                → Axe 1.2: demander 5 avis Google
+J+30              → Re-check GSC + Semrush
+```
+
+---
+
+## Ce dont j'ai besoin de toi pour démarrer
+1. **OG image** : je la génère maintenant ou tu en as une ? (1200×630)
+2. **Google Business Profile** : tu le crées (je ne peux pas accéder à GBP). Veux-tu un template texte (description, catégories, attributs) ?
+3. **Pages locales** `/cookies-rabat` et `/dattes-farcies-temara` : je les code maintenant ou on attend ?
+4. **Adresse exacte / quartier Rabat** à afficher (Hassan, Agdal, Hay Riad…) — requis pour GBP + LocalBusiness schema précis.
+5. **Horaires confirmés** (actuellement Lun–Sam 10h–20h dans le JSON-LD).
+
+Dis-moi 1/2/3/4/5 et je lance les actions code immédiatement.
