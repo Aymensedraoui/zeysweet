@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useLocation, Navigate } from "react-router-dom";
 import { MapPin, Clock, MessageCircle, Check, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -206,8 +206,9 @@ function buildJsonLd(p: LocalPage) {
 }
 
 export default function LocalLanding() {
-  const { slug } = useParams<{ slug: string }>();
-  const page = slug ? PAGES[slug] : undefined;
+  const { pathname } = useLocation();
+  const slug = pathname.replace(/^\/+/, "").replace(/\/$/, "");
+  const page = PAGES[slug];
   if (!page) return <Navigate to="/404" replace />;
 
   const waLink = buildWhatsAppLink([], "", "fr");
