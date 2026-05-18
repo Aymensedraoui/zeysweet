@@ -62,6 +62,9 @@ const Index = () => {
         <title>Zey's Sweetness — Maison de douceurs · Rabat & Témara</title>
         <meta name="description" content="Maison de douceurs artisanale à Rabat & Témara. Cookies Signature et Dattes Farcies aux cajou, faits main. Commande WhatsApp, livraison 24h." />
         <link rel="canonical" href="https://zeysweet.com/" />
+        <link rel="alternate" hrefLang="fr" href="https://zeysweet.com/" />
+        <link rel="alternate" hrefLang="ar" href="https://zeysweet.com/" />
+        <link rel="alternate" hrefLang="x-default" href="https://zeysweet.com/" />
         <meta property="og:title" content="Zey's Sweetness — Maison de douceurs · Rabat & Témara" />
         <meta property="og:description" content="Cookies Signature et Dattes Farcies aux cajou, faits main à Rabat & Témara. Commande WhatsApp, livraison 24h." />
         <meta property="og:url" content="https://zeysweet.com/" />
