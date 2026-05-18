@@ -20,7 +20,11 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/legal/:slug" element={<LegalPage />} />
           <Route path="/cookies-rabat" element={<LocalLanding />} />
+          <Route path="/cookies-agdal" element={<LocalLanding />} />
+          <Route path="/cookies-hay-riad" element={<LocalLanding />} />
           <Route path="/dattes-farcies-temara" element={<LocalLanding />} />
+          <Route path="/dattes-mariage-rabat" element={<LocalLanding />} />
+          <Route path="/coffrets-cadeaux-corporate-rabat" element={<LocalLanding />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
