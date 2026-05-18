@@ -1,68 +1,100 @@
+# Plan SEO & visibilité — Objectif 50 commandes en 30 jours
 
-# Plan — Pages locales SEO Rabat & Témara
+## Réalité du marché (à lire en premier)
 
-## Objectif
-Capter le trafic local "cookies rabat", "cookies maison rabat", "dattes farcies témara", "dattes fourrées rabat" via 2 landing pages dédiées, indexables et liées dans le sitemap.
+Un site neuf sans backlinks ne se classe pas sur Google en 30 jours. Le SEO organique met 3 à 6 mois à porter ses fruits. **Pour atteindre 50 commandes en 30 jours, le SEO seul ne suffit pas** — il faut combiner SEO (qui sème pour mois 2-3) avec des leviers à effet immédiat : Google Business Profile (local pack en 7-14j), Instagram, WhatsApp Status, bouche-à-oreille ciblé.
 
-## Pages à créer
+Hypothèse : panier moyen ~150 MAD, taux conversion visite→WhatsApp ~5%, conversion WhatsApp→commande ~40%. Pour 50 commandes il faut ~2 500 visites OU ~125 conversations WhatsApp qualifiées.
 
-### 1. `/cookies-rabat` — "Cookies maison à Rabat"
-- **H1** : Cookies maison à Rabat — Livraison 24h
-- **Meta title** (<60c) : Cookies maison à Rabat | Zey's Sweetness — Livraison 24h
-- **Meta description** (<160c) : Cookies Signature chocolat noir & noix de pécan, faits main à Rabat. Livraison gratuite Agdal, Hassan, Hay Riad, Souissi. Commande WhatsApp.
-- **Canonical** : https://zeysweet.com/cookies-rabat
-- **Contenu (≈450 mots)** :
-  - Intro locale (Rabat, quartiers livrés)
-  - Section "Pourquoi nos cookies" (ingrédients, recette, fait main)
-  - Section "Zones de livraison à Rabat" (liste des quartiers : Agdal, Hassan, Hay Riad, Souissi, L'Océan, Yacoub El Mansour)
-  - Section "Prix & format" (35 MAD / pièce, packs)
-  - Section "Comment commander" (WhatsApp, délai 24h)
-  - FAQ locale (3 questions : délai Rabat, livraison gratuite, paiement cash)
-  - CTA WhatsApp sticky
-- **JSON-LD** : `LocalBusiness` + `Product` + `FAQPage` + `BreadcrumbList`
+## Ce qu'on fait dans Lovable (code/SEO technique)
 
-### 2. `/dattes-farcies-temara` — "Dattes farcies à Témara"
-- **H1** : Dattes farcies aux cajou à Témara — Livraison 24h
-- **Meta title** : Dattes farcies à Témara | Zey's Sweetness — Cajou & Miel
-- **Meta description** : Dattes fourrées aux noix de cajou, faites main. Livraison Témara, Harhoura, Skhirat. Idéal mariage, Ramadan, cadeau. Commande WhatsApp.
-- **Canonical** : https://zeysweet.com/dattes-farcies-temara
-- **Contenu (≈450 mots)** :
-  - Intro Témara + occasions (mariage, Ramadan, Aïd, cadeau corporate)
-  - Section "Nos dattes farcies" (Medjool, cajou, fait main)
-  - Section "Zones livrées" (Témara centre, Harhoura, Skhirat, Plage des Nations)
-  - Section "Pour quelles occasions" (mariage, baby shower, Ramadan, corporate)
-  - Section "Conservation & présentation" (boîte cadeau, ruban, 7 jours frais)
-  - FAQ (combien par personne mariage, conservation, personnalisation)
-  - CTA WhatsApp
-- **JSON-LD** : `LocalBusiness` + `Product` + `FAQPage` + `BreadcrumbList`
+### Semaine 1 — Fondations SEO
 
-## Implémentation technique
+1. **Analytics + tracking**
+   - Intégrer Google Analytics 4 (mesure trafic, sources, conversions)
+   - Intégrer Meta Pixel (préparer remarketing pour phase B)
+   - Event tracking sur clic WhatsApp (= conversion principale)
 
-### Fichiers
-- **Nouveau** : `src/pages/LocalLanding.tsx` — composant générique paramétré par slug, contenu chargé depuis `src/lib/localPages.ts`
-- **Nouveau** : `src/lib/localPages.ts` — données structurées des 2 pages (titre, meta, sections, FAQ, JSON-LD)
-- **Modifié** : `src/App.tsx` — ajouter 2 routes :
-  ```
-  <Route path="/cookies-rabat" element={<LocalLanding slug="cookies-rabat" />} />
-  <Route path="/dattes-farcies-temara" element={<LocalLanding slug="dattes-farcies-temara" />} />
-  ```
-- **Modifié** : `public/sitemap.xml` — ajouter les 2 URLs (priority 0.8, changefreq monthly)
-- **Modifié** : `public/llms.txt` — ajouter les 2 pages dans la section Pages
-- **Modifié** : `src/components/Footer.tsx` — ajouter 2 liens "Cookies Rabat" et "Dattes Témara" dans la section Liens (boost maillage interne)
+2. **4 nouvelles pages locales SEO** (sur le modèle cookies-rabat existant)
+   - `/cookies-agdal` — quartier le plus chaud Rabat
+   - `/cookies-hay-riad` — pouvoir d'achat élevé
+   - `/dattes-mariage-rabat` — intention d'achat forte, gros panier
+   - `/coffrets-cadeaux-corporate-rabat` — B2B, gros tickets
+   - Chaque page : Helmet complet, JSON-LD LocalBusiness+Product+FAQ+Breadcrumb, ~450 mots, maillage croisé, CTA WhatsApp
 
-### Design
-- Réutilise les composants existants (`Navbar`, `Footer`, `FloatingWhatsApp`)
-- Style cohérent avec la home (palette cream/cocoa/rose/caramel, font display + hand)
-- Hero image locale + sections alternées
-- CTA `btn-rose btn-glow` vers `buildWhatsAppLink`
+3. **Images dédiées par page** (génération via imagegen)
+   - 1 hero image par landing locale (6 au total avec les existantes)
+   - Optimisation : conversion WebP, lazy loading, alt text riche
+   - OG image par page (au lieu du générique partagé)
 
-### SEO
-- `<Helmet>` par page : title, description, canonical, og:*, JSON-LD
-- H1 unique par page avec mot-clé principal
-- Alt text riche sur images (`cookies-maison-rabat-zey-sweetness.jpg`)
-- Maillage : lien depuis Footer + lien réciproque entre les 2 pages
+4. **hreflang FR/AR**
+   - Ajouter balises hreflang dans Helmet pour signaler les versions FR et AR à Google
 
-## Hors scope (à confirmer après)
-- Génération d'images dédiées (peut utiliser images existantes ou imagegen)
-- Soumission GSC manuelle des 2 nouvelles URLs (côté user)
-- Google Business Profile (côté user)
+### Semaine 2 — Contenu éditorial (longue traîne)
+
+5. **Structure blog** : route `/blog` + `/blog/:slug`, CMS léger (markdown ou data file), JSON-LD Article + BreadcrumbList
+
+6. **5 premiers articles** (mots-clés à faible difficulté, intention locale/saisonnière) :
+   - "Idées cadeaux Ramadan 2026 à Rabat"
+   - "Combien de pièces de dattes farcies pour un mariage marocain ?"
+   - "Cookies maison vs industriels : ce qui change vraiment"
+   - "Cadeaux corporate fin d'année : 7 idées originales à Rabat"
+   - "Conservation des dattes farcies : guide complet"
+
+### Semaine 3 — Optimisation conversion SEO
+
+7. **Pages produit dédiées** : `/produits/cookie-signature` et `/produits/dattes-farcies-cajou`
+   - Galerie photos, ingrédients détaillés, avis, FAQ produit
+   - JSON-LD Product complet avec vraies reviews
+
+8. **Audit technique** : Core Web Vitals, vitesse mobile, lazy load, preload fonts
+
+### Semaine 4 — Amplification & mesure
+
+9. **Maillage interne renforcé** : liens contextuels home ↔ blog ↔ pages locales ↔ produit
+10. **Resoumission GSC** : sitemap mis à jour, demande d'indexation des nouvelles URLs
+11. **Bilan analytics** : sources de trafic, pages performantes, taux conversion WhatsApp
+
+## Ce que TU dois faire en parallèle (hors Lovable, critique pour 50 commandes)
+
+Ces actions sont **plus impactantes que le SEO** sur 30 jours. Sans elles, l'objectif 50 commandes ne sera pas atteint.
+
+### A faire cette semaine
+- **Google Business Profile** : créer fiche "Zey's Sweetness Rabat" + "Témara", photos pro, horaires, posts hebdo. → effet local pack en 7-14j.
+- **Instagram pro** : 3 posts/semaine + 5 stories/jour avec lien WhatsApp. Reels cuisine = portée organique max.
+- **WhatsApp Status quotidien** : montre la fabrication, les livraisons, les retours clients. Tes contacts existants = premier vivier.
+- **10 micro-influenceurs Rabat** (food/lifestyle, 2-10k followers) : envoie 10 boîtes gratuites contre 1 story + 1 post. ROI imbattable.
+
+### Continu
+- **Demander un avis Google** à chaque cliente livrée (lien direct préparé). Vise 20 avis 5★ en 30j.
+- **Photos clients réelles** (avec leur accord) — gold pour future page testimonials.
+- **Activer un code parrainage** : "-15% pour toi et ton amie" (geste manuel WhatsApp suffit).
+
+## Indicateurs hebdo (à me reporter chaque vendredi)
+
+| Métrique | Objectif S4 |
+|---|---|
+| Visites GA4 | 2 500 cumulées |
+| Clics WhatsApp (event) | 125 |
+| Commandes confirmées | 50 |
+| Avis Google | 20 |
+| Followers Instagram | +500 |
+| Pages indexées GSC | 12+ |
+
+## Détails techniques
+
+- **GA4** : via `gtag.js` dans `index.html` (sitewide). Event custom `whatsapp_click` déclenché dans `buildWhatsAppLink` et `FloatingWhatsApp`.
+- **Meta Pixel** : même approche, event `Lead` sur clic WhatsApp.
+- **Blog** : data en `src/lib/posts.ts` au début (rapide), migration CMS plus tard si nécessaire. Pas de Lovable Cloud requis maintenant.
+- **Images** : génération via imagegen, format `.jpg` (photos), nommage SEO `cookies-agdal-zey-sweetness.jpg`.
+- **Sitemap** : `public/sitemap.xml` mis à jour à chaque ajout de page (manuel pour l'instant — 16 URLs prévues fin S2).
+- **hreflang** : `<link rel="alternate" hreflang="fr" href="..." />` + `<link rel="alternate" hreflang="ar" href="..." />` + `x-default`.
+
+## Hors scope (phase B/C ensuite)
+- Checkout en ligne, paiement, Lovable Cloud, emails transactionnels
+- Vraie page reviews dynamique branchée à Google API
+- Refonte du design / nouveaux composants visuels majeurs
+
+## Ordre d'exécution si tu valides
+
+Je commence par **Semaine 1** dans l'ordre : GA4+Pixel → 4 pages locales → images → hreflang. Je m'arrête après chaque semaine pour te montrer et tu valides la suite.
