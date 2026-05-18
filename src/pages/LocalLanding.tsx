@@ -19,7 +19,7 @@ type LocalPage = {
   kicker: string;
   intro: string;
   zones: string[];
-  product: { name: string; price: string; image?: string };
+  product: { name: string; price: string; priceValue: string; image?: string };
   sections: Section[];
   faqs: FAQ[];
   crossLink: { to: string; label: string };
