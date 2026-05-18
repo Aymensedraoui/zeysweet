@@ -33,6 +33,7 @@ export default function Footer() {
             <li><Link to="/dattes-farcies-temara" className="hover:text-rose">Dattes farcies à Témara</Link></li>
             <li><Link to="/dattes-mariage-rabat" className="hover:text-rose">Dattes pour mariage</Link></li>
             <li><Link to="/coffrets-cadeaux-corporate-rabat" className="hover:text-rose">Coffrets corporate</Link></li>
+            <li><Link to="/blog" className="hover:text-rose">Journal</Link></li>
           </ul>
         </div>
 
