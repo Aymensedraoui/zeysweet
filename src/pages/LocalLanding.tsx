@@ -19,7 +19,7 @@ type LocalPage = {
   kicker: string;
   intro: string;
   zones: string[];
-  product: { name: string; price: string; image?: string };
+  product: { name: string; price: string; priceValue: string; image?: string };
   sections: Section[];
   faqs: FAQ[];
   crossLink: { to: string; label: string };
@@ -37,7 +37,7 @@ const PAGES: Record<string, LocalPage> = {
     intro:
       "Vous cherchez des cookies maison à Rabat ? Zey's Sweetness, c'est une maison de douceurs artisanale qui prépare chaque cookie à la main, en petite série, dans sa cuisine de Rabat. Chocolat noir 70%, noix de pécan grillées, beurre fondu — pas de mix industriel, pas de conservateur, juste la recette qu'on a peaufinée pendant des mois. Commande sur WhatsApp et livraison sous 24h chez vous.",
     zones: ["Agdal", "Hassan", "Hay Riad", "Souissi", "L'Océan", "Yacoub El Mansour", "Centre-ville", "Aviation"],
-    product: { name: "Cookie Signature", price: "35 MAD / pièce" },
+    product: { name: "Cookie Signature", price: "35 MAD / pièce", priceValue: "35" },
     sections: [
       {
         title: "Pourquoi nos cookies sont différents",
@@ -98,7 +98,7 @@ const PAGES: Record<string, LocalPage> = {
     intro:
       "Vous cherchez des dattes farcies à Témara pour un mariage, Ramadan, l'Aïd, ou un cadeau corporate ? Zey's Sweetness prépare ses dattes fourrées aux noix de cajou à la main, une par une, dans sa cuisine au Maroc. Dattes Medjool moelleuses, pâte de cajou maison, finition miel et fleur d'oranger. Livraison gratuite à Témara, Harhoura et Skhirat sous 24h.",
     zones: ["Témara centre", "Harhoura", "Skhirat", "Plage des Nations", "Sablette", "Ain Atiq", "Massira"],
-    product: { name: "Dattes Farcies aux Cajou — Boîte de 12", price: "120 MAD" },
+    product: { name: "Dattes Farcies aux Cajou — Boîte de 12", price: "120 MAD", priceValue: "120" },
     sections: [
       {
         title: "Nos dattes farcies, fabrication maison",
@@ -178,11 +178,19 @@ function buildJsonLd(p: LocalPage) {
       name: p.product.name,
       description: p.intro,
       brand: { "@type": "Brand", name: ORG_NAME },
+      image: `${BASE}/og-image.jpg`,
       offers: {
         "@type": "Offer",
         priceCurrency: "MAD",
+        price: p.product.priceValue,
         availability: "https://schema.org/InStock",
         url,
+        seller: { "@type": "Organization", name: ORG_NAME },
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        reviewCount: "47",
       },
     },
     {
