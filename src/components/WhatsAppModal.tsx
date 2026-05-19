@@ -19,6 +19,7 @@ export default function WhatsAppModal() {
     promoApplied, setPromoApplied, firstOrderUsed, markFirstOrderUsed,
   } = useStore();
   const [touched, setTouched] = useState(false);
+  const [sending, setSending] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
 
   // Close on Escape
