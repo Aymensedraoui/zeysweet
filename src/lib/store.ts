@@ -39,7 +39,9 @@ export type CustomerInfo = {
   phone: string;
   address: string;
   zone: DeliveryZone;
-  when: string;
+  when: string;        // legacy free-text, kept for back-compat in WA message
+  deliveryDate: string; // YYYY-MM-DD
+  deliverySlot: string; // morning|noon|afternoon|evening
 };
 
 export const localized = (v: LocalizedText, lang: Lang): string =>
@@ -52,6 +54,8 @@ type State = {
   lang: Lang;
   giftMessage: string;
   customer: CustomerInfo;
+  promoApplied: boolean;     // user toggled BIENVENUE10
+  firstOrderUsed: boolean;   // once true, no more first-order banner
   add: (p: Product) => void;
   remove: (id: string) => void;
   setQty: (id: string, q: number) => void;
@@ -61,6 +65,8 @@ type State = {
   setLang: (l: Lang) => void;
   setGiftMessage: (s: string) => void;
   setCustomer: (c: Partial<CustomerInfo>) => void;
+  setPromoApplied: (b: boolean) => void;
+  markFirstOrderUsed: () => void;
 };
 
 const MAX_QTY = 20;
