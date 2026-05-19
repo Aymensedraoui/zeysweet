@@ -134,15 +134,52 @@ export const cartSubtotal = (cart: CartItem[]) =>
 export const promoDiscount = (sub: number, applied: boolean) =>
   applied ? Math.round(sub * PROMO_PCT) : 0;
 
+type BuildOpts = {
+  customer?: CustomerInfo;
+  promoApplied?: boolean;
+  source?: string;
+};
+
+const SLOT_LABEL_FR: Record<string, string> = {
+  morning: "Matin (10h–12h)",
+  noon: "Midi (12h–14h)",
+  afternoon: "Après-midi (14h–17h)",
+  evening: "Fin de journée (17h–20h)",
+};
+const SLOT_LABEL_AR: Record<string, string> = {
+  morning: "صباحا (10–12)",
+  noon: "ظهرا (12–14)",
+  afternoon: "بعد الظهر (14–17)",
+  evening: "آخر النهار (17–20)",
+};
+
 export const buildWhatsAppLink = (
   cart: CartItem[],
   gift: string,
   lang: Lang,
-  customer?: CustomerInfo
+  customerOrOpts?: CustomerInfo | BuildOpts
 ) => {
+  const opts: BuildOpts =
+    customerOrOpts && "name" in (customerOrOpts as CustomerInfo)
+      ? { customer: customerOrOpts as CustomerInfo }
+      : ((customerOrOpts as BuildOpts) ?? {});
+  const { customer, promoApplied = false, source } = opts;
+
   const sub = cartSubtotal(cart);
   const fee = customer ? ZONE_FEE[customer.zone] : 0;
-  const total = sub + fee;
+  const discount = promoDiscount(sub, promoApplied);
+  const total = Math.max(0, sub - discount) + fee;
+
+  const slotLabel = (s: string) =>
+    (lang === "fr" ? SLOT_LABEL_FR : SLOT_LABEL_AR)[s] || "";
+
+  const whenLine = (c: CustomerInfo) => {
+    const parts: string[] = [];
+    if (c.deliveryDate) parts.push(c.deliveryDate);
+    if (c.deliverySlot) parts.push(slotLabel(c.deliverySlot));
+    if (!parts.length && c.when) return c.when;
+    return parts.join(" · ");
+  };
 
   const lines: string[] = [];
   if (lang === "fr") {
@@ -154,6 +191,7 @@ export const buildWhatsAppLink = (
     );
     lines.push("");
     lines.push(`Sous-total : ${sub} MAD`);
+    if (discount > 0) lines.push(`Code ${PROMO_CODE} : −${discount} MAD`);
     if (customer) {
       lines.push(`Livraison : ${fee === 0 ? "Offerte" : fee + " MAD"}`);
       lines.push(`Total estimé : ${total} MAD`);
@@ -164,14 +202,12 @@ export const buildWhatsAppLink = (
       if (customer.address) lines.push(`Adresse : ${customer.address}`);
       lines.push(
         `Zone : ${
-          customer.zone === "center"
-            ? "Rabat"
-            : customer.zone === "peri"
-            ? "Témara / Harhoura / Salé"
-            : "Autre ville"
+          customer.zone === "center" ? "Rabat" :
+          customer.zone === "peri" ? "Témara / Harhoura / Salé" : "Autre ville"
         }`
       );
-      if (customer.when) lines.push(`Créneau : ${customer.when}`);
+      const w = whenLine(customer);
+      if (w) lines.push(`Créneau : ${w}`);
     }
     if (gift) {
       lines.push("");
@@ -179,6 +215,7 @@ export const buildWhatsAppLink = (
     }
     lines.push("");
     lines.push("💵 Paiement : cash à la livraison (sauf accord contraire).");
+    if (source) lines.push(`(réf : ${source})`);
     lines.push("");
     lines.push("Merci 🤍");
   } else {
@@ -190,6 +227,7 @@ export const buildWhatsAppLink = (
     );
     lines.push("");
     lines.push(`المجموع الفرعي : ${sub} درهم`);
+    if (discount > 0) lines.push(`كود ${PROMO_CODE} : −${discount} درهم`);
     if (customer) {
       lines.push(`التوصيل : ${fee === 0 ? "مجانا" : fee + " درهم"}`);
       lines.push(`المجموع : ${total} درهم`);
@@ -200,14 +238,12 @@ export const buildWhatsAppLink = (
       if (customer.address) lines.push(`العنوان : ${customer.address}`);
       lines.push(
         `المنطقة : ${
-          customer.zone === "center"
-            ? "الرباط"
-            : customer.zone === "peri"
-            ? "تمارة / هرهورة / سلا"
-            : "مدينة أخرى"
+          customer.zone === "center" ? "الرباط" :
+          customer.zone === "peri" ? "تمارة / هرهورة / سلا" : "مدينة أخرى"
         }`
       );
-      if (customer.when) lines.push(`الوقت : ${customer.when}`);
+      const w = whenLine(customer);
+      if (w) lines.push(`الوقت : ${w}`);
     }
     if (gift) {
       lines.push("");
@@ -215,6 +251,7 @@ export const buildWhatsAppLink = (
     }
     lines.push("");
     lines.push("💵 الدفع : نقدا عند التسليم (ما لم يتفق على غير ذلك).");
+    if (source) lines.push(`(مرجع : ${source})`);
     lines.push("");
     lines.push("شكرا 🤍");
   }
