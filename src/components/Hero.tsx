@@ -61,11 +61,22 @@ export default function Hero() {
             {t("hero.subtitle", lang)}
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.65s" }}>
-            <button onClick={onOrder} className="btn-rose btn-glow">{t("hero.cta1", lang)}</button>
-            <a href="#products" className="btn-outline-caramel">{t("hero.cta2", lang)}</a>
+            <button
+              onClick={onOrder}
+              className="btn-rose btn-glow"
+              aria-label={t("a11y.whatsapp", lang)}
+            >
+              {t("hero.cta1", lang)}
+            </button>
+            <a href="#products" className="btn-outline-cocoa">{t("hero.cta2", lang)}</a>
           </div>
+          <ul className="flex flex-wrap gap-2.5 pt-2 animate-fade-up" style={{ animationDelay: "0.75s" }} aria-label="Nos engagements">
+            <li className="chip-trust"><span className="dot" aria-hidden="true" /> {t("hero.chip.1", lang)}</li>
+            <li className="chip-trust"><span className="dot" aria-hidden="true" /> {t("hero.chip.2", lang)}</li>
+            <li className="chip-trust"><span className="dot" aria-hidden="true" /> {t("hero.chip.3", lang)}</li>
+          </ul>
           <div className="flex items-center gap-4 pt-4 animate-fade-up" style={{ animationDelay: "0.85s" }}>
-            <span className="divider-ornament !w-12 !mx-0" />
+            <span className="divider-ornament !w-12 !mx-0" aria-hidden="true" />
             <p className="text-cocoa/75 text-xs tracking-wide uppercase">{t("hero.social", lang)}</p>
           </div>
         </div>
