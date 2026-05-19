@@ -9,7 +9,7 @@ import { products } from "@/lib/products";
 import { t } from "@/lib/i18n";
 import { trackOrderSubmit, trackWhatsAppClick } from "@/lib/analytics";
 
-const SLOT_KEYS = ["morning", "noon", "afternoon", "evening"] as const;
+
 
 export default function WhatsAppModal() {
   const {
@@ -282,9 +282,10 @@ export default function WhatsAppModal() {
                     className={inputCls}
                   >
                     <option value="">{t("mod.slot.pick", lang)}</option>
-                    {SLOT_KEYS.map((s) => (
-                      <option key={s} value={s}>{t(`mod.slot.${s}` as const, lang)}</option>
-                    ))}
+                    <option value="morning">{t("mod.slot.morning", lang)}</option>
+                    <option value="noon">{t("mod.slot.noon", lang)}</option>
+                    <option value="afternoon">{t("mod.slot.afternoon", lang)}</option>
+                    <option value="evening">{t("mod.slot.evening", lang)}</option>
                   </select>
                 </div>
               </div>
