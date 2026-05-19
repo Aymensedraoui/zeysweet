@@ -193,6 +193,19 @@
     color: hsl(var(--cocoa));
     box-shadow: 0 4px 12px -4px hsl(var(--rose) / 0.5);
   }
+
+  /* Above-the-fold trust chip — used in hero & local pages */
+  .chip-trust {
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold tracking-wide;
+    background: hsl(var(--cream));
+    color: hsl(var(--cocoa));
+    border: 1px solid hsl(var(--cocoa) / 0.12);
+    box-shadow: 0 2px 8px -4px hsl(var(--cocoa) / 0.15);
+  }
+  .chip-trust .dot {
+    @apply w-1.5 h-1.5 rounded-full;
+    background: hsl(var(--rose));
+  }
 }
 
 @keyframes bob {
