@@ -22,6 +22,30 @@ export function trackWhatsAppClick(source: string) {
   }
 }
 
+export function trackOrderSubmit(payload: {
+  value: number;
+  items: number;
+  source?: string;
+  promo?: boolean;
+}) {
+  try {
+    window.gtag?.("event", "generate_lead", {
+      currency: "MAD",
+      value: payload.value,
+      items: payload.items,
+      source: payload.source,
+      promo: payload.promo ? "BIENVENUE10" : undefined,
+    });
+    window.fbq?.("track", "InitiateCheckout", {
+      value: payload.value,
+      currency: "MAD",
+      num_items: payload.items,
+    });
+  } catch {
+    /* no-op */
+  }
+}
+
 export function trackPageView(path: string) {
   try {
     window.gtag?.("event", "page_view", { page_path: path });
