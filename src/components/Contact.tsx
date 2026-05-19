@@ -6,7 +6,7 @@ export default function Contact() {
   const { lang, cart, giftMessage, setModalOpen } = useStore();
   const onOrder = () => {
     if (cart.length) setModalOpen(true);
-    else window.open(buildWhatsAppLink([], giftMessage, lang), "_blank");
+    else window.open(buildWhatsAppLink([], giftMessage, lang, { source: "contact" }), "_blank");
   };
 
   const cards = [

@@ -17,7 +17,7 @@ export default function Navbar() {
   const count = cart.reduce((s, i) => s + i.qty, 0);
   const onOrder = () => {
     if (cart.length) setModalOpen(true);
-    else window.open(buildWhatsAppLink([], giftMessage, lang), "_blank");
+    else window.open(buildWhatsAppLink([], giftMessage, lang, { source: "navbar" }), "_blank");
   };
 
   useEffect(() => {

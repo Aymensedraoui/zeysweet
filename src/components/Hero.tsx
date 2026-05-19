@@ -38,7 +38,7 @@ export default function Hero() {
 
   const onOrder = () => {
     if (cart.length) setModalOpen(true);
-    else window.open(buildWhatsAppLink([], giftMessage, lang), "_blank");
+    else window.open(buildWhatsAppLink([], giftMessage, lang, { source: "hero" }), "_blank");
   };
 
   return (

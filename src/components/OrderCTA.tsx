@@ -4,7 +4,7 @@ import { t } from "@/lib/i18n";
 export default function OrderCTA() {
   const { cart, giftMessage, lang, setModalOpen } = useStore();
   const sub = cartSubtotal(cart);
-  const link = buildWhatsAppLink(cart, giftMessage, lang);
+  const link = buildWhatsAppLink(cart, giftMessage, lang, { source: "order-cta" });
 
   const handle = () => {
     if (cart.length === 0) {

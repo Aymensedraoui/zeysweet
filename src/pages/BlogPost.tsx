@@ -20,7 +20,7 @@ export default function BlogPost() {
   if (!post) return <Navigate to="/404" replace />;
 
   const url = `${BASE}/blog/${post.slug}`;
-  const waLink = buildWhatsAppLink([], "", "fr");
+  const waLink = buildWhatsAppLink([], "", "fr", { source: `blog:${slug}` });
 
   const articleLd = {
     "@context": "https://schema.org",

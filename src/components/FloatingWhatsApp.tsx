@@ -10,7 +10,7 @@ export default function FloatingWhatsApp() {
 
   const handle = () => {
     if (cart.length) setModalOpen(true);
-    else window.open(buildWhatsAppLink([], giftMessage, lang), "_blank");
+    else window.open(buildWhatsAppLink([], giftMessage, lang, { source: "floating" }), "_blank");
   };
 
   return (
