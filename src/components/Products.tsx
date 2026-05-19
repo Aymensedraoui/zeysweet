@@ -43,6 +43,13 @@ export default function Products() {
                 <div className="p-6 space-y-3">
                   <h3 className="font-display font-bold text-xl text-cocoa">{name}</h3>
                   <p className="text-sm text-cocoa/60">{localized(p.desc, lang)}</p>
+                  <p
+                    className="text-[11px] text-cocoa/55 italic flex items-start gap-1.5 pt-1"
+                    title={t("allergen", lang)}
+                  >
+                    <span aria-hidden="true">⚠</span>
+                    <span><span className="font-semibold not-italic">{t("allergen.short", lang)} :</span> {t("allergen", lang).replace(/^[^:]+:\s*/, "")}</span>
+                  </p>
                   <div className="flex items-center justify-between pt-2">
                     <span className="font-hand text-3xl text-caramel">
                       {p.price} {lang === "fr" ? "MAD" : "درهم"}
