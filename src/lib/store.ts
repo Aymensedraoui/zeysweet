@@ -79,7 +79,9 @@ export const useStore = create<State>()(
       modalOpen: false,
       lang: "fr",
       giftMessage: "",
-      customer: { name: "", phone: "", address: "", zone: "center", when: "" },
+      customer: { name: "", phone: "", address: "", zone: "center", when: "", deliveryDate: "", deliverySlot: "" },
+      promoApplied: false,
+      firstOrderUsed: false,
       add: (p) =>
         set((s) => {
           const existing = s.cart.find((i) => i.id === p.id);
@@ -109,6 +111,8 @@ export const useStore = create<State>()(
       setGiftMessage: (s) => set({ giftMessage: s }),
       setCustomer: (c) =>
         set((s) => ({ customer: { ...s.customer, ...c } })),
+      setPromoApplied: (b) => set({ promoApplied: b }),
+      markFirstOrderUsed: () => set({ firstOrderUsed: true, promoApplied: false }),
     }),
     {
       name: "zey-store-v1",
@@ -117,6 +121,8 @@ export const useStore = create<State>()(
         lang: s.lang,
         giftMessage: s.giftMessage,
         customer: s.customer,
+        promoApplied: s.promoApplied,
+        firstOrderUsed: s.firstOrderUsed,
       }),
     }
   )
@@ -124,6 +130,9 @@ export const useStore = create<State>()(
 
 export const cartSubtotal = (cart: CartItem[]) =>
   cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+export const promoDiscount = (sub: number, applied: boolean) =>
+  applied ? Math.round(sub * PROMO_PCT) : 0;
 
 export const buildWhatsAppLink = (
   cart: CartItem[],
