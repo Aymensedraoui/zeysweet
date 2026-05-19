@@ -13,7 +13,7 @@ const marqueeItems = [
 ];
 
 export default function Hero() {
-  const { lang, cart, giftMessage, setModalOpen } = useStore();
+  const { lang, cart, giftMessage, setModalOpen, firstOrderUsed } = useStore();
   const imgWrapRef = useRef<HTMLDivElement>(null);
 
   // Subtle scroll parallax on the hero image
