@@ -6,6 +6,10 @@ import type { Lang } from "./i18n";
 // Replace the digits below with Zey's real WhatsApp Business number.
 // Format: country code + number, no "+", no spaces. e.g. "212612345678".
 export const WHATSAPP_NUMBER = "212620355325";
+export const CONTACT_EMAIL = "contact@zeysweet.com";
+export const CONTACT_PHONE_DISPLAY = "+212 620 35 53 25";
+export const PROMO_CODE = "BIENVENUE10";
+export const PROMO_PCT = 0.10;
 
 export const MIN_ORDER_MAD = 150;
 
