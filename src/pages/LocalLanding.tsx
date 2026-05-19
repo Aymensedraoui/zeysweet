@@ -124,18 +124,29 @@ export default function LocalLanding() {
           </h1>
           <p className="mt-6 text-lg text-cocoa/80 max-w-2xl">{page.intro}</p>
 
+          <ul className="mt-6 flex flex-wrap gap-2.5" aria-label="Nos engagements">
+            <li className="chip-trust"><span className="dot" aria-hidden="true" /> Fait main</li>
+            <li className="chip-trust"><span className="dot" aria-hidden="true" /> Petite série</li>
+            <li className="chip-trust"><span className="dot" aria-hidden="true" /> Livraison 24h</li>
+          </ul>
+
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
               onClick={onWhatsAppClick}
+              aria-label="Envoyer un message WhatsApp pour commander"
               className="btn-rose btn-glow inline-flex items-center gap-2"
             >
-              <MessageCircle className="w-5 h-5" />
+              <MessageCircle className="w-5 h-5" aria-hidden="true" />
               Commander sur WhatsApp
             </a>
-            <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-cocoa/20 text-cocoa hover:bg-cocoa/5 font-semibold">
+            <a
+              href={`tel:${PHONE}`}
+              aria-label={`Appeler Zey's Sweetness au ${PHONE}`}
+              className="btn-outline-cocoa inline-flex items-center gap-2"
+            >
               Appeler {PHONE}
             </a>
           </div>
@@ -214,9 +225,10 @@ export default function LocalLanding() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={onWhatsAppClick}
+            aria-label="Envoyer un message WhatsApp pour commander"
             className="btn-rose btn-glow inline-flex items-center gap-2"
           >
-            <MessageCircle className="w-5 h-5" />
+            <MessageCircle className="w-5 h-5" aria-hidden="true" />
             Commander maintenant
           </a>
           <div className="mt-12 flex flex-col gap-3 items-center">

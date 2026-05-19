@@ -61,7 +61,7 @@ export default function Navbar() {
             >
               {t("nav.lang", lang)}
             </button>
-            <button onClick={onOrder} className="hidden sm:inline-flex btn-rose btn-glow !py-2.5 !px-5 text-sm">
+            <button onClick={onOrder} className="hidden sm:inline-flex btn-rose btn-glow !py-2.5 !px-5 text-sm" aria-label={t("a11y.whatsapp", lang)}>
               {t("nav.cta", lang)}
             </button>
             <button

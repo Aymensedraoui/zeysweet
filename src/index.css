@@ -33,7 +33,7 @@
     --secondary-foreground: 23 60% 14%;
 
     --muted: 36 40% 90%;
-    --muted-foreground: 23 30% 30%;
+    --muted-foreground: 23 45% 22%; /* stronger contrast — WCAG AA */
 
     --accent: 11 65% 75%;            /* Dusty rose #E8A598 */
     --accent-foreground: 23 60% 14%;
@@ -99,6 +99,21 @@
   [dir="rtl"] .animate-marquee { animation-direction: reverse; }
   /* Flip ribbon to the right side */
   [dir="rtl"] .ribbon { left: auto; right: 1rem; }
+
+  /* A11y: visible keyboard focus everywhere */
+  :focus-visible {
+    outline: 3px solid hsl(var(--caramel));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  /* Skip link for keyboard users */
+  .skip-link {
+    position: absolute; left: -9999px; top: 0;
+    background: hsl(var(--cocoa)); color: hsl(var(--cream));
+    padding: 0.75rem 1.25rem; border-radius: 0 0 0.75rem 0;
+    z-index: 100; font-weight: 600;
+  }
+  .skip-link:focus { left: 0; }
 }
 
 @layer utilities {
@@ -177,6 +192,19 @@
     background: hsl(var(--rose));
     color: hsl(var(--cocoa));
     box-shadow: 0 4px 12px -4px hsl(var(--rose) / 0.5);
+  }
+
+  /* Above-the-fold trust chip — used in hero & local pages */
+  .chip-trust {
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold tracking-wide;
+    background: hsl(var(--cream));
+    color: hsl(var(--cocoa));
+    border: 1px solid hsl(var(--cocoa) / 0.12);
+    box-shadow: 0 2px 8px -4px hsl(var(--cocoa) / 0.15);
+  }
+  .chip-trust .dot {
+    @apply w-1.5 h-1.5 rounded-full;
+    background: hsl(var(--rose));
   }
 }
 
