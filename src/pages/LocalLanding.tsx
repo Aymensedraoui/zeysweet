@@ -80,7 +80,7 @@ export default function LocalLanding() {
   const page = LOCAL_PAGES[slug];
   if (!page) return <Navigate to="/404" replace />;
 
-  const waLink = buildWhatsAppLink([], "", "fr");
+  const waLink = buildWhatsAppLink([], "", "fr", { source: `local:${slug}` });
   const jsonLd = buildJsonLd(page);
   const url = `${BASE}/${page.slug}`;
   const ogImg = page.ogImage || DEFAULT_OG;
