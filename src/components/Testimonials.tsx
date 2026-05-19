@@ -54,12 +54,14 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="Témoignages">
           {reviews.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setI(idx)}
-              aria-label={`${idx + 1}`}
+              role="tab"
+              aria-selected={idx === i}
+              aria-label={`Témoignage ${idx + 1} sur ${reviews.length}`}
               className={`h-2 rounded-full transition-all ${idx === i ? "w-8 bg-caramel" : "w-2 bg-cocoa/20"}`}
             />
           ))}
