@@ -326,10 +326,11 @@ export default function WhatsAppModal() {
             rel="noopener noreferrer"
             onClick={onSend}
             aria-label={t("a11y.whatsapp", lang)}
-            className={`btn-rose btn-glow w-full ${!valid ? "opacity-60" : ""}`}
+            aria-busy={sending}
+            className={`btn-rose btn-glow w-full ${!valid || sending ? "opacity-60 pointer-events-none" : ""}`}
           >
-            <MessageCircle className="w-4 h-4" aria-hidden="true" />
-            {t("mod.send", lang)}
+            <MessageCircle className={`w-4 h-4 ${sending ? "animate-pulse" : ""}`} aria-hidden="true" />
+            {sending ? t("mod.sending", lang) : t("mod.send", lang)}
           </a>
 
           {/* Fallback contact */}
