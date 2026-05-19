@@ -184,6 +184,23 @@ export const dict = {
   "mod.fallback":       { fr: "Pas de WhatsApp ? Contactez-nous autrement :", ar: "ليس لديك واتساب ؟ تواصل معنا بطريقة أخرى :" },
   "mod.call":           { fr: "Appeler",   ar: "اتصل" },
   "mod.email":          { fr: "Email",     ar: "بريد إلكتروني" },
+  "mod.sending":        { fr: "Ouverture de WhatsApp…", ar: "جاري فتح واتساب…" },
+  "mod.sent":           { fr: "WhatsApp ouvert ✓ Finalisez l'envoi côté WhatsApp.", ar: "تم فتح واتساب ✓ أتمم الإرسال هناك." },
+
+  // Trust badges (near CTAs)
+  "tb.cash":            { fr: "Paiement à la livraison", ar: "الدفع عند التسليم" },
+  "tb.fast":            { fr: "Livraison 24h",           ar: "توصيل خلال 24 ساعة" },
+  "tb.hand":            { fr: "Fait main chaque jour",   ar: "صنع يدوي كل يوم" },
+
+  // Promo banner (visible on page)
+  "promo.banner":       { fr: "🎁 Première commande ? −10% avec le code BIENVENUE10 sur WhatsApp.", ar: "🎁 أول طلبية ؟ خصم 10% بكود BIENVENUE10 عبر واتساب." },
+
+  // Allergens
+  "allergen":           { fr: "Contient : gluten, lait, fruits à coque (pécan, cajou)", ar: "يحتوي : غلوتين، حليب، مكسرات (بقان، كاجو)" },
+  "allergen.short":     { fr: "Allergènes", ar: "مسببات الحساسية" },
+
+  // Mini testimonial near CTA
+  "cta.quote":          { fr: "« Vraiment bien pensé. On sent le travail. » — Sara, Rabat", ar: "« مدروس فعلا. يُحَسّ فيه الإتقان. » — سارة، الرباط" },
 
 
 

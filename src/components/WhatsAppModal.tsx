@@ -8,6 +8,7 @@ import {
 import { products } from "@/lib/products";
 import { t } from "@/lib/i18n";
 import { trackOrderSubmit, trackWhatsAppClick } from "@/lib/analytics";
+import { toast } from "sonner";
 
 
 
@@ -18,6 +19,7 @@ export default function WhatsAppModal() {
     promoApplied, setPromoApplied, firstOrderUsed, markFirstOrderUsed,
   } = useStore();
   const [touched, setTouched] = useState(false);
+  const [sending, setSending] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
 
   // Close on Escape
@@ -54,10 +56,12 @@ export default function WhatsAppModal() {
       setTouched(true);
       return;
     }
+    setSending(true);
     trackOrderSubmit({ value: total, items: cart.reduce((s, i) => s + i.qty, 0), source: "modal", promo: promoApplied });
     trackWhatsAppClick("modal:submit");
     if (promoApplied) markFirstOrderUsed();
-    setTimeout(() => setModalOpen(false), 600);
+    toast.success(t("mod.sent", lang));
+    setTimeout(() => { setModalOpen(false); setSending(false); }, 700);
   };
 
   const inputCls =
@@ -322,10 +326,11 @@ export default function WhatsAppModal() {
             rel="noopener noreferrer"
             onClick={onSend}
             aria-label={t("a11y.whatsapp", lang)}
-            className={`btn-rose btn-glow w-full ${!valid ? "opacity-60" : ""}`}
+            aria-busy={sending}
+            className={`btn-rose btn-glow w-full ${!valid || sending ? "opacity-60 pointer-events-none" : ""}`}
           >
-            <MessageCircle className="w-4 h-4" aria-hidden="true" />
-            {t("mod.send", lang)}
+            <MessageCircle className={`w-4 h-4 ${sending ? "animate-pulse" : ""}`} aria-hidden="true" />
+            {sending ? t("mod.sending", lang) : t("mod.send", lang)}
           </a>
 
           {/* Fallback contact */}

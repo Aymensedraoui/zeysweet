@@ -13,7 +13,7 @@ const marqueeItems = [
 ];
 
 export default function Hero() {
-  const { lang, cart, giftMessage, setModalOpen } = useStore();
+  const { lang, cart, giftMessage, setModalOpen, firstOrderUsed } = useStore();
   const imgWrapRef = useRef<HTMLDivElement>(null);
 
   // Subtle scroll parallax on the hero image
@@ -70,6 +70,11 @@ export default function Hero() {
             </button>
             <a href="#products" className="btn-outline-cocoa">{t("hero.cta2", lang)}</a>
           </div>
+          {!firstOrderUsed && (
+            <p className="text-sm text-cocoa/80 bg-rose/15 border border-rose/40 rounded-full px-4 py-2 inline-block animate-fade-up" style={{ animationDelay: "0.7s" }}>
+              {t("promo.banner", lang)}
+            </p>
+          )}
           <ul className="flex flex-wrap gap-2.5 pt-2 animate-fade-up" style={{ animationDelay: "0.75s" }} aria-label="Nos engagements">
             <li className="chip-trust"><span className="dot" aria-hidden="true" /> {t("hero.chip.1", lang)}</li>
             <li className="chip-trust"><span className="dot" aria-hidden="true" /> {t("hero.chip.2", lang)}</li>
