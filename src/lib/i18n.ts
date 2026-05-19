@@ -29,6 +29,12 @@ export const dict = {
   "hero.badge.heart":   { fr: "★",                    ar: "★" },
   "hero.quote":         { fr: "« Une douceur qu'on garde pour soi. »", ar: "« حلاوة نحتفظ بها لأنفسنا. »" },
   "hero.quote.author":  { fr: "— Notre première cliente, Rabat", ar: "— أول زبونة لنا، الرباط" },
+  "hero.chip.1":        { fr: "Fait main",        ar: "صنع يدوي" },
+  "hero.chip.2":        { fr: "Petite série",     ar: "كميات محدودة" },
+  "hero.chip.3":        { fr: "Livraison 24h",    ar: "توصيل خلال 24 ساعة" },
+  "a11y.whatsapp":      { fr: "Envoyer un message WhatsApp", ar: "إرسال رسالة واتساب" },
+  "a11y.call":          { fr: "Appeler Zey's Sweetness", ar: "اتصل بزي سويتنس" },
+  "a11y.skip":          { fr: "Aller au contenu principal", ar: "انتقل إلى المحتوى الرئيسي" },
 
   // Trust
  "trust.1.t":          { fr: "Fait main",                ar: "صنع يدوي" },
