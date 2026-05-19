@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
+import { t } from "@/lib/i18n";
 
 export default function FloatingWhatsApp() {
   const { cart, giftMessage, lang, setModalOpen } = useStore();
@@ -15,8 +16,8 @@ export default function FloatingWhatsApp() {
   return (
     <button
       onClick={handle}
-      aria-label="WhatsApp"
-      title="WhatsApp"
+      aria-label={t("a11y.whatsapp", lang)}
+      title={t("a11y.whatsapp", lang)}
       className={`fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-warm transition-all duration-500 ${
         shown ? "scale-100 opacity-100" : "scale-0 opacity-0"
       }`}
