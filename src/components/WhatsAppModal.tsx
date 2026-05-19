@@ -56,10 +56,12 @@ export default function WhatsAppModal() {
       setTouched(true);
       return;
     }
+    setSending(true);
     trackOrderSubmit({ value: total, items: cart.reduce((s, i) => s + i.qty, 0), source: "modal", promo: promoApplied });
     trackWhatsAppClick("modal:submit");
     if (promoApplied) markFirstOrderUsed();
-    setTimeout(() => setModalOpen(false), 600);
+    toast.success(t("mod.sent", lang));
+    setTimeout(() => { setModalOpen(false); setSending(false); }, 700);
   };
 
   const inputCls =
