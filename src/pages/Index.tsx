@@ -104,6 +104,7 @@ const Index = () => {
         <meta property="og:description" content="Cookies Signature et Dattes Farcies aux cajou, faits main à Rabat & Témara. Commande WhatsApp, livraison 24h." />
         <meta property="og:url" content="https://zeysweet.com/" />
         <script type="application/ld+json">{JSON.stringify(FAQ_JSONLD)}</script>
+        <script type="application/ld+json">{JSON.stringify(LOCAL_BUSINESS_JSONLD)}</script>
       </Helmet>
       <ScrollProgress />
       <Navbar />
