@@ -18,6 +18,13 @@ const SHARE_TEXT =
 export default function Reviews() {
   const [copied, setCopied] = useState(false);
 
+  const reviews = [
+    { name: "Salma", city: "Agdal", rating: 5, date: "2026-04-12", txt: "Les cookies sont à tomber, fondants à l'intérieur. Livrés tièdes, parfaits pour le café." },
+    { name: "Yasmine", city: "Hay Riad", rating: 5, date: "2026-04-05", txt: "J'ai commandé un coffret pour ma belle-mère, elle était bluffée. Présentation top." },
+    { name: "Hicham", city: "Souissi", rating: 5, date: "2026-03-28", txt: "Les dattes au cajou sont addictives. Service WhatsApp ultra rapide." },
+    { name: "Nadia", city: "Témara", rating: 5, date: "2026-03-22", txt: "Livraison pile à l'heure, emballage soigné. On en recommande déjà." },
+  ];
+
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -25,6 +32,28 @@ export default function Reviews() {
       { "@type": "ListItem", position: 1, name: "Accueil", item: `${BASE}/` },
       { "@type": "ListItem", position: 2, name: "Avis clients", item: URL },
     ],
+  };
+
+  const reviewsLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${BASE}/#business`,
+    name: "Zey's Sweetness",
+    url: BASE,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: String(reviews.length),
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: reviews.map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: `${r.name} (${r.city})` },
+      reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5" },
+      datePublished: r.date,
+      reviewBody: r.txt,
+    })),
   };
 
   const copyShare = async () => {
