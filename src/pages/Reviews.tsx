@@ -85,6 +85,7 @@ export default function Reviews() {
           content="Ce que les clientes disent de Zey's Sweetness — Rabat & Témara."
         />
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(reviewsLd)}</script>
       </Helmet>
 
       <ScrollProgress />
