@@ -34,6 +34,8 @@ export default function Footer() {
             <li><Link to="/dattes-mariage-rabat" className="hover:text-rose">Dattes pour mariage</Link></li>
             <li><Link to="/coffrets-cadeaux-corporate-rabat" className="hover:text-rose">Coffrets corporate</Link></li>
             <li><Link to="/blog" className="hover:text-rose">Journal</Link></li>
+            <li><Link to="/avis" className="hover:text-rose">Avis clients</Link></li>
+            <li><Link to="/presse" className="hover:text-rose">Presse</Link></li>
           </ul>
         </div>
 

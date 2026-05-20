@@ -8,6 +8,8 @@ import LegalPage from "./pages/LegalPage.tsx";
 import LocalLanding from "./pages/LocalLanding.tsx";
 import BlogIndex from "./pages/BlogIndex.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
+import Reviews from "./pages/Reviews.tsx";
+import Press from "./pages/Press.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/coffrets-cadeaux-corporate-rabat" element={<LocalLanding />} />
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/avis" element={<Reviews />} />
+          <Route path="/presse" element={<Press />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
