@@ -160,20 +160,15 @@ export default function Reviews() {
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold text-cocoa mb-6">Quelques retours récents</h2>
             <div className="grid md:grid-cols-2 gap-5">
-              {[
-                { name: "Salma · Agdal", txt: "Les cookies sont à tomber, fondants à l'intérieur. Livrés tièdes, parfaits pour le café." },
-                { name: "Yasmine · Hay Riad", txt: "J'ai commandé un coffret pour ma belle-mère, elle était bluffée. Présentation top." },
-                { name: "Hicham · Souissi", txt: "Les dattes au cajou sont addictives. Service WhatsApp ultra rapide." },
-                { name: "Nadia · Témara", txt: "Livraison pile à l'heure, emballage soigné. On en recommande déjà." },
-              ].map((r) => (
-                <figure key={r.name} className="p-5 rounded-xl bg-cream border border-cocoa/10">
+              {reviews.map((r) => (
+                <figure key={r.name + r.date} className="p-5 rounded-xl bg-cream border border-cocoa/10">
                   <div className="flex gap-1 mb-2" aria-hidden>
-                    {Array.from({ length: 5 }).map((_, i) => (
+                    {Array.from({ length: r.rating }).map((_, i) => (
                       <Star key={i} className="w-3.5 h-3.5 fill-rose text-rose" />
                     ))}
                   </div>
                   <blockquote className="text-cocoa/85 text-sm leading-relaxed">« {r.txt} »</blockquote>
-                  <figcaption className="mt-3 text-xs text-cocoa/55">— {r.name}</figcaption>
+                  <figcaption className="mt-3 text-xs text-cocoa/55">— {r.name} · {r.city}</figcaption>
                 </figure>
               ))}
             </div>
