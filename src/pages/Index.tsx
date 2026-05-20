@@ -48,39 +48,55 @@ const FAQ_JSONLD = {
   ],
 };
 
-const LOCAL_BUSINESS_JSONLD = {
+const PRODUCTS_JSONLD = {
   "@context": "https://schema.org",
-  "@type": "Bakery",
-  "@id": "https://zeysweet.com/#business",
-  name: "Zey's Sweetness",
-  description:
-    "Maison de douceurs artisanale à Rabat & Témara. Cookies Signature et Dattes Farcies aux noix de cajou, faits main, livrés en 24h.",
-  url: "https://zeysweet.com/",
-  telephone: "+212620355325",
-  email: "contact@zeyssweetness.ma",
-  priceRange: "150–800 MAD",
-  image: "https://zeysweet.com/og-image.jpg",
-  servesCuisine: ["Pâtisserie artisanale", "Moroccan sweets"],
-  areaServed: [
-    { "@type": "City", name: "Rabat" },
-    { "@type": "City", name: "Témara" },
-    { "@type": "City", name: "Salé" },
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "Product",
+      position: 1,
+      name: "Cookie Signature — chocolat noir & noix de pécan",
+      description: "Cookie maison à la pâte fondante, chocolat noir et noix de pécan. Fait à la main à Rabat, en petite série quotidienne.",
+      brand: { "@type": "Brand", name: "Zey's Sweetness" },
+      category: "Pâtisserie / Cookie",
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "MAD",
+        price: "35",
+        availability: "https://schema.org/InStock",
+        url: "https://zeysweet.com/#products",
+        areaServed: "MA",
+        seller: { "@type": "Organization", name: "Zey's Sweetness" },
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        reviewCount: "18",
+      },
+    },
+    {
+      "@type": "Product",
+      position: 2,
+      name: "Dattes Farcies aux Cajou — boîte de 12",
+      description: "Dattes Medjool farcies à la crème de noix de cajou maison. Présentation luxe dorée, parfaite pour les cadeaux et mariages à Rabat & Témara.",
+      brand: { "@type": "Brand", name: "Zey's Sweetness" },
+      category: "Confiserie / Dattes farcies",
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "MAD",
+        price: "120",
+        availability: "https://schema.org/InStock",
+        url: "https://zeysweet.com/#products",
+        areaServed: "MA",
+        seller: { "@type": "Organization", name: "Zey's Sweetness" },
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5.0",
+        reviewCount: "12",
+      },
+    },
   ],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Rabat",
-    addressCountry: "MA",
-  },
-  sameAs: [
-    "https://www.instagram.com/zeysweetness/",
-  ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "27",
-    bestRating: "5",
-    worstRating: "1",
-  },
 };
 
 const Index = () => {
