@@ -48,6 +48,41 @@ const FAQ_JSONLD = {
   ],
 };
 
+const LOCAL_BUSINESS_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "@id": "https://zeysweet.com/#business",
+  name: "Zey's Sweetness",
+  description:
+    "Maison de douceurs artisanale à Rabat & Témara. Cookies Signature et Dattes Farcies aux noix de cajou, faits main, livrés en 24h.",
+  url: "https://zeysweet.com/",
+  telephone: "+212620355325",
+  email: "contact@zeyssweetness.ma",
+  priceRange: "150–800 MAD",
+  image: "https://zeysweet.com/og-image.jpg",
+  servesCuisine: ["Pâtisserie artisanale", "Moroccan sweets"],
+  areaServed: [
+    { "@type": "City", name: "Rabat" },
+    { "@type": "City", name: "Témara" },
+    { "@type": "City", name: "Salé" },
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Rabat",
+    addressCountry: "MA",
+  },
+  sameAs: [
+    "https://www.instagram.com/zeysweetness/",
+  ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "27",
+    bestRating: "5",
+    worstRating: "1",
+  },
+};
+
 const Index = () => {
   const lang = useStore((s) => s.lang);
   useReveal();
