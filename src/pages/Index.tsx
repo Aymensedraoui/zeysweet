@@ -48,6 +48,8 @@ const FAQ_JSONLD = {
   ],
 };
 
+const PRODUCT_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f6e68386-17a6-43bd-abf1-f47ef502d00b/id-preview-db51dcb7--a640c7ed-e3d9-4125-a3d2-94cdfcad68c9.lovable.app-1777241430790.png";
+
 const PRODUCTS_JSONLD = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -57,6 +59,8 @@ const PRODUCTS_JSONLD = {
       position: 1,
       name: "Cookie Signature — chocolat noir & noix de pécan",
       description: "Cookie maison à la pâte fondante, chocolat noir et noix de pécan. Fait à la main à Rabat, en petite série quotidienne.",
+      image: [PRODUCT_IMAGE],
+      sku: "ZS-COOKIE-SIG",
       brand: { "@type": "Brand", name: "Zey's Sweetness" },
       category: "Pâtisserie / Cookie",
       offers: {
@@ -79,6 +83,8 @@ const PRODUCTS_JSONLD = {
       position: 2,
       name: "Dattes Farcies aux Cajou — boîte de 12",
       description: "Dattes Medjool farcies à la crème de noix de cajou maison. Présentation luxe dorée, parfaite pour les cadeaux et mariages à Rabat & Témara.",
+      image: [PRODUCT_IMAGE],
+      sku: "ZS-DATTES-12",
       brand: { "@type": "Brand", name: "Zey's Sweetness" },
       category: "Confiserie / Dattes farcies",
       offers: {
@@ -98,6 +104,7 @@ const PRODUCTS_JSONLD = {
     },
   ],
 };
+
 
 const Index = () => {
   const lang = useStore((s) => s.lang);
