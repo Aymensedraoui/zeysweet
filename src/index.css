@@ -16,24 +16,24 @@
 
 @layer base {
   :root {
-    /* Zey's Sweetness palette — all HSL */
-    --background: 36 70% 96%;        /* Warm cream #FDF6EC */
-    --foreground: 24 100% 5%;        /* Chocolate black #1A0A00 */
+    /* Maison de douceurs palette — all HSL */
+    --background: 24 100% 3%;        /* Luxury black-brown #0A0400 */
+    --foreground: 36 70% 96%;        /* Warm cream #FDF6EC */
 
-    --card: 39 100% 98%;             /* Soft warm white #FFFDF9 */
-    --card-foreground: 24 100% 5%;
+    --card: 23 60% 6%;               /* Deep dark cocoa #1A0D06 */
+    --card-foreground: 36 70% 96%;
 
-    --popover: 39 100% 98%;
-    --popover-foreground: 24 100% 5%;
+    --popover: 23 60% 6%;
+    --popover-foreground: 36 70% 96%;
 
-    --primary: 23 60% 14%;           /* Deep cocoa #3B1F0E */
+    --primary: 27 50% 51%;           /* Caramel #C17F45 */
     --primary-foreground: 36 70% 96%;
 
-    --secondary: 36 50% 92%;
-    --secondary-foreground: 23 60% 14%;
+    --secondary: 23 60% 14%;         /* Dark cocoa #3B1F0E */
+    --secondary-foreground: 36 70% 96%;
 
-    --muted: 36 40% 90%;
-    --muted-foreground: 23 45% 22%; /* stronger contrast — WCAG AA */
+    --muted: 23 30% 15%;
+    --muted-foreground: 36 20% 70%;
 
     --accent: 11 65% 75%;            /* Dusty rose #E8A598 */
     --accent-foreground: 23 60% 14%;
@@ -50,32 +50,48 @@
     --destructive: 0 70% 45%;
     --destructive-foreground: 39 100% 98%;
 
+    --border: 27 20% 15%;
+    --input: 27 20% 15%;
+    --ring: 27 50% 51%;
+
+    --radius: 1.25rem;
+
+    --shadow-warm: 0 20px 50px -20px hsl(23 60% 2% / 0.8);
+    --shadow-card: 0 10px 30px -15px hsl(23 60% 2% / 0.6);
+    --gradient-warm: linear-gradient(180deg, hsl(24 100% 3%) 0%, hsl(23 60% 6%) 100%);
+    --gradient-cocoa: linear-gradient(135deg, hsl(23 60% 14%) 0%, hsl(20 50% 8%) 100%);
+    --luxury-glow: 0 0 30px 0 hsl(27 50% 51% / 0.15);
+    --premium-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  }
+
+  .light {
+    --background: 36 70% 96%;
+    --foreground: 24 100% 5%;
+    --card: 39 100% 98%;
+    --card-foreground: 24 100% 5%;
     --border: 27 30% 85%;
     --input: 27 30% 85%;
-    --ring: 11 65% 65%;
-
-    --radius: 0.75rem;
-
-    --shadow-warm: 0 20px 50px -20px hsl(23 60% 14% / 0.25);
-    --shadow-card: 0 10px 30px -15px hsl(23 60% 14% / 0.2);
-    --gradient-warm: linear-gradient(180deg, hsl(36 70% 96%) 0%, hsl(36 60% 93%) 100%);
-    --gradient-cocoa: linear-gradient(135deg, hsl(23 60% 14%) 0%, hsl(20 50% 8%) 100%);
+    --muted: 36 40% 90%;
+    --muted-foreground: 23 45% 22%;
   }
 
   * { @apply border-border; }
   html { scroll-behavior: smooth; }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground selection:bg-rose/30 selection:text-rose;
     font-family: 'DM Sans', system-ui, sans-serif;
     line-height: 1.7;
     background-image:
-      radial-gradient(hsl(27 30% 85% / 0.3) 1px, transparent 1px);
-    background-size: 24px 24px;
+      radial-gradient(hsl(27 30% 20% / 0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4 {
     font-family: 'Playfair Display', Georgia, serif;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
   [dir="rtl"] body,
   [dir="rtl"] h1,
@@ -141,8 +157,8 @@
 
   .paper-texture {
     background-image:
-      radial-gradient(hsl(27 40% 75% / 0.15) 1px, transparent 1px),
-      linear-gradient(180deg, hsl(36 70% 96%), hsl(36 60% 93%));
+      radial-gradient(hsl(27 40% 20% / 0.15) 1px, transparent 1px),
+      linear-gradient(180deg, hsl(24 100% 3%), hsl(23 60% 6%));
     background-size: 18px 18px, 100% 100%;
   }
 
@@ -273,12 +289,19 @@
 /* Premium card hover — restrained lift + warmer shadow */
 .card-premium {
   transition:
-    transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 600ms cubic-bezier(0.22, 1, 0.36, 1);
+      transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 800ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 800ms cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--premium-glass);
+    backdrop-blur: 8px;
 }
 .card-premium:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 32px 60px -28px hsl(23 60% 14% / 0.35);
+    transform: translateY(-16px) scale(1.02);
+    box-shadow: 0 40px 100px -30px hsl(23 60% 2% / 0.95), 0 0 20px 0 hsl(27 50% 51% / 0.1);
+    border-color: hsl(var(--caramel) / 0.4);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Elegant section divider (use as <span class="divider-ornament" />) */

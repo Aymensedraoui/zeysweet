@@ -14,12 +14,12 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">
       <Helmet>
-        <title>Page introuvable (404) — Zey's Sweetness</title>
-        <meta name="description" content="Cette page n'existe pas. Retour à l'accueil Zey's Sweetness — cookies & dattes farcies livrés à Rabat & Témara." />
+        <title>Page introuvable (404) — Maison de douceurs</title>
+        <meta name="description" content="Cette page n'existe pas. Retour à l'accueil Maison de douceurs — cookies & dattes farcies livrés à Rabat & Témara." />
         <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href={url} />
-        <meta property="og:title" content="Page introuvable — Zey's Sweetness" />
-        <meta property="og:description" content="Cette page n'existe pas. Retour à l'accueil Zey's Sweetness." />
+        <meta property="og:title" content="Page introuvable — Maison de douceurs" />
+        <meta property="og:description" content="Cette page n'existe pas. Retour à l'accueil Maison de douceurs." />
         <meta property="og:url" content={url} />
       </Helmet>
       <div className="text-center">

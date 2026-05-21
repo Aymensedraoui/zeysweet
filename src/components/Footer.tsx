@@ -15,8 +15,8 @@ export default function Footer() {
       </div>
       <div className="container mx-auto grid md:grid-cols-4 gap-10 relative">
         <div>
-          <h3 className="font-display font-bold text-2xl text-cream">Zey's <span className="italic text-rose">Sweetness</span></h3>
-          <p className="font-hand text-xl text-rose mt-2">{t("ft.tag", lang)}</p>
+          <h3 className="font-display font-bold text-2xl text-cream uppercase tracking-wider">Maison <span className="italic font-medium lowercase text-rose">de</span> douceurs</h3>
+          <p className="font-hand text-xl text-rose mt-2 opacity-80">{t("ft.tag", lang)}</p>
           <p className="text-sm mt-4 text-cream/60 max-w-xs">{t("ft.about", lang)}</p>
         </div>
 
@@ -53,8 +53,8 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:contact@zeyssweetness.ma" className="flex items-center gap-2 hover:text-rose">
-                <Mail className="w-4 h-4 text-rose" /> contact@zeyssweetness.ma
+              <a href="mailto:contact@maison-de-douceurs.ma" className="flex items-center gap-2 hover:text-rose">
+                <Mail className="w-4 h-4 text-rose" /> contact@maison-de-douceurs.ma
               </a>
             </li>
           </ul>

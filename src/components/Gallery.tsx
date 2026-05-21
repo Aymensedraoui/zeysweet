@@ -7,9 +7,9 @@ import giftCustom from "@/assets/gift-custom.jpg";
 
 // Launch week: only show photos of products we actually sell.
 const items: { src: string; alt: string }[] = [
-  { src: cookie, alt: "Cookie Signature de Zey's Sweetness, fait main à Rabat" },
+  { src: cookie, alt: "Cookie Signature de Maison de douceurs, fait main à Rabat" },
   { src: dates, alt: "Dattes farcies aux noix de cajou, présentées dans un coffret" },
-  { src: giftCustom, alt: "Coffret cadeau personnalisé Zey's Sweetness avec ruban" },
+  { src: giftCustom, alt: "Coffret cadeau personnalisé Maison de douceurs avec ruban" },
   { src: dates, alt: "Dattes Medjool farcies main — gros plan" },
   { src: cookie, alt: "Cookies Signature dorés sortis du four" },
   { src: giftCustom, alt: "Coffret sur mesure prêt pour livraison à Témara" },

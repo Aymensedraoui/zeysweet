@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import type { Lang } from "./i18n";
 
 // === IMPORTANT ===
-// Replace the digits below with Zey's real WhatsApp Business number.
+// Replace the digits below with la Maison real WhatsApp Business number.
 // Format: country code + number, no "+", no spaces. e.g. "212612345678".
 export const WHATSAPP_NUMBER = "212620355325";
 export const CONTACT_EMAIL = "contact@zeysweet.com";
@@ -183,7 +183,7 @@ export const buildWhatsAppLink = (
 
   const lines: string[] = [];
   if (lang === "fr") {
-    lines.push("Bonjour Zey's Sweetness 🍪");
+    lines.push("Bonjour Maison de douceurs 🍪");
     lines.push("Je souhaite passer une commande :");
     lines.push("");
     cart.forEach((i) =>

@@ -13,7 +13,7 @@ const URL = `${BASE}/avis`;
 // TODO: remplacer par le vrai Place ID Google Business Profile une fois créé
 const GOOGLE_REVIEW_LINK = "https://search.google.com/local/writereview?placeid=REPLACE_WITH_PLACE_ID";
 const SHARE_TEXT =
-  "Bonjour 🌸 Merci d'avoir commandé chez Zey's Sweetness ! Si nos douceurs vous ont plu, votre avis Google nous aiderait énormément (1 minute) : ";
+  "Bonjour 🌸 Merci d'avoir commandé chez Maison de douceurs ! Si nos douceurs vous ont plu, votre avis Google nous aiderait énormément (1 minute) : ";
 
 export default function Reviews() {
   const [copied, setCopied] = useState(false);
@@ -38,7 +38,7 @@ export default function Reviews() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${BASE}/#business`,
-    name: "Zey's Sweetness",
+    name: "Maison de douceurs",
     url: BASE,
     aggregateRating: {
       "@type": "AggregateRating",
@@ -68,10 +68,10 @@ export default function Reviews() {
   return (
     <div className="bg-background min-h-screen">
       <Helmet>
-        <title>Avis clients — Zey's Sweetness · Cookies & dattes à Rabat</title>
+        <title>Avis clients — Maison de douceurs · Cookies & dattes à Rabat</title>
         <meta
           name="description"
-          content="Les avis de nos clientes sur les cookies maison et dattes farcies aux cajou de Zey's Sweetness à Rabat & Témara. Laissez votre avis Google en 1 minute."
+          content="Les avis de nos clientes sur les cookies maison et dattes farcies aux cajou de Maison de douceurs à Rabat & Témara. Laissez votre avis Google en 1 minute."
         />
         <link rel="canonical" href={URL} />
         <link rel="alternate" hrefLang="fr" href={URL} />
@@ -79,10 +79,10 @@ export default function Reviews() {
         <link rel="alternate" hrefLang="x-default" href={URL} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={URL} />
-        <meta property="og:title" content="Avis clients — Zey's Sweetness" />
+        <meta property="og:title" content="Avis clients — Maison de douceurs" />
         <meta
           property="og:description"
-          content="Ce que les clientes disent de Zey's Sweetness — Rabat & Témara."
+          content="Ce que les clientes disent de Maison de douceurs — Rabat & Témara."
         />
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(reviewsLd)}</script>

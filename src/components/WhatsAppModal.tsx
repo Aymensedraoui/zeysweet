@@ -346,7 +346,7 @@ export default function WhatsAppModal() {
                 {CONTACT_PHONE_DISPLAY}
               </a>
               <a
-                href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Commande Zey's Sweetness")}`}
+                href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Commande Maison de douceurs")}`}
                 className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-full border border-cocoa/15 text-xs font-medium text-cocoa hover:bg-cocoa/5"
                 aria-label={`${t("mod.email", lang)} ${CONTACT_EMAIL}`}
               >

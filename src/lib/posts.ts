@@ -18,7 +18,7 @@ export type Post = {
   crossLinks?: { to: string; label: string }[];
 };
 
-const AUTHOR = "Zey's Sweetness";
+const AUTHOR = "Maison de douceurs";
 
 export const POSTS: Record<string, Post> = {
   "idees-cadeaux-ramadan-2026-rabat": {
@@ -130,7 +130,7 @@ Trois options : boîte standard (la plus économique), boîte cadeau ruban (pour
     author: AUTHOR,
     category: "Conseils",
     keywords: ["cookies maison Rabat", "cookies artisanaux", "pâtisserie artisanale Maroc"],
-    body: `On nous demande souvent pourquoi un cookie Zey's coûte 35 MAD alors qu'on en trouve à 8 MAD au supermarché. La réponse tient en 6 différences, qu'on assume entièrement.
+    body: `On nous demande souvent pourquoi un cookie la Maison coûte 35 MAD alors qu'on en trouve à 8 MAD au supermarché. La réponse tient en 6 différences, qu'on assume entièrement.
 
 ## 1. Le beurre, pas la margarine
 Industriel : graisse végétale hydrogénée, parfois huile de palme. Maison : beurre 82% de matière grasse, fondu pour développer les arômes. C'est ce qui donne le goût "fondant chaud" qu'on ne retrouve nulle part ailleurs.
@@ -196,7 +196,7 @@ On imprime votre message manuscrit (ou typographié) sur une carte glissée dans
 Pour vos évènements à Rabat (séminaire, lancement produit, AG) : on prépare 30 à 300 coffrets identiques, livrés sur place le matin J.
 
 ## 7. Le bon cadeau "à choisir"
-Vous offrez un bon d'achat Zey's à votre client : il commande lui-même la quantité et le format qu'il veut. Pratique quand on ne connaît pas les goûts.
+Vous offrez un bon d'achat la Maison à votre client : il commande lui-même la quantité et le format qu'il veut. Pratique quand on ne connaît pas les goûts.
 
 ## Personnalisation logo
 On colle un sticker logo sur la boîte (logo fourni en PNG transparent). Pour 50 coffrets et plus : impression directe sur ruban personnalisé.

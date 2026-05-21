@@ -28,7 +28,7 @@ const FAQ_JSONLD = {
     {
       "@type": "Question",
       name: "Où commander des cookies maison à Rabat ?",
-      acceptedAnswer: { "@type": "Answer", text: "Zey's Sweetness livre ses Cookies Signature et Dattes Farcies aux noix de cajou à Rabat et Témara, sous 24h. Commandez sur WhatsApp au +212 620 35 53 25." },
+      acceptedAnswer: { "@type": "Answer", text: "Maison de douceurs livre ses Cookies Signature et Dattes Farcies aux noix de cajou à Rabat et Témara, sous 24h. Commandez sur WhatsApp au +212 620 35 53 25." },
     },
     {
       "@type": "Question",
@@ -57,7 +57,7 @@ const PRODUCTS_JSONLD = {
       position: 1,
       name: "Cookie Signature — chocolat noir & noix de pécan",
       description: "Cookie maison à la pâte fondante, chocolat noir et noix de pécan. Fait à la main à Rabat, en petite série quotidienne.",
-      brand: { "@type": "Brand", name: "Zey's Sweetness" },
+      brand: { "@type": "Brand", name: "Maison de douceurs" },
       category: "Pâtisserie / Cookie",
       offers: {
         "@type": "Offer",
@@ -66,7 +66,7 @@ const PRODUCTS_JSONLD = {
         availability: "https://schema.org/InStock",
         url: "https://zeysweet.com/#products",
         areaServed: "MA",
-        seller: { "@type": "Organization", name: "Zey's Sweetness" },
+        seller: { "@type": "Organization", name: "Maison de douceurs" },
       },
       aggregateRating: {
         "@type": "AggregateRating",
@@ -79,7 +79,7 @@ const PRODUCTS_JSONLD = {
       position: 2,
       name: "Dattes Farcies aux Cajou — boîte de 12",
       description: "Dattes Medjool farcies à la crème de noix de cajou maison. Présentation luxe dorée, parfaite pour les cadeaux et mariages à Rabat & Témara.",
-      brand: { "@type": "Brand", name: "Zey's Sweetness" },
+      brand: { "@type": "Brand", name: "Maison de douceurs" },
       category: "Confiserie / Dattes farcies",
       offers: {
         "@type": "Offer",
@@ -88,7 +88,7 @@ const PRODUCTS_JSONLD = {
         availability: "https://schema.org/InStock",
         url: "https://zeysweet.com/#products",
         areaServed: "MA",
-        seller: { "@type": "Organization", name: "Zey's Sweetness" },
+        seller: { "@type": "Organization", name: "Maison de douceurs" },
       },
       aggregateRating: {
         "@type": "AggregateRating",
@@ -110,13 +110,13 @@ const Index = () => {
   return (
     <div className="bg-background min-h-screen">
       <Helmet>
-        <title>Zey's Sweetness — Maison de douceurs · Rabat & Témara</title>
+        <title>Maison de douceurs — Maison de douceurs · Rabat & Témara</title>
         <meta name="description" content="Maison de douceurs artisanale à Rabat & Témara. Cookies Signature et Dattes Farcies aux cajou, faits main. Commande WhatsApp, livraison 24h." />
         <link rel="canonical" href="https://zeysweet.com/" />
         <link rel="alternate" hrefLang="fr" href="https://zeysweet.com/" />
         <link rel="alternate" hrefLang="ar" href="https://zeysweet.com/" />
         <link rel="alternate" hrefLang="x-default" href="https://zeysweet.com/" />
-        <meta property="og:title" content="Zey's Sweetness — Maison de douceurs · Rabat & Témara" />
+        <meta property="og:title" content="Maison de douceurs — Maison de douceurs · Rabat & Témara" />
         <meta property="og:description" content="Cookies Signature et Dattes Farcies aux cajou, faits main à Rabat & Témara. Commande WhatsApp, livraison 24h." />
         <meta property="og:url" content="https://zeysweet.com/" />
         <script type="application/ld+json">{JSON.stringify(FAQ_JSONLD)}</script>

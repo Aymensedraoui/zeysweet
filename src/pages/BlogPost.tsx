@@ -11,7 +11,7 @@ import { buildWhatsAppLink } from "@/lib/store";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
 const BASE = "https://zeysweet.com";
-const ORG_NAME = "Zey's Sweetness";
+const ORG_NAME = "Maison de douceurs";
 const DEFAULT_OG = `${BASE}/og-image.jpg`;
 
 export default function BlogPost() {

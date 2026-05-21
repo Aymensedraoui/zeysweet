@@ -38,10 +38,10 @@ export default function Press() {
   return (
     <div className="bg-background min-h-screen">
       <Helmet>
-        <title>Espace presse — Zey's Sweetness · Maison de douceurs Rabat</title>
+        <title>Espace presse — Maison de douceurs · Maison de douceurs Rabat</title>
         <meta
           name="description"
-          content="Kit média Zey's Sweetness : présentation, photos HD, angles éditoriaux et contact direct pour journalistes et créateurs de contenu à Rabat."
+          content="Kit média Maison de douceurs : présentation, photos HD, angles éditoriaux et contact direct pour journalistes et créateurs de contenu à Rabat."
         />
         <link rel="canonical" href={URL} />
         <link rel="alternate" hrefLang="fr" href={URL} />
@@ -49,10 +49,10 @@ export default function Press() {
         <link rel="alternate" hrefLang="x-default" href={URL} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={URL} />
-        <meta property="og:title" content="Espace presse — Zey's Sweetness" />
+        <meta property="og:title" content="Espace presse — Maison de douceurs" />
         <meta
           property="og:description"
-          content="Kit média, photos et angles pour la presse — Zey's Sweetness, Rabat."
+          content="Kit média, photos et angles pour la presse — Maison de douceurs, Rabat."
         />
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>
@@ -91,7 +91,7 @@ export default function Press() {
 
               <h3 className="font-display text-lg font-semibold text-cocoa mt-10 mb-3">Notre histoire en 3 lignes</h3>
               <p className="text-cocoa/80 text-sm leading-relaxed">
-                Zey's Sweetness est une maison de douceurs artisanale née à Rabat. Toute la
+                Maison de douceurs est une maison de douceurs artisanale née à Rabat. Toute la
                 production est faite à la main, en petite série, avec des ingrédients sélectionnés
                 (beurre, chocolat noir, noix de cajou). Nos deux signatures — Cookies Signature et
                 Dattes Farcies aux cajou — sont livrées à Rabat & Témara sous 24h après commande
@@ -114,7 +114,7 @@ export default function Press() {
                 Photos HD, logo et bio fondatrice envoyés sur demande sous 24h (zip ~30 Mo).
               </p>
               <a
-                href="mailto:contact@zeyssweetness.ma?subject=Demande%20de%20kit%20presse%20Zey's%20Sweetness&body=Bonjour%2C%0A%0AJe%20suis%20%5Bnom%5D%20de%20%5Bm%C3%A9dia%5D%20et%20je%20souhaite%20recevoir%20le%20kit%20presse%20pour%20un%20article%20sur%20%5Bsujet%5D.%0A%0AMerci%20!"
+                href="mailto:contact@maison-de-douceurs.ma?subject=Demande%20de%20kit%20presse%20la Maison%20Sweetness&body=Bonjour%2C%0A%0AJe%20suis%20%5Bnom%5D%20de%20%5Bm%C3%A9dia%5D%20et%20je%20souhaite%20recevoir%20le%20kit%20presse%20pour%20un%20article%20sur%20%5Bsujet%5D.%0A%0AMerci%20!"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-cocoa text-cream text-sm font-medium hover:bg-cocoa/85"
               >
                 <Download className="w-4 h-4" /> Demander le kit presse
@@ -137,10 +137,10 @@ export default function Press() {
                 <MessageCircle className="w-4 h-4" /> WhatsApp +212 620 35 53 25
               </a>
               <a
-                href="mailto:contact@zeyssweetness.ma"
+                href="mailto:contact@maison-de-douceurs.ma"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-cream border border-cocoa/15 text-cocoa text-sm font-medium hover:border-rose"
               >
-                <Mail className="w-4 h-4" /> contact@zeyssweetness.ma
+                <Mail className="w-4 h-4" /> contact@maison-de-douceurs.ma
               </a>
             </div>
           </div>

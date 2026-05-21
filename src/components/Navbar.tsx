@@ -30,48 +30,50 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${
-          scrolled ? "bg-cream/80 backdrop-blur-xl shadow-[0_8px_30px_-12px_hsl(23_60%_14%/0.18)] border-b border-cocoa/5" : "bg-transparent"
+          scrolled ? "bg-background/80 backdrop-blur-xl border-b border-white/5 py-4" : "bg-transparent py-6"
         }`}
       >
-        <div className="container mx-auto h-[72px] flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group">
-            <span className="text-2xl">🍪</span>
-            <span className="font-display font-bold text-xl text-cocoa tracking-tight">
-              Zey's <span className="italic text-caramel">Sweetness</span>
+        <div className="container mx-auto flex items-center justify-between">
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-full bg-caramel/10 flex items-center justify-center text-xl group-hover:bg-caramel/20 transition-colors duration-500">
+              🍪
+            </div>
+            <span className="font-display font-bold text-2xl text-foreground tracking-tight group-hover:text-caramel transition-colors duration-500 uppercase">
+              Maison <span className="italic font-medium lowercase text-caramel">de</span> douceurs
             </span>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-10">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium text-cocoa/80 hover:text-cocoa relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-rose after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300"
+                className="text-sm font-bold uppercase tracking-widest text-foreground/60 hover:text-foreground transition-colors relative after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-full after:h-[1px] after:bg-caramel after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-500"
               >
                 {t(l.k, lang)}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-6">
             <button
               onClick={() => setLang(lang === "fr" ? "ar" : "fr")}
-              className="text-xs font-semibold text-cocoa/70 hover:text-cocoa border border-cocoa/20 rounded-full px-3 py-1.5"
+              className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/50 hover:text-foreground transition-colors"
               aria-label="Changer de langue"
             >
               {t("nav.lang", lang)}
             </button>
-            <button onClick={onOrder} className="hidden sm:inline-flex btn-rose btn-glow !py-2.5 !px-5 text-sm" aria-label={t("a11y.whatsapp", lang)}>
+            <button onClick={onOrder} className="hidden sm:inline-flex btn-rose px-8 py-3 text-sm font-bold uppercase tracking-widest" aria-label={t("a11y.whatsapp", lang)}>
               {t("nav.cta", lang)}
             </button>
             <button
               onClick={() => setCartOpen(true)}
-              className="relative p-2 rounded-full hover:bg-cocoa/5 transition"
+              className="relative p-2 rounded-full hover:bg-white/5 transition"
               aria-label={t("nav.cart", lang)}
             >
-              <ShoppingBag className="w-5 h-5 text-cocoa" />
+              <ShoppingBag className="w-6 h-6 text-foreground" />
               {count > 0 && (
-                <span className="absolute -top-1 -right-1 bg-caramel text-cream text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-caramel text-cream text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
                   {count}
                 </span>
               )}
@@ -81,16 +83,16 @@ export default function Navbar() {
               className="lg:hidden p-2"
               aria-label={t("nav.menu", lang)}
             >
-              <Menu className="w-6 h-6 text-cocoa" />
+              <Menu className="w-7 h-7 text-foreground" />
             </button>
           </div>
         </div>
       </header>
 
       {open && (
-        <div className="fixed inset-0 z-50 bg-cocoa text-cream flex flex-col animate-fade-up">
-          <div className="container mx-auto h-[72px] flex items-center justify-between">
-            <span className="font-display font-bold text-xl">Zey's Sweetness</span>
+        <div className="fixed inset-0 z-50 bg-background text-foreground flex flex-col animate-fade-up">
+          <div className="container mx-auto h-[72px] flex items-center justify-between px-6">
+            <span className="font-display font-bold text-xl uppercase tracking-widest">Maison de douceurs</span>
             <button onClick={() => setOpen(false)} aria-label={t("nav.close", lang)}><X className="w-6 h-6" /></button>
           </div>
           <nav className="flex-1 flex flex-col items-center justify-center gap-8">
