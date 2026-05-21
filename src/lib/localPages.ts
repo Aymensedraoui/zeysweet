@@ -24,13 +24,13 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "cookies-rabat": {
     slug: "cookies-rabat",
     city: "Rabat",
-    metaTitle: "Cookies maison à Rabat | Zey's Sweetness — Livraison 24h",
+    metaTitle: "Cookies maison à Rabat | Maison de douceurs — Livraison 24h",
     metaDesc:
       "Cookies Signature chocolat noir & noix de pécan, faits main à Rabat. Livraison Agdal, Hassan, Hay Riad, Souissi. Commande WhatsApp.",
     h1: "Cookies maison à Rabat — Livraison 24h",
     kicker: "Pâtisserie artisanale · Rabat",
     intro:
-      "Vous cherchez des cookies maison à Rabat ? Zey's Sweetness, c'est une maison de douceurs artisanale qui prépare chaque cookie à la main, en petite série, dans sa cuisine de Rabat. Chocolat noir 70%, noix de pécan grillées, beurre fondu — pas de mix industriel, pas de conservateur, juste la recette qu'on a peaufinée pendant des mois. Commande sur WhatsApp et livraison sous 24h chez vous.",
+      "Vous cherchez des cookies maison à Rabat ? Maison de douceurs, c'est une maison de douceurs artisanale qui prépare chaque cookie à la main, en petite série, dans sa cuisine de Rabat. Chocolat noir 70%, noix de pécan grillées, beurre fondu — pas de mix industriel, pas de conservateur, juste la recette qu'on a peaufinée pendant des mois. Commande sur WhatsApp et livraison sous 24h chez vous.",
     zones: ["Agdal", "Hassan", "Hay Riad", "Souissi", "L'Océan", "Yacoub El Mansour", "Centre-ville", "Aviation"],
     product: { name: "Cookie Signature", price: "35 MAD / pièce", priceValue: "35" },
     sections: [
@@ -90,7 +90,7 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "cookies-agdal": {
     slug: "cookies-agdal",
     city: "Rabat",
-    metaTitle: "Cookies maison Agdal Rabat | Zey's Sweetness — Livraison gratuite",
+    metaTitle: "Cookies maison Agdal Rabat | Maison de douceurs — Livraison gratuite",
     metaDesc:
       "Cookies artisanaux chocolat noir & noix de pécan livrés gratuitement à Agdal Rabat. Faits main, sous 24h. Commande WhatsApp.",
     h1: "Cookies maison à Agdal — Livraison gratuite",
@@ -146,7 +146,7 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "cookies-hay-riad": {
     slug: "cookies-hay-riad",
     city: "Rabat",
-    metaTitle: "Cookies maison Hay Riad | Zey's Sweetness — Livraison Rabat",
+    metaTitle: "Cookies maison Hay Riad | Maison de douceurs — Livraison Rabat",
     metaDesc:
       "Cookies premium chocolat noir & noix de pécan, livrés à Hay Riad Rabat. Faits main, ingrédients haut de gamme. Cadeaux et coffrets sur mesure.",
     h1: "Cookies premium à Hay Riad — Livraison 24h",
@@ -203,13 +203,13 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "dattes-mariage-rabat": {
     slug: "dattes-mariage-rabat",
     city: "Rabat",
-    metaTitle: "Dattes farcies mariage Rabat | Zey's Sweetness — Plateaux sur mesure",
+    metaTitle: "Dattes farcies mariage Rabat | Maison de douceurs — Plateaux sur mesure",
     metaDesc:
       "Dattes Medjool fourrées cajou pour mariage, baby shower et événement à Rabat. Plateaux de 50 à 500 pièces, ruban personnalisé. Devis WhatsApp.",
     h1: "Dattes farcies pour mariage à Rabat — Plateaux sur mesure",
     kicker: "Mariages & événements · Rabat",
     intro:
-      "Pour un mariage à Rabat, les dattes farcies sont l'un des desserts les plus appréciés — moelleuses, élégantes, faciles à servir, et symboliquement parfaites. Zey's Sweetness prépare des plateaux sur mesure de 50 à 500 pièces, avec des dattes Medjool calibre Jumbo et une pâte de noix de cajou faite minute. Personnalisation ruban et étiquette.",
+      "Pour un mariage à Rabat, les dattes farcies sont l'un des desserts les plus appréciés — moelleuses, élégantes, faciles à servir, et symboliquement parfaites. Maison de douceurs prépare des plateaux sur mesure de 50 à 500 pièces, avec des dattes Medjool calibre Jumbo et une pâte de noix de cajou faite minute. Personnalisation ruban et étiquette.",
     zones: ["Rabat", "Salé", "Témara", "Skhirat", "Bouznika", "Mehdia"],
     product: { name: "Plateau Dattes Farcies — 100 pièces", price: "850 MAD", priceValue: "850" },
     sections: [
@@ -268,7 +268,7 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "coffrets-cadeaux-corporate-rabat": {
     slug: "coffrets-cadeaux-corporate-rabat",
     city: "Rabat",
-    metaTitle: "Coffrets cadeaux entreprise Rabat | Zey's Sweetness — Personnalisés",
+    metaTitle: "Coffrets cadeaux entreprise Rabat | Maison de douceurs — Personnalisés",
     metaDesc:
       "Coffrets cadeaux corporate à Rabat : cookies et dattes farcies aux cajou, étiquette avec logo, ruban personnalisé. À partir de 30 boîtes. Devis WhatsApp.",
     h1: "Coffrets cadeaux corporate à Rabat — Personnalisés à votre logo",
@@ -335,13 +335,13 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "dattes-farcies-temara": {
     slug: "dattes-farcies-temara",
     city: "Témara",
-    metaTitle: "Dattes farcies à Témara | Zey's Sweetness — Cajou & Miel",
+    metaTitle: "Dattes farcies à Témara | Maison de douceurs — Cajou & Miel",
     metaDesc:
       "Dattes fourrées aux noix de cajou, faites main. Livraison Témara, Harhoura, Skhirat. Idéal mariage, Ramadan, cadeau corporate. Commande WhatsApp.",
     h1: "Dattes farcies aux cajou à Témara — Livraison 24h",
     kicker: "Confiserie artisanale · Témara",
     intro:
-      "Vous cherchez des dattes farcies à Témara pour un mariage, Ramadan, l'Aïd, ou un cadeau corporate ? Zey's Sweetness prépare ses dattes fourrées aux noix de cajou à la main, une par une, dans sa cuisine au Maroc. Dattes Medjool moelleuses, pâte de cajou maison, finition miel et fleur d'oranger. Livraison gratuite à Témara, Harhoura et Skhirat sous 24h.",
+      "Vous cherchez des dattes farcies à Témara pour un mariage, Ramadan, l'Aïd, ou un cadeau corporate ? Maison de douceurs prépare ses dattes fourrées aux noix de cajou à la main, une par une, dans sa cuisine au Maroc. Dattes Medjool moelleuses, pâte de cajou maison, finition miel et fleur d'oranger. Livraison gratuite à Témara, Harhoura et Skhirat sous 24h.",
     zones: ["Témara centre", "Harhoura", "Skhirat", "Plage des Nations", "Sablette", "Ain Atiq", "Massira"],
     product: { name: "Dattes Farcies aux Cajou — Boîte de 12", price: "120 MAD", priceValue: "120" },
     sections: [

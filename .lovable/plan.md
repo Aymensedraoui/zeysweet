@@ -60,7 +60,7 @@ Hypothèse : panier moyen ~150 MAD, taux conversion visite→WhatsApp ~5%, conve
 Ces actions sont **plus impactantes que le SEO** sur 30 jours. Sans elles, l'objectif 50 commandes ne sera pas atteint.
 
 ### A faire cette semaine
-- **Google Business Profile** : créer fiche "Zey's Sweetness Rabat" + "Témara", photos pro, horaires, posts hebdo. → effet local pack en 7-14j.
+- **Google Business Profile** : créer fiche "Maison de douceurs Rabat" + "Témara", photos pro, horaires, posts hebdo. → effet local pack en 7-14j.
 - **Instagram pro** : 3 posts/semaine + 5 stories/jour avec lien WhatsApp. Reels cuisine = portée organique max.
 - **WhatsApp Status quotidien** : montre la fabrication, les livraisons, les retours clients. Tes contacts existants = premier vivier.
 - **10 micro-influenceurs Rabat** (food/lifestyle, 2-10k followers) : envoie 10 boîtes gratuites contre 1 story + 1 post. ROI imbattable.

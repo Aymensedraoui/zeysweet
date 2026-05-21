@@ -8,7 +8,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import { POSTS_LIST } from "@/lib/posts";
 
 const BASE = "https://zeysweet.com";
-const ORG_NAME = "Zey's Sweetness";
+const ORG_NAME = "Maison de douceurs";
 
 export default function BlogIndex() {
   const url = `${BASE}/blog`;
@@ -38,10 +38,10 @@ export default function BlogIndex() {
   return (
     <div className="bg-background min-h-screen">
       <Helmet>
-        <title>Le journal de Zey's Sweetness — Cookies, dattes & douceurs à Rabat</title>
+        <title>Le journal de Maison de douceurs — Cookies, dattes & douceurs à Rabat</title>
         <meta
           name="description"
-          content="Idées cadeaux, conseils mariage, conservation, recettes : le journal de Zey's Sweetness, maison de douceurs à Rabat & Témara."
+          content="Idées cadeaux, conseils mariage, conservation, recettes : le journal de Maison de douceurs, maison de douceurs à Rabat & Témara."
         />
         <link rel="canonical" href={url} />
         <link rel="alternate" hrefLang="fr" href={url} />
@@ -49,7 +49,7 @@ export default function BlogIndex() {
         <link rel="alternate" hrefLang="x-default" href={url} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
-        <meta property="og:title" content="Le journal — Zey's Sweetness" />
+        <meta property="og:title" content="Le journal — Maison de douceurs" />
         <meta
           property="og:description"
           content="Cadeaux, mariage, conservation : nos guides pour bien choisir vos douceurs à Rabat."

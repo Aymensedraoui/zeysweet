@@ -9,7 +9,7 @@ import { buildWhatsAppLink } from "@/lib/store";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { LOCAL_PAGES, type LocalPage } from "@/lib/localPages";
 
-const ORG_NAME = "Zey's Sweetness";
+const ORG_NAME = "Maison de douceurs";
 const PHONE = "+212620355325";
 const BASE = "https://zeysweet.com";
 const DEFAULT_OG = `${BASE}/og-image.jpg`;
@@ -144,7 +144,7 @@ export default function LocalLanding() {
             </a>
             <a
               href={`tel:${PHONE}`}
-              aria-label={`Appeler Zey's Sweetness au ${PHONE}`}
+              aria-label={`Appeler Maison de douceurs au ${PHONE}`}
               className="btn-outline-cocoa inline-flex items-center gap-2"
             >
               Appeler {PHONE}
@@ -155,7 +155,7 @@ export default function LocalLanding() {
             <div className="mt-12 rounded-3xl overflow-hidden shadow-warm">
               <img
                 src={page.heroImage}
-                alt={`${page.product.name} — ${page.city}, Zey's Sweetness`}
+                alt={`${page.product.name} — ${page.city}, Maison de douceurs`}
                 width={1280}
                 height={800}
                 loading="eager"

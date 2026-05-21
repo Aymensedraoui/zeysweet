@@ -10,9 +10,9 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 type Slug = "mentions-legales" | "cgv" | "confidentialite";
 
 const META: Record<Slug, { description: string }> = {
-  "mentions-legales": { description: "Mentions légales de Zey's Sweetness — maison de douceurs artisanale à Rabat & Témara : éditeur, hébergement, propriété intellectuelle, contact." },
-  cgv: { description: "Conditions Générales de Vente Zey's Sweetness : commande WhatsApp, prix en MAD, livraison Rabat & Témara, conservation, allergènes." },
-  confidentialite: { description: "Politique de confidentialité Zey's Sweetness : données collectées, utilisation, conservation et vos droits sur vos informations." },
+  "mentions-legales": { description: "Mentions légales de Maison de douceurs — maison de douceurs artisanale à Rabat & Témara : éditeur, hébergement, propriété intellectuelle, contact." },
+  cgv: { description: "Conditions Générales de Vente Maison de douceurs : commande WhatsApp, prix en MAD, livraison Rabat & Témara, conservation, allergènes." },
+  confidentialite: { description: "Politique de confidentialité Maison de douceurs : données collectées, utilisation, conservation et vos droits sur vos informations." },
 };
 
 
@@ -20,10 +20,10 @@ const CONTENT: Record<Slug, { title: string; body: { h: string; p: string }[] }>
   "mentions-legales": {
     title: "Mentions légales",
     body: [
-      { h: "Éditeur du site", p: "Zey's Sweetness — maison de douceurs artisanale basée à Rabat & Témara, Maroc. Pour toute question, contactez-nous via WhatsApp ou par email." },
+      { h: "Éditeur du site", p: "Maison de douceurs — maison de douceurs artisanale basée à Rabat & Témara, Maroc. Pour toute question, contactez-nous via WhatsApp ou par email." },
       { h: "Hébergement", p: "Ce site est hébergé sur une infrastructure cloud sécurisée." },
-      { h: "Propriété intellectuelle", p: "L'ensemble des contenus présents sur ce site (textes, photographies, identité visuelle) sont la propriété exclusive de Zey's Sweetness. Toute reproduction sans autorisation est interdite." },
-      { h: "Contact", p: "WhatsApp : +212 620 35 53 25 — Email : contact@zeyssweetness.ma" },
+      { h: "Propriété intellectuelle", p: "L'ensemble des contenus présents sur ce site (textes, photographies, identité visuelle) sont la propriété exclusive de Maison de douceurs. Toute reproduction sans autorisation est interdite." },
+      { h: "Contact", p: "WhatsApp : +212 620 35 53 25 — Email : contact@maison-de-douceurs.ma" },
     ],
   },
   cgv: {
@@ -42,7 +42,7 @@ const CONTENT: Record<Slug, { title: string; body: { h: string; p: string }[] }>
       { h: "Données collectées", p: "Nous collectons uniquement les informations nécessaires au traitement de votre commande : prénom, numéro WhatsApp, adresse de livraison." },
       { h: "Utilisation", p: "Vos données servent exclusivement à préparer et livrer votre commande, et à vous tenir informé(e) de son statut. Nous ne les transmettons à aucun tiers." },
       { h: "Conservation", p: "Vos données sont conservées le temps nécessaire au traitement de la commande, puis supprimées sur simple demande." },
-      { h: "Vos droits", p: "Vous pouvez à tout moment demander la suppression de vos données en nous écrivant via WhatsApp ou à contact@zeyssweetness.ma." },
+      { h: "Vos droits", p: "Vous pouvez à tout moment demander la suppression de vos données en nous écrivant via WhatsApp ou à contact@maison-de-douceurs.ma." },
     ],
   },
 };
@@ -53,7 +53,7 @@ export default function LegalPage() {
   const data = CONTENT[key];
   const meta = META[key];
   const url = `https://zeysweet.com/legal/${key}`;
-  const title = `${data.title} — Zey's Sweetness`;
+  const title = `${data.title} — Maison de douceurs`;
   useEffect(() => { window.scrollTo(0, 0); }, [key]);
 
   return (

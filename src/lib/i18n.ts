@@ -1,4 +1,4 @@
-// Centralized FR/AR translations for Zey's Sweetness.
+// Centralized FR/AR translations for Maison de douceurs.
 // Add a key once here, use t("key") everywhere. No external i18n lib needed.
 
 export type Lang = "fr" | "ar";
@@ -33,7 +33,7 @@ export const dict = {
   "hero.chip.2":        { fr: "Petite série",     ar: "كميات محدودة" },
   "hero.chip.3":        { fr: "Livraison 24h",    ar: "توصيل خلال 24 ساعة" },
   "a11y.whatsapp":      { fr: "Envoyer un message WhatsApp", ar: "إرسال رسالة واتساب" },
-  "a11y.call":          { fr: "Appeler Zey's Sweetness", ar: "اتصل بزي سويتنس" },
+  "a11y.call":          { fr: "Appeler la Maison", ar: "اتصل بالبيت" },
   "a11y.skip":          { fr: "Aller au contenu principal", ar: "انتقل إلى المحتوى الرئيسي" },
 
   // Trust
@@ -58,8 +58,8 @@ export const dict = {
   "story.eyebrow":      { fr: "Notre maison",     ar: "بيتنا" },
   "story.title.a":      { fr: "Né à Rabat,", ar: "وُلد في الرباط،" },
   "story.title.b":      { fr: "fait à la main.",    ar: "وصُنع باليد." },
-  "story.p1":           { fr: "Zey's Sweetness est une petite maison de douceurs basée à Rabat et Témara. On a commencé avec une idée simple : préparer chaque douceur comme si elle était destinée à un proche.",
-                          ar: "زي سويتنس بيت حلويات صغير من الرباط وتمارة. بدأنا بفكرة بسيطة : نحضّر كل قطعة كما لو كانت مُهداة لشخص عزيز." },
+  "story.p1":           { fr: "Maison de douceurs est une signature artisanale basée à Rabat et Témara. On a commencé avec une idée simple : préparer chaque douceur comme si elle était destinée à un proche.",
+                          ar: "ميزون دو دوسور هو توقيع حرفي مقره الرباط وتمارة. بدأنا بفكرة بسيطة : نحضّر كل قطعة كما لو كانت مُهداة لشخص عزيز." },
   "story.p2":           { fr: "Pâte fermentée à froid, beurre choisi, chocolat noir 70%, dattes Medjool farcies à la main aux noix de cajou. Pas d'industriel, pas de raccourcis. Juste deux signatures travaillées en petite série.",
                           ar: "عجين مخمر باردا، زبدة منتقاة، شوكولاتة سوداء 70%، تمر مجهول محشي يدويا بالكاجو. لا صناعي، لا اختصارات. فقط توقيعان مصنوعان بكميات صغيرة." },
   "story.cta":          { fr: "Commander une signature →", ar: "اطلب توقيعا →" },
@@ -217,7 +217,7 @@ export const dict = {
   "ft.pay.cash":        { fr: "Cash à la livraison", ar: "نقدا عند التسليم" },
   "ft.pay.transfer":    { fr: "Virement (sur demande)", ar: "تحويل بنكي (عند الطلب)" },
   "ft.pay.whatsapp":    { fr: "WhatsApp",            ar: "واتساب" },
-  "ft.copyright":       { fr: "© 2026 Zey's Sweetness — Fait avec ❤ au Maroc", ar: "© 2026 حلاوة زي — صنع بحب في المغرب" },
+  "ft.copyright":       { fr: "© 2026 Maison de douceurs — Fait avec ❤ au Maroc", ar: "© 2026 ميزون دو دوسور — صنع بحب في المغرب" },
 
   // FAQ
   "faq.eyebrow":        { fr: "Questions fréquentes", ar: "أسئلة شائعة" },
