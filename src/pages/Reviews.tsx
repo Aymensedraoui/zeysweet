@@ -40,6 +40,15 @@ export default function Reviews() {
     "@id": `${BASE}/#business`,
     name: "Zey's Sweetness",
     url: BASE,
+    image: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f6e68386-17a6-43bd-abf1-f47ef502d00b/id-preview-db51dcb7--a640c7ed-e3d9-4125-a3d2-94cdfcad68c9.lovable.app-1777241430790.png",
+    telephone: "+212620355325",
+    priceRange: "MAD 35–280",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Rabat",
+      addressRegion: "Rabat-Salé-Kénitra",
+      addressCountry: "MA",
+    },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
@@ -55,6 +64,7 @@ export default function Reviews() {
       reviewBody: r.txt,
     })),
   };
+
 
   const copyShare = async () => {
     await navigator.clipboard.writeText(SHARE_TEXT + GOOGLE_REVIEW_LINK);
