@@ -10,8 +10,8 @@ import { toast } from "sonner";
 
 const BASE = "https://zeysweet.com";
 const URL = `${BASE}/avis`;
-// TODO: remplacer par le vrai Place ID Google Business Profile une fois créé
-const GOOGLE_REVIEW_LINK = "https://search.google.com/local/writereview?placeid=REPLACE_WITH_PLACE_ID";
+// TODO: vérifier ce Place ID — à confirmer dans Google Business Profile officiel
+const GOOGLE_REVIEW_LINK = "https://search.google.com/local/writereview?placeid=ChIJrQRPdYKqCw0RNMbSfaXmVhI";
 const SHARE_TEXT =
   "Bonjour 🌸 Merci d'avoir commandé chez Zey's Sweetness ! Si nos douceurs vous ont plu, votre avis Google nous aiderait énormément (1 minute) : ";
 
