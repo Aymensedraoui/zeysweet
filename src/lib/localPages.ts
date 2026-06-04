@@ -90,7 +90,7 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "cookies-agdal": {
     slug: "cookies-agdal",
     city: "Rabat",
-    metaTitle: "Cookies maison Agdal Rabat | Zey's Sweetness — Livraison gratuite",
+    metaTitle: "Cookies maison à Agdal Rabat | Zey's Sweetness",
     metaDesc:
       "Cookies artisanaux chocolat noir & noix de pécan livrés gratuitement à Agdal Rabat. Faits main, sous 24h. Commande WhatsApp.",
     h1: "Cookies maison à Agdal — Livraison gratuite",
