@@ -268,7 +268,7 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "coffrets-cadeaux-corporate-rabat": {
     slug: "coffrets-cadeaux-corporate-rabat",
     city: "Rabat",
-    metaTitle: "Coffrets cadeaux entreprise Rabat | Zey's Sweetness — Personnalisés",
+    metaTitle: "Coffrets cadeaux corporate Rabat | Zey's Sweetness",
     metaDesc:
       "Coffrets cadeaux corporate à Rabat : cookies et dattes farcies aux cajou, étiquette avec logo, ruban personnalisé. À partir de 30 boîtes. Devis WhatsApp.",
     h1: "Coffrets cadeaux corporate à Rabat — Personnalisés à votre logo",
