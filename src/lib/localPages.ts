@@ -203,7 +203,7 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "dattes-mariage-rabat": {
     slug: "dattes-mariage-rabat",
     city: "Rabat",
-    metaTitle: "Dattes farcies mariage Rabat | Zey's Sweetness — Plateaux sur mesure",
+    metaTitle: "Dattes mariage Rabat | Zey's Sweetness",
     metaDesc:
       "Dattes Medjool fourrées cajou pour mariage, baby shower et événement à Rabat. Plateaux de 50 à 500 pièces, ruban personnalisé. Devis WhatsApp.",
     h1: "Dattes farcies pour mariage à Rabat — Plateaux sur mesure",
