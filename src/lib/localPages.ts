@@ -90,7 +90,7 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "cookies-agdal": {
     slug: "cookies-agdal",
     city: "Rabat",
-    metaTitle: "Cookies maison Agdal Rabat | Zey's Sweetness — Livraison gratuite",
+    metaTitle: "Cookies maison à Agdal Rabat | Zey's Sweetness",
     metaDesc:
       "Cookies artisanaux chocolat noir & noix de pécan livrés gratuitement à Agdal Rabat. Faits main, sous 24h. Commande WhatsApp.",
     h1: "Cookies maison à Agdal — Livraison gratuite",
@@ -203,7 +203,7 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "dattes-mariage-rabat": {
     slug: "dattes-mariage-rabat",
     city: "Rabat",
-    metaTitle: "Dattes farcies mariage Rabat | Zey's Sweetness — Plateaux sur mesure",
+    metaTitle: "Dattes mariage Rabat | Zey's Sweetness",
     metaDesc:
       "Dattes Medjool fourrées cajou pour mariage, baby shower et événement à Rabat. Plateaux de 50 à 500 pièces, ruban personnalisé. Devis WhatsApp.",
     h1: "Dattes farcies pour mariage à Rabat — Plateaux sur mesure",
@@ -268,7 +268,7 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
   "coffrets-cadeaux-corporate-rabat": {
     slug: "coffrets-cadeaux-corporate-rabat",
     city: "Rabat",
-    metaTitle: "Coffrets cadeaux entreprise Rabat | Zey's Sweetness — Personnalisés",
+    metaTitle: "Coffrets cadeaux corporate Rabat | Zey's Sweetness",
     metaDesc:
       "Coffrets cadeaux corporate à Rabat : cookies et dattes farcies aux cajou, étiquette avec logo, ruban personnalisé. À partir de 30 boîtes. Devis WhatsApp.",
     h1: "Coffrets cadeaux corporate à Rabat — Personnalisés à votre logo",

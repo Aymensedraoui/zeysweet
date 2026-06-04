@@ -38,7 +38,7 @@ export default function BlogIndex() {
   return (
     <div className="bg-background min-h-screen">
       <Helmet>
-        <title>Le journal de Zey's Sweetness — Cookies, dattes & douceurs à Rabat</title>
+        <title>Journal Zey's Sweetness — Cookies & dattes à Rabat</title>
         <meta
           name="description"
           content="Idées cadeaux, conseils mariage, conservation, recettes : le journal de Zey's Sweetness, maison de douceurs à Rabat & Témara."
