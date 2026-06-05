@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
 
 export default function FloatingWhatsApp() {
@@ -9,6 +10,7 @@ export default function FloatingWhatsApp() {
   useEffect(() => { const t = setTimeout(() => setShown(true), 1500); return () => clearTimeout(t); }, []);
 
   const handle = () => {
+    trackWhatsAppClick("floating");
     if (cart.length) setModalOpen(true);
     else window.open(buildWhatsAppLink([], giftMessage, lang, { source: "floating" }), "_blank");
   };

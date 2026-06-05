@@ -32,18 +32,38 @@ const FAQ_JSONLD = {
     },
     {
       "@type": "Question",
-      name: "Quels sont les délais de livraison ?",
-      acceptedAnswer: { "@type": "Answer", text: "Livraison à Rabat et Témara sous 24h après confirmation sur WhatsApp. Commandez aujourd'hui, recevez demain." },
+      name: "Quels sont les délais de livraison à Rabat et Témara ?",
+      acceptedAnswer: { "@type": "Answer", text: "Livraison à Rabat (Agdal, Hassan, Hay Riad, Souissi, L'Océan) et Témara (Harhoura, Skhirat) sous 24h après confirmation sur WhatsApp. Commandez aujourd'hui avant 18h, recevez demain entre 11h et 19h." },
     },
     {
       "@type": "Question",
       name: "Quels sont les modes de paiement ?",
-      acceptedAnswer: { "@type": "Answer", text: "Cash à la livraison à Rabat et Témara. Pour les commandes corporate au-delà de 500 MAD, virement bancaire possible (RIB envoyé sur WhatsApp)." },
+      acceptedAnswer: { "@type": "Answer", text: "Cash à la livraison à Rabat et Témara. Pour les commandes corporate au-delà de 500 MAD, virement bancaire possible (RIB envoyé sur WhatsApp). Facture entreprise avec ICE disponible." },
     },
     {
       "@type": "Question",
       name: "Puis-je commander un coffret cadeau personnalisé ?",
-      acceptedAnswer: { "@type": "Answer", text: "Oui. Composez votre coffret avec nos deux signatures (Cookies + Dattes Farcies aux cajou), avec ruban et message personnalisés. Livraison à Rabat ou Témara." },
+      acceptedAnswer: { "@type": "Answer", text: "Oui. Composez votre coffret avec nos deux signatures (Cookies Signature + Dattes Farcies aux cajou), ajoutez ruban et carte avec message manuscrit. Livraison soignée à Rabat ou Témara. À partir de 6 pièces." },
+    },
+    {
+      "@type": "Question",
+      name: "Combien de dattes farcies prévoir pour un mariage ?",
+      acceptedAnswer: { "@type": "Answer", text: "Comptez 8 à 12 dattes farcies aux cajou par invité si elles font partie du buffet dessert principal, 4 à 6 si elles accompagnent une pièce montée. Pour 100 invités, prévoir 800 à 1000 pièces. Commande 7 jours à l'avance au-delà de 500 pièces." },
+    },
+    {
+      "@type": "Question",
+      name: "Combien de temps se conservent les cookies et dattes farcies ?",
+      acceptedAnswer: { "@type": "Answer", text: "Cookies Signature : 5 jours à température ambiante dans une boîte hermétique. Dattes Farcies aux cajou : 7 jours à température ambiante, 15 jours au réfrigérateur. Réchauffez les cookies 8 secondes au micro-ondes pour retrouver le fondant du jour de cuisson." },
+    },
+    {
+      "@type": "Question",
+      name: "Les produits contiennent-ils des allergènes ?",
+      acceptedAnswer: { "@type": "Answer", text: "Le Cookie Signature contient gluten (farine de blé), beurre AOP, œufs et noix de pécan. Les Dattes Farcies aux Cajou contiennent des noix de cajou. Indiquez-nous toute allergie sur WhatsApp avant de commander." },
+    },
+    {
+      "@type": "Question",
+      name: "Proposez-vous des coffrets cadeaux corporate avec logo entreprise ?",
+      acceptedAnswer: { "@type": "Answer", text: "Oui, à partir de 30 boîtes : étiquette imprimée avec votre logo, ruban à votre couleur (15 teintes au choix), carte de vœux personnalisée. Idéal pour cadeaux clients fin d'année, Aïd, Ramadan, séminaires et lancements à Rabat et Témara. Facture entreprise + virement bancaire." },
     },
   ],
 };
