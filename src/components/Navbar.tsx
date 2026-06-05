@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
 
 const links = [
@@ -16,6 +17,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const count = cart.reduce((s, i) => s + i.qty, 0);
   const onOrder = () => {
+    trackWhatsAppClick("navbar");
     if (cart.length) setModalOpen(true);
     else window.open(buildWhatsAppLink([], giftMessage, lang, { source: "navbar" }), "_blank");
   };

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import heroCookie from "@/assets/hero-cookie.jpg";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
 
 const marqueeItems = [
@@ -37,6 +38,7 @@ export default function Hero() {
   }, []);
 
   const onOrder = () => {
+    trackWhatsAppClick("hero");
     if (cart.length) setModalOpen(true);
     else window.open(buildWhatsAppLink([], giftMessage, lang, { source: "hero" }), "_blank");
   };
