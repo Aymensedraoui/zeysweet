@@ -396,4 +396,74 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
       { to: "/cookies-rabat", label: "Cookies maison à Rabat →" },
     ],
   },
+
+  "dattes-ramadan-rabat": {
+    slug: "dattes-ramadan-rabat",
+    city: "Rabat",
+    metaTitle: "Dattes farcies Ramadan Rabat | Zey's Sweetness",
+    metaDesc:
+      "Dattes Medjool farcies aux noix de cajou pour Ramadan et f'tour à Rabat & Témara. Boîtes cadeaux, plateaux famille, coffrets entreprise. Livraison 24h.",
+    h1: "Dattes farcies pour Ramadan à Rabat — Le f'tour des grandes occasions",
+    kicker: "Ramadan & Aïd · Rabat & Témara",
+    intro:
+      "Pendant le Ramadan, les dattes sont au cœur du f'tour. Chez Zey's Sweetness, on prépare des dattes Medjool calibre Jumbo, dénoyautées à la main et farcies d'une pâte de noix de cajou broyée minute, parfumée au miel et à la fleur d'oranger. Idéales pour le f'tour familial, les invitations entre proches, les cadeaux de Ramadan ou les coffrets corporate de l'Aïd El-Fitr. Livraison Rabat et Témara sous 24h, plateaux famille et coffrets cadeaux disponibles.",
+    zones: ["Agdal", "Hassan", "Hay Riad", "Souissi", "Témara centre", "Harhoura", "Salé"],
+    product: { name: "Boîte Ramadan — 24 dattes farcies cajou", price: "220 MAD", priceValue: "220" },
+    sections: [
+      {
+        title: "Pourquoi nos dattes farcies pour votre f'tour ?",
+        body:
+          "Le f'tour, c'est le moment le plus attendu de la journée pendant le Ramadan. Casser le jeûne avec une datte de qualité, c'est respecter la tradition et marquer le coup. Nos dattes Medjool sont sélectionnées calibre Jumbo, la pâte de cajou est broyée le jour J — pas de mix industriel, pas d'arôme. Le miel toutes-fleurs marocain et la fleur d'oranger apportent une touche parfumée typique du Ramadan.",
+        bullets: [
+          "Dattes Medjool calibre Jumbo — moelleuses, charnues",
+          "Pâte de noix de cajou maison, broyée à la commande",
+          "Miel toutes-fleurs marocain + fleur d'oranger",
+          "Boîte cadeau dorée, idéale pour invitations Ramadan",
+          "Format famille (24, 48 pcs) ou plateau corporate (100+)",
+        ],
+      },
+      {
+        title: "Formats pensés pour le Ramadan",
+        body:
+          "Boîte famille 24 pièces (220 MAD) : pour 2-3 f'tours en famille. Boîte 48 pièces (420 MAD) : pour recevoir 8-10 invités. Plateau Ramadan 100 pièces (850 MAD) : pour les grandes invitations ou f'tour entreprise. Coffret Aïd El-Fitr (cookies + dattes, ruban doré, carte) : à partir de 180 MAD/boîte, parfait à offrir le matin de l'Aïd.",
+      },
+      {
+        title: "Cadeaux de Ramadan et Aïd",
+        body:
+          "Au Maroc, offrir des dattes pendant Ramadan, c'est un geste qui touche. On prépare des coffrets pour vos parents, beaux-parents, voisins, collègues, ou clients. Étiquette personnalisée avec nom du destinataire ou message ('Ramadan Karim', 'Aïd Moubarak') possible à partir de 10 boîtes. Pour les entreprises, coffret Aïd El-Fitr avec logo à partir de 30 boîtes.",
+      },
+      {
+        title: "Délais Ramadan : commandez tôt",
+        body:
+          "Le Ramadan, c'est notre pic d'activité. On recommande de commander 3 à 7 jours à l'avance pour le f'tour quotidien, et 10 à 14 jours pour les boîtes Aïd El-Fitr et coffrets entreprise. Les 2 dernières semaines du Ramadan se réservent vite — passez votre commande dès la première semaine pour garantir votre date.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Vous livrez pendant le Ramadan, à quels horaires ?",
+        a: "Oui, toute la journée du lundi au samedi pendant Ramadan. Créneaux préférés des clients : 14h-17h pour livraison avant f'tour, ou 22h-minuit pour la journée suivante. On adapte à votre planning sur WhatsApp.",
+      },
+      {
+        q: "Combien de dattes prévoir par invité au f'tour ?",
+        a: "3 à 5 dattes farcies par invité au moment de casser le jeûne, plus 2-3 supplémentaires en plateau dessert. Pour un f'tour de 10 invités, comptez 50 à 80 pièces. Pour 20 invités, 100 à 150 pièces.",
+      },
+      {
+        q: "Vous faites des coffrets pour l'Aïd El-Fitr ?",
+        a: "Oui, coffret signature Aïd El-Fitr : 6 cookies + 12 dattes farcies cajou, boîte dorée, ruban et carte 'Aïd Moubarak'. 180 MAD/boîte, à partir de 5 unités. Personnalisation logo entreprise à partir de 30 boîtes.",
+      },
+      {
+        q: "Vous proposez la livraison à plusieurs adresses ?",
+        a: "Oui, pour offrir des coffrets Ramadan ou Aïd à plusieurs proches en une seule commande. Vous nous envoyez la liste sur WhatsApp (nom, adresse, téléphone par destinataire). Frais de livraison éclatée : 25 MAD par adresse supplémentaire au-delà de 3.",
+      },
+      {
+        q: "Combien de temps se conservent les dattes pendant Ramadan ?",
+        a: "7 jours à température ambiante dans la boîte fermée, 15 jours au réfrigérateur. Parfait pour préparer plusieurs f'tours d'avance ou conserver après l'Aïd.",
+      },
+    ],
+    crossLinks: [
+      { to: "/dattes-mariage-rabat", label: "Dattes farcies pour mariage Rabat →" },
+      { to: "/coffrets-cadeaux-corporate-rabat", label: "Coffrets corporate Aïd & fin d'année →" },
+      { to: "/dattes-farcies-temara", label: "Dattes farcies à Témara →" },
+    ],
+  },
 };
