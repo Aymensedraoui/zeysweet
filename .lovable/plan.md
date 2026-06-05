@@ -1,100 +1,116 @@
-# Plan SEO & visibilité — Objectif 50 commandes en 30 jours
+# Audit SEO / GEO + Plan de croissance virale — Zey's Sweetness
 
-## Réalité du marché (à lire en premier)
+## 1. Diagnostic actuel
 
-Un site neuf sans backlinks ne se classe pas sur Google en 30 jours. Le SEO organique met 3 à 6 mois à porter ses fruits. **Pour atteindre 50 commandes en 30 jours, le SEO seul ne suffit pas** — il faut combiner SEO (qui sème pour mois 2-3) avec des leviers à effet immédiat : Google Business Profile (local pack en 7-14j), Instagram, WhatsApp Status, bouche-à-oreille ciblé.
+### ✅ SEO technique — solide
+- Schema JSON-LD : Bakery + Product (×2) + FAQPage + LocalBusiness (page /avis) ✅
+- Sitemap.xml, robots.txt, llms.txt, canonical, hreflang ✅
+- Titres < 60 car., meta descriptions OK ✅
+- Pre-render serveur pour Googlebot + crawlers sociaux ✅
+- Hero LCP optimisé (fetchpriority, width/height, font-display swap) ✅
+- Google Search Console vérifié + sitemap soumis ✅
 
-Hypothèse : panier moyen ~150 MAD, taux conversion visite→WhatsApp ~5%, conversion WhatsApp→commande ~40%. Pour 50 commandes il faut ~2 500 visites OU ~125 conversations WhatsApp qualifiées.
+### ⚠️ Points faibles détectés
+| Domaine | Constat | Sévérité |
+|---|---|---|
+| **Authority Score Semrush** | 0/100 — site quasi inconnu de Google | 🔴 critique |
+| **Backlinks** | 7 liens, tous nofollow, 4 domaines (3 sont des sites Fiverr spam) | 🔴 critique |
+| **Trafic organique** | Non mesurable (volume trop faible pour Semrush) | 🟡 normal pour un nouveau site |
+| **Accessibilité** | Contrastes texte muté sur fond clair (WCAG AA) | 🟢 low |
+| **Analytics** | GA4 et Meta Pixel = `G-XXXXXXXXXX` / `0000000000000000` (placeholders) | 🔴 zéro tracking actif |
+| **GEO (Generative Engine Optimization)** | LocalBusiness OK mais peu de contenu Q&A long-form que ChatGPT/Perplexity citent | 🟡 à renforcer |
 
-## Ce qu'on fait dans Lovable (code/SEO technique)
+### 📊 Données marché (Semrush, base FR)
+- "cookies Rabat" : 20 recherches/mois, difficulté 0/100 → **win facile**
+- "dattes farcies" : 170/mois, difficulté 16/100 → **opportunité**
+- "dattes fourrées" : 590/mois (variante orthographique non ciblée) → **manque à exploiter**
 
-### Semaine 1 — Fondations SEO
+> ⚠️ Le Maroc n'est pas une base Semrush dédiée — les volumes réels locaux sont supérieurs (recherches en darija + français mélangées via Google.ma).
 
-1. **Analytics + tracking**
-   - Intégrer Google Analytics 4 (mesure trafic, sources, conversions)
-   - Intégrer Meta Pixel (préparer remarketing pour phase B)
-   - Event tracking sur clic WhatsApp (= conversion principale)
+---
 
-2. **4 nouvelles pages locales SEO** (sur le modèle cookies-rabat existant)
-   - `/cookies-agdal` — quartier le plus chaud Rabat
-   - `/cookies-hay-riad` — pouvoir d'achat élevé
-   - `/dattes-mariage-rabat` — intention d'achat forte, gros panier
-   - `/coffrets-cadeaux-corporate-rabat` — B2B, gros tickets
-   - Chaque page : Helmet complet, JSON-LD LocalBusiness+Product+FAQ+Breadcrumb, ~450 mots, maillage croisé, CTA WhatsApp
+## 2. Plan en 3 phases
 
-3. **Images dédiées par page** (génération via imagegen)
-   - 1 hero image par landing locale (6 au total avec les existantes)
-   - Optimisation : conversion WebP, lazy loading, alt text riche
-   - OG image par page (au lieu du générique partagé)
+### Phase 1 — Fondations mesurables (Semaine 1)
+**Sans tracking, aucune décision data-driven n'est possible.**
 
-4. **hreflang FR/AR**
-   - Ajouter balises hreflang dans Helmet pour signaler les versions FR et AR à Google
+1. **Remplacer les placeholders analytics** dans `index.html` :
+   - GA4 `G-XXXXXXXXXX` → vrai Measurement ID
+   - Meta Pixel `0000000000000000` → vrai Pixel ID
+   - Ajouter Pixel TikTok (audience Maroc 18-35 ans massive sur TikTok)
+2. **Corriger l'accessibilité** : remplacer `text-muted-foreground/50` et contrastes faibles par tokens design system
+3. **Ajouter événements WhatsApp tracking** (`whatsapp_click`, `add_to_cart`, `checkout`) sur les CTAs
 
-### Semaine 2 — Contenu éditorial (longue traîne)
+### Phase 2 — SEO local + GEO (Semaines 2-3)
+**Objectif : devenir LA réponse pour "cookies/dattes à Rabat" sur Google ET ChatGPT/Perplexity.**
 
-5. **Structure blog** : route `/blog` + `/blog/:slug`, CMS léger (markdown ou data file), JSON-LD Article + BreadcrumbList
+1. **Google Business Profile** (priorité #1 absolue — gratuit, énorme ROI local)
+   - Créer/réclamer la fiche "Zey's Sweetness Rabat"
+   - 10+ photos pro produits + vitrine
+   - Récolter 20 avis Google clients existants en 30 jours
+   - Posts hebdomadaires (offres, nouveautés)
+2. **Renforcer le contenu GEO** (cité par les IA génératives) :
+   - Étendre la FAQ à 12+ Q/R (prix, délais, allergènes, conservation, mariage, corporate)
+   - Ajouter une page `/guide/cadeau-gourmand-rabat` (guide long-form, 1200 mots)
+   - Ajouter une page `/dattes-ramadan-rabat` (saisonnier, fort potentiel)
+3. **Variantes orthographiques** : ajouter "dattes fourrées" en synonyme dans le contenu (590/mois vs 170 actuels)
+4. **Backlinks de qualité** :
+   - Inscriptions annuaires marocains (Pages Jaunes Maroc, Yelo.ma, Avito Pro)
+   - Articles invités sur 2-3 blogs lifestyle Maroc (Welovebuzz, MarocMama)
+   - Partenariats : wedding planners Rabat, traiteurs corporate
 
-6. **5 premiers articles** (mots-clés à faible difficulté, intention locale/saisonnière) :
-   - "Idées cadeaux Ramadan 2026 à Rabat"
-   - "Combien de pièces de dattes farcies pour un mariage marocain ?"
-   - "Cookies maison vs industriels : ce qui change vraiment"
-   - "Cadeaux corporate fin d'année : 7 idées originales à Rabat"
-   - "Conservation des dattes farcies : guide complet"
+### Phase 3 — Viralité (Semaines 3-8)
+**Objectif : générer 100+ commandes/mois via social, pas via SEO seul.**
 
-### Semaine 3 — Optimisation conversion SEO
+1. **TikTok / Instagram Reels** — moteur principal au Maroc
+   - 5 vidéos/semaine (15-30 sec) : ASMR cookie qui casse, dattes farcies en macro, coulissé chocolat, packaging mariage
+   - Hashtags : #RabatFood #MoroccoSweets #CookiesMaroc #Témara #FoodieRabat
+   - 2 collabs/mois avec foodies Rabat (1k-50k followers, micro-influence > macro)
+2. **Mécanique virale intégrée au site** :
+   - **Programme parrainage** : "-15% pour toi, -15% pour ton amie" (lien WhatsApp pré-rempli)
+   - **UGC contest mensuel** : photo de ta boîte → repost + cookie offert
+   - **Coffret "surprise mariage"** offert à 1 mariée/mois si elle poste un reel
+3. **Campagnes payantes** (budget 1500-3000 MAD/mois)
+   - Meta Ads géolocalisé Rabat+Témara, audience 22-45, intérêts wedding/food/gifts
+   - Reciblage WhatsApp click → offre première commande
+4. **B2B Corporate** (panier moyen 10×)
+   - LinkedIn outreach 50 RH/mois (banques, ambassades, cabinets conseil Rabat)
+   - Plaquette PDF coffrets fin d'année / Aïd / Ramadan
+   - Page dédiée `/corporate` avec formulaire devis
 
-7. **Pages produit dédiées** : `/produits/cookie-signature` et `/produits/dattes-farcies-cajou`
-   - Galerie photos, ingrédients détaillés, avis, FAQ produit
-   - JSON-LD Product complet avec vraies reviews
+---
 
-8. **Audit technique** : Core Web Vitals, vitesse mobile, lazy load, preload fonts
+## 3. KPIs à 90 jours
 
-### Semaine 4 — Amplification & mesure
+| Métrique | Aujourd'hui | Objectif J+90 |
+|---|---|---|
+| Authority Score | 0 | 8-12 |
+| Backlinks (dofollow) | 0 | 15+ |
+| Avis Google | 0 | 25+ |
+| Followers Instagram | ? | +2000 |
+| Commandes WhatsApp/mois | ? | 100+ |
+| Trafic organique mensuel | ~0 | 500-800 sessions |
+| Conversion WhatsApp click | ? | 12%+ |
 
-9. **Maillage interne renforcé** : liens contextuels home ↔ blog ↔ pages locales ↔ produit
-10. **Resoumission GSC** : sitemap mis à jour, demande d'indexation des nouvelles URLs
-11. **Bilan analytics** : sources de trafic, pages performantes, taux conversion WhatsApp
+---
 
-## Ce que TU dois faire en parallèle (hors Lovable, critique pour 50 commandes)
+## 4. Ce que je peux implémenter en code (étape suivante)
 
-Ces actions sont **plus impactantes que le SEO** sur 30 jours. Sans elles, l'objectif 50 commandes ne sera pas atteint.
+Si tu approuves, je peux livrer dans une seule itération :
 
-### A faire cette semaine
-- **Google Business Profile** : créer fiche "Zey's Sweetness Rabat" + "Témara", photos pro, horaires, posts hebdo. → effet local pack en 7-14j.
-- **Instagram pro** : 3 posts/semaine + 5 stories/jour avec lien WhatsApp. Reels cuisine = portée organique max.
-- **WhatsApp Status quotidien** : montre la fabrication, les livraisons, les retours clients. Tes contacts existants = premier vivier.
-- **10 micro-influenceurs Rabat** (food/lifestyle, 2-10k followers) : envoie 10 boîtes gratuites contre 1 story + 1 post. ROI imbattable.
+1. Corrections accessibilité (contrastes WCAG AA)
+2. Hooks analytics : `whatsapp_click`, `add_to_cart`, `view_product` (prêts à recevoir tes vrais IDs GA4/Meta/TikTok)
+3. Nouvelle page `/parrainage` avec mécanique de partage WhatsApp pré-rempli
+4. Nouvelle page `/corporate` avec formulaire devis (Cloud backend)
+5. Extension FAQ (4 → 12 questions) — boost GEO
+6. Nouvelle page locale `/dattes-ramadan-rabat` (saisonnier)
+7. Bouton "Laisser un avis Google" sur `/avis` pour booster la fiche GBP
 
-### Continu
-- **Demander un avis Google** à chaque cliente livrée (lien direct préparé). Vise 20 avis 5★ en 30j.
-- **Photos clients réelles** (avec leur accord) — gold pour future page testimonials.
-- **Activer un code parrainage** : "-15% pour toi et ton amie" (geste manuel WhatsApp suffit).
+**Ce qui reste hors-code (à faire par toi)** :
+- Créer la fiche Google Business Profile
+- Fournir les vrais IDs GA4 / Meta Pixel / TikTok Pixel
+- Stratégie de contenu TikTok/Reels (tournage)
+- Outreach influenceurs et annuaires
+- Budget Meta Ads
 
-## Indicateurs hebdo (à me reporter chaque vendredi)
-
-| Métrique | Objectif S4 |
-|---|---|
-| Visites GA4 | 2 500 cumulées |
-| Clics WhatsApp (event) | 125 |
-| Commandes confirmées | 50 |
-| Avis Google | 20 |
-| Followers Instagram | +500 |
-| Pages indexées GSC | 12+ |
-
-## Détails techniques
-
-- **GA4** : via `gtag.js` dans `index.html` (sitewide). Event custom `whatsapp_click` déclenché dans `buildWhatsAppLink` et `FloatingWhatsApp`.
-- **Meta Pixel** : même approche, event `Lead` sur clic WhatsApp.
-- **Blog** : data en `src/lib/posts.ts` au début (rapide), migration CMS plus tard si nécessaire. Pas de Lovable Cloud requis maintenant.
-- **Images** : génération via imagegen, format `.jpg` (photos), nommage SEO `cookies-agdal-zey-sweetness.jpg`.
-- **Sitemap** : `public/sitemap.xml` mis à jour à chaque ajout de page (manuel pour l'instant — 16 URLs prévues fin S2).
-- **hreflang** : `<link rel="alternate" hreflang="fr" href="..." />` + `<link rel="alternate" hreflang="ar" href="..." />` + `x-default`.
-
-## Hors scope (phase B/C ensuite)
-- Checkout en ligne, paiement, Lovable Cloud, emails transactionnels
-- Vraie page reviews dynamique branchée à Google API
-- Refonte du design / nouveaux composants visuels majeurs
-
-## Ordre d'exécution si tu valides
-
-Je commence par **Semaine 1** dans l'ordre : GA4+Pixel → 4 pages locales → images → hreflang. Je m'arrête après chaque semaine pour te montrer et tu valides la suite.
+Veux-tu que je démarre par les 7 points code ci-dessus ?
