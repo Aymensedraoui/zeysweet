@@ -11,6 +11,8 @@ import BlogPost from "./pages/BlogPost.tsx";
 import Reviews from "./pages/Reviews.tsx";
 import Press from "./pages/Press.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import WaRedirect from "./pages/WaRedirect.tsx";
+import Campaigns from "./pages/Campaigns.tsx";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +36,8 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/avis" element={<Reviews />} />
           <Route path="/presse" element={<Press />} />
+          <Route path="/wa/:videoId" element={<WaRedirect />} />
+          <Route path="/campagnes" element={<Campaigns />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
