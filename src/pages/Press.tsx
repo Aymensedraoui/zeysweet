@@ -5,9 +5,17 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollProgress from "@/components/ScrollProgress";
+import { WHATSAPP_NUMBER } from "@/lib/store";
+import { useDetectedLang } from "@/lib/lang";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const BASE = "https://zeysweet.com";
 const URL = `${BASE}/presse`;
+
+const PRESS_MSG_FR =
+  "Bonjour, je suis journaliste et je prépare un article sur Zey's Sweetness. Pouvez-vous m'envoyer le kit presse ?";
+const PRESS_MSG_AR =
+  "السلام، أنا صحفي(ة) و كنحضر مقال على Zey's Sweetness. ممكن تبعتو ليا الكيت الصحفي ؟";
 
 const FACTS = [
   { k: "Fondée", v: "Rabat, Maroc" },
