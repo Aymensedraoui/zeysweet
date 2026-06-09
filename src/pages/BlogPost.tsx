@@ -8,6 +8,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import { POSTS, POSTS_LIST } from "@/lib/posts";
 import { renderMarkdown } from "@/lib/markdown";
 import { buildWhatsAppLink } from "@/lib/store";
+import { useDetectedLang } from "@/lib/lang";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
 const BASE = "https://zeysweet.com";
@@ -20,7 +21,8 @@ export default function BlogPost() {
   if (!post) return <Navigate to="/404" replace />;
 
   const url = `${BASE}/blog/${post.slug}`;
-  const waLink = buildWhatsAppLink([], "", "fr", { source: `blog:${slug}` });
+  const lang = useDetectedLang();
+  const waLink = buildWhatsAppLink([], "", lang, { source: `blog:${slug}` });
 
   const articleLd = {
     "@context": "https://schema.org",

@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollProgress from "@/components/ScrollProgress";
 import { buildWhatsAppLink } from "@/lib/store";
+import { useDetectedLang } from "@/lib/lang";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { LOCAL_PAGES, type LocalPage } from "@/lib/localPages";
 
@@ -80,7 +81,8 @@ export default function LocalLanding() {
   const page = LOCAL_PAGES[slug];
   if (!page) return <Navigate to="/404" replace />;
 
-  const waLink = buildWhatsAppLink([], "", "fr", { source: `local:${slug}` });
+  const lang = useDetectedLang();
+  const waLink = buildWhatsAppLink([], "", lang, { source: `local:${slug}` });
   const jsonLd = buildJsonLd(page);
   const url = `${BASE}/${page.slug}`;
   const ogImg = page.ogImage || DEFAULT_OG;

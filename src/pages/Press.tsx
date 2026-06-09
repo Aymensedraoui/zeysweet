@@ -5,9 +5,17 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollProgress from "@/components/ScrollProgress";
+import { WHATSAPP_NUMBER } from "@/lib/store";
+import { useDetectedLang } from "@/lib/lang";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const BASE = "https://zeysweet.com";
 const URL = `${BASE}/presse`;
+
+const PRESS_MSG_FR =
+  "Bonjour, je suis journaliste et je prépare un article sur Zey's Sweetness. Pouvez-vous m'envoyer le kit presse ?";
+const PRESS_MSG_AR =
+  "السلام، أنا صحفي(ة) و كنحضر مقال على Zey's Sweetness. ممكن تبعتو ليا الكيت الصحفي ؟";
 
 const FACTS = [
   { k: "Fondée", v: "Rabat, Maroc" },
@@ -26,6 +34,10 @@ const ANGLES = [
 ];
 
 export default function Press() {
+  const lang = useDetectedLang();
+  const pressWaLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    lang === "ar" ? PRESS_MSG_AR : PRESS_MSG_FR
+  )}`;
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -129,7 +141,8 @@ export default function Press() {
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <a
-                href="https://wa.me/212620355325?text=Bonjour%2C%20je%20suis%20journaliste%20et%20je%20pr%C3%A9pare%20un%20article%20sur..."
+                href={pressWaLink}
+                onClick={() => trackWhatsAppClick("press")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-rose text-cream text-sm font-medium hover:opacity-90"
