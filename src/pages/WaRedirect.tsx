@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import {
   buildCampaignWaLink,
@@ -6,12 +6,32 @@ import {
   CAMPAIGN_WHATSAPP_NUMBER,
 } from "@/lib/videoCampaigns";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { useStore } from "@/lib/store";
+
+// Détection auto FR/AR :
+// 1) ?lang=fr|ar dans l'URL (priorité — utile pour forcer depuis une bio)
+// 2) langue choisie par l'utilisateur sur le site (zustand persisté)
+// 3) langue du navigateur (ar* → ar, sinon fr)
+function detectLang(forced: string | null, stored: "fr" | "ar"): "fr" | "ar" {
+  if (forced === "ar" || forced === "fr") return forced;
+  if (stored === "ar" || stored === "fr") return stored;
+  if (typeof navigator !== "undefined") {
+    const nav = (navigator.language || "").toLowerCase();
+    if (nav.startsWith("ar")) return "ar";
+  }
+  return "fr";
+}
 
 export default function WaRedirect() {
   const { videoId = "" } = useParams();
   const [params] = useSearchParams();
-  const lang = (params.get("lang") === "ar" ? "ar" : "fr") as "fr" | "ar";
+  const storedLang = useStore((s) => s.lang);
+  const lang = useMemo(
+    () => detectLang(params.get("lang"), storedLang),
+    [params, storedLang]
+  );
   const campaign = findCampaign(videoId);
+
 
   useEffect(() => {
     if (!campaign) return;
