@@ -236,6 +236,18 @@ export const dict = {
   "faq.a6":             { fr: "Oui, jusqu'à 12h avant le créneau de livraison. Un simple message WhatsApp suffit.", ar: "نعم، حتى 12 ساعة قبل موعد التوصيل. رسالة واتساب تكفي." },
   "faq.q7":             { fr: "Faut-il un acompte pour les gros coffrets ?", ar: "هل يلزم عربون للعلب الكبيرة ؟" },
   "faq.a7":             { fr: "Pour les commandes corporate ou événements (au-delà de 500 MAD), nous demandons un acompte de 30% par virement à la confirmation. Le reste se règle à la livraison.", ar: "لطلبات الشركات أو المناسبات (فوق 500 درهم)، نطلب عربون 30% عبر التحويل عند التأكيد. الباقي يدفع عند التسليم." },
+  "faq.q8":             { fr: "Dattes fourrées ou dattes farcies — c'est pareil ?", ar: "هل التمر المحشي والتمر المعمر نفس الشيء ؟" },
+  "faq.a8":             { fr: "Oui, ce sont deux noms pour la même chose. Nos dattes Medjool sont fourrées (ou farcies) d'une pâte de noix de cajou maison, broyée le jour J, avec miel toutes-fleurs marocain et fleur d'oranger.", ar: "نعم، هما نفس الشيء. تمرنا من نوع Medjool محشو بمعجون الكاجو الذي نحضره يوميا، مع العسل المغربي وماء الزهر." },
+  "faq.q9":             { fr: "Vos produits sont-ils halal ?", ar: "هل منتجاتكم حلال ؟" },
+  "faq.a9":             { fr: "Oui. Tous nos ingrédients sont halal — beurre, chocolat Valrhona, miel marocain, dattes Medjool, cajou. Aucun alcool, aucune gélatine animale.", ar: "نعم. جميع مكوناتنا حلال — الزبدة، شوكولا Valrhona، العسل المغربي، التمر، الكاجو. بدون كحول ولا جيلاتين حيواني." },
+  "faq.q10":            { fr: "Proposez-vous une version sans gluten ou vegan ?", ar: "هل لديكم خيار بدون غلوتين أو نباتي ؟" },
+  "faq.a10":            { fr: "Nos dattes farcies aux cajou sont naturellement sans gluten et peuvent être préparées sans miel (vegan) sur demande. Le Cookie Signature contient gluten, beurre et œufs — pas de version sans gluten pour l'instant.", ar: "التمر المحشي خالٍ من الغلوتين بطبيعته ويمكن تحضيره بدون عسل (نباتي) عند الطلب. كوكيز التوقيع يحتوي على الغلوتين والزبدة والبيض." },
+  "faq.q11":            { fr: "Combien commander pour un mariage ?", ar: "كم نطلب لحفل زفاف ؟" },
+  "faq.a11":            { fr: "8 à 12 dattes farcies par invité si elles font partie du buffet dessert, 4 à 6 si elles accompagnent une pièce montée. Pour 100 invités, on recommande 800 à 1000 pièces. Devis sur WhatsApp.", ar: "8 إلى 12 تمرة محشية لكل ضيف إذا كانت ضمن البوفيه، 4 إلى 6 إذا كانت مع قالب حلوى. لـ100 ضيف، ننصح بـ800 إلى 1000 قطعة." },
+  "faq.q12":            { fr: "Livrez-vous le jour même à Rabat ?", ar: "هل توصلون نفس اليوم في الرباط ؟" },
+  "faq.a12":            { fr: "Pour les petites commandes (moins de 6 cookies ou 12 dattes), c'est souvent possible si vous écrivez tôt le matin. Au-delà, comptez 24h pour garantir la qualité du fait-maison.", ar: "للطلبات الصغيرة (أقل من 6 كوكيز أو 12 تمرة) غالبا ممكن إذا تواصلتم صباحا. خلاف ذلك، احسبوا 24 ساعة." },
+  "faq.q13":            { fr: "Travaillez-vous avec les entreprises (B2B) ?", ar: "هل تتعاملون مع الشركات ؟" },
+  "faq.a13":            { fr: "Oui — coffrets corporate à partir de 30 boîtes avec étiquette logo, ruban personnalisé, facture ICE et virement bancaire. Livraison groupée ou éclatée à plusieurs adresses à Rabat & Témara.", ar: "نعم — علب الشركات ابتداء من 30 علبة مع ملصق الشعار، شريط مخصص، فاتورة ICE والتحويل البنكي." },
 
   // Contact
   "contact.eyebrow":    { fr: "Restons en contact", ar: "ابقَ على تواصل" },
