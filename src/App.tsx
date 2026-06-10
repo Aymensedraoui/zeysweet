@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/dattes-farcies-temara" element={<LocalLanding />} />
           <Route path="/dattes-mariage-rabat" element={<LocalLanding />} />
           <Route path="/dattes-ramadan-rabat" element={<LocalLanding />} />
+          <Route path="/dattes-fourrees-rabat" element={<LocalLanding />} />
           <Route path="/coffrets-cadeaux-corporate-rabat" element={<LocalLanding />} />
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
