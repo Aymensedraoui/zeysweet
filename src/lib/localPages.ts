@@ -466,4 +466,70 @@ export const LOCAL_PAGES: Record<string, LocalPage> = {
       { to: "/dattes-farcies-temara", label: "Dattes farcies à Témara →" },
     ],
   },
+
+  "dattes-fourrees-rabat": {
+    slug: "dattes-fourrees-rabat",
+    city: "Rabat",
+    metaTitle: "Dattes fourrées Rabat | Zey's Sweetness — Cajou, miel, fait main",
+    metaDesc:
+      "Dattes fourrées (farcies) aux noix de cajou faites main à Rabat. Medjool calibre Jumbo, pâte cajou maison, miel & fleur d'oranger. Livraison 24h, commande WhatsApp.",
+    h1: "Dattes fourrées à Rabat — Medjool & pâte de cajou maison",
+    kicker: "Dattes fourrées artisanales · Rabat & Témara",
+    intro:
+      "Vous cherchez des dattes fourrées à Rabat (aussi appelées dattes farcies) faites main et pas industrielles ? C'est exactement notre spécialité. Chez Zey's Sweetness, on dénoyaute les dattes Medjool calibre Jumbo une par une, on les fourre d'une pâte de noix de cajou broyée le jour-même, on enrobe d'un miel toutes-fleurs marocain et d'une touche de fleur d'oranger. Pas d'arômes, pas d'huile de palme, pas de pâte préfaite. Livraison sous 24h à Rabat, Témara, Salé.",
+    zones: ["Agdal", "Hassan", "Hay Riad", "Souissi", "L'Océan", "Témara", "Harhoura", "Salé"],
+    product: { name: "Dattes fourrées cajou — Boîte de 12", price: "120 MAD", priceValue: "120" },
+    sections: [
+      {
+        title: "Dattes fourrées ou dattes farcies — quelle différence ?",
+        body:
+          "Aucune. Les deux termes désignent la même douceur : une datte dénoyautée, ouverte, et remplie d'une garniture (le plus souvent pâte d'amande, de cajou ou de noix). Au Maroc et en France, on dit aussi bien 'dattes fourrées' que 'dattes farcies'. Chez Zey's, c'est cajou maison broyée minute, miel et fleur d'oranger — la version qu'on a peaufinée pendant des mois.",
+        bullets: [
+          "Dattes Medjool calibre Jumbo, sélection à la main",
+          "Pâte de noix de cajou maison broyée le jour J",
+          "Miel toutes-fleurs marocain + fleur d'oranger",
+          "0 conservateur, 0 colorant, 0 huile de palme",
+          "Boîte cadeau prête à offrir",
+        ],
+      },
+      {
+        title: "Pourquoi les nôtres sont différentes",
+        body:
+          "La majorité des dattes fourrées vendues en grande surface utilisent une pâte d'amande industrielle, sucrée, légèrement amère. La nôtre est broyée le matin même à partir de cajou grillée — texture plus crémeuse, parfum naturel, juste assez sucrée. C'est la différence entre un nappage industriel et une vraie pâtisserie maison.",
+      },
+      {
+        title: "Formats et prix",
+        body:
+          "Boîte 12 pièces : 120 MAD. Boîte 24 pièces : 220 MAD. Boîte 48 pièces : 420 MAD. Plateau 100 pièces (mariage, événement, f'tour) : 850 MAD. Tarif dégressif au-delà de 200 pièces pour mariages et coffrets corporate.",
+      },
+      {
+        title: "Livraison à Rabat",
+        body:
+          "Livraison gratuite tout Rabat (Agdal, Hassan, Hay Riad, Souissi, L'Océan, Centre-ville), Témara, Harhoura. Salé +30 MAD. Commandez aujourd'hui avant 18h, livraison demain entre 11h et 19h sur créneau au choix.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Quelle est la différence entre dattes fourrées et dattes farcies ?",
+        a: "Aucune — ce sont deux noms pour la même chose : une datte dénoyautée et remplie d'une garniture. Nous utilisons les deux termes selon vos habitudes de recherche.",
+      },
+      {
+        q: "Avec quoi sont fourrées vos dattes ?",
+        a: "Pâte de noix de cajou maison, broyée le jour J, avec miel toutes-fleurs marocain et une touche de fleur d'oranger. Pas de pâte d'amande industrielle, pas d'arôme.",
+      },
+      {
+        q: "Combien de temps se conservent les dattes fourrées ?",
+        a: "7 jours à température ambiante dans la boîte fermée, 15 jours au réfrigérateur. À sortir 20 minutes avant dégustation pour retrouver le moelleux.",
+      },
+      {
+        q: "Vous livrez en combien de temps à Rabat ?",
+        a: "24h après confirmation sur WhatsApp. Pour les grosses commandes (mariage, +200 pièces), prévoyez 48 à 72h.",
+      },
+    ],
+    crossLinks: [
+      { to: "/dattes-farcies-temara", label: "Dattes farcies à Témara →" },
+      { to: "/dattes-mariage-rabat", label: "Dattes pour mariage à Rabat →" },
+      { to: "/dattes-ramadan-rabat", label: "Dattes farcies Ramadan →" },
+    ],
+  },
 };
