@@ -1,116 +1,158 @@
-# Audit SEO / GEO + Plan de croissance virale — Zey's Sweetness
+# Plan d'action — Combler les manques de zeysweet.com
 
-## 1. Diagnostic actuel
+Objectif : passer de **72/100 à 90+/100** en 90 jours et atteindre 100+ commandes WhatsApp/mois.
 
-### ✅ SEO technique — solide
-- Schema JSON-LD : Bakery + Product (×2) + FAQPage + LocalBusiness (page /avis) ✅
-- Sitemap.xml, robots.txt, llms.txt, canonical, hreflang ✅
-- Titres < 60 car., meta descriptions OK ✅
-- Pre-render serveur pour Googlebot + crawlers sociaux ✅
-- Hero LCP optimisé (fetchpriority, width/height, font-display swap) ✅
-- Google Search Console vérifié + sitemap soumis ✅
-
-### ⚠️ Points faibles détectés
-| Domaine | Constat | Sévérité |
-|---|---|---|
-| **Authority Score Semrush** | 0/100 — site quasi inconnu de Google | 🔴 critique |
-| **Backlinks** | 7 liens, tous nofollow, 4 domaines (3 sont des sites Fiverr spam) | 🔴 critique |
-| **Trafic organique** | Non mesurable (volume trop faible pour Semrush) | 🟡 normal pour un nouveau site |
-| **Accessibilité** | Contrastes texte muté sur fond clair (WCAG AA) | 🟢 low |
-| **Analytics** | GA4 et Meta Pixel = `G-XXXXXXXXXX` / `0000000000000000` (placeholders) | 🔴 zéro tracking actif |
-| **GEO (Generative Engine Optimization)** | LocalBusiness OK mais peu de contenu Q&A long-form que ChatGPT/Perplexity citent | 🟡 à renforcer |
-
-### 📊 Données marché (Semrush, base FR)
-- "cookies Rabat" : 20 recherches/mois, difficulté 0/100 → **win facile**
-- "dattes farcies" : 170/mois, difficulté 16/100 → **opportunité**
-- "dattes fourrées" : 590/mois (variante orthographique non ciblée) → **manque à exploiter**
-
-> ⚠️ Le Maroc n'est pas une base Semrush dédiée — les volumes réels locaux sont supérieurs (recherches en darija + français mélangées via Google.ma).
+Le plan est ordonné : chaque étape débloque la suivante. Ne saute pas l'ordre — sans tracking (étape 1), tout le reste est aveugle.
 
 ---
 
-## 2. Plan en 3 phases
+## 🔴 PHASE 1 — Débloquer le tracking (Semaine 1)
 
-### Phase 1 — Fondations mesurables (Semaine 1)
-**Sans tracking, aucune décision data-driven n'est possible.**
+Sans données, impossible d'optimiser. C'est la base de tout le reste.
 
-1. **Remplacer les placeholders analytics** dans `index.html` :
-   - GA4 `G-XXXXXXXXXX` → vrai Measurement ID
-   - Meta Pixel `0000000000000000` → vrai Pixel ID
-   - Ajouter Pixel TikTok (audience Maroc 18-35 ans massive sur TikTok)
-2. **Corriger l'accessibilité** : remplacer `text-muted-foreground/50` et contrastes faibles par tokens design system
-3. **Ajouter événements WhatsApp tracking** (`whatsapp_click`, `add_to_cart`, `checkout`) sur les CTAs
+### Étape 1.1 — Activer GA4 (toi, hors-code)
+- Créer un compte Google Analytics 4 sur analytics.google.com
+- Créer une propriété "Zey's Sweetness"
+- Récupérer le **Measurement ID** (format `G-XXXXXXXXXX`)
 
-### Phase 2 — SEO local + GEO (Semaines 2-3)
-**Objectif : devenir LA réponse pour "cookies/dattes à Rabat" sur Google ET ChatGPT/Perplexity.**
+### Étape 1.2 — Activer Meta Pixel (toi, hors-code)
+- Aller sur business.facebook.com → Events Manager
+- Créer un Pixel "Zey's Sweetness"
+- Récupérer le **Pixel ID** (16 chiffres)
 
-1. **Google Business Profile** (priorité #1 absolue — gratuit, énorme ROI local)
-   - Créer/réclamer la fiche "Zey's Sweetness Rabat"
-   - 10+ photos pro produits + vitrine
-   - Récolter 20 avis Google clients existants en 30 jours
-   - Posts hebdomadaires (offres, nouveautés)
-2. **Renforcer le contenu GEO** (cité par les IA génératives) :
-   - Étendre la FAQ à 12+ Q/R (prix, délais, allergènes, conservation, mariage, corporate)
-   - Ajouter une page `/guide/cadeau-gourmand-rabat` (guide long-form, 1200 mots)
-   - Ajouter une page `/dattes-ramadan-rabat` (saisonnier, fort potentiel)
-3. **Variantes orthographiques** : ajouter "dattes fourrées" en synonyme dans le contenu (590/mois vs 170 actuels)
-4. **Backlinks de qualité** :
-   - Inscriptions annuaires marocains (Pages Jaunes Maroc, Yelo.ma, Avito Pro)
-   - Articles invités sur 2-3 blogs lifestyle Maroc (Welovebuzz, MarocMama)
-   - Partenariats : wedding planners Rabat, traiteurs corporate
+### Étape 1.3 — Activer TikTok Pixel (toi, hors-code)
+- ads.tiktok.com → Assets → Events → Web Events
+- Créer un Pixel et récupérer le **TikTok Pixel ID**
 
-### Phase 3 — Viralité (Semaines 3-8)
-**Objectif : générer 100+ commandes/mois via social, pas via SEO seul.**
-
-1. **TikTok / Instagram Reels** — moteur principal au Maroc
-   - 5 vidéos/semaine (15-30 sec) : ASMR cookie qui casse, dattes farcies en macro, coulissé chocolat, packaging mariage
-   - Hashtags : #RabatFood #MoroccoSweets #CookiesMaroc #Témara #FoodieRabat
-   - 2 collabs/mois avec foodies Rabat (1k-50k followers, micro-influence > macro)
-2. **Mécanique virale intégrée au site** :
-   - **Programme parrainage** : "-15% pour toi, -15% pour ton amie" (lien WhatsApp pré-rempli)
-   - **UGC contest mensuel** : photo de ta boîte → repost + cookie offert
-   - **Coffret "surprise mariage"** offert à 1 mariée/mois si elle poste un reel
-3. **Campagnes payantes** (budget 1500-3000 MAD/mois)
-   - Meta Ads géolocalisé Rabat+Témara, audience 22-45, intérêts wedding/food/gifts
-   - Reciblage WhatsApp click → offre première commande
-4. **B2B Corporate** (panier moyen 10×)
-   - LinkedIn outreach 50 RH/mois (banques, ambassades, cabinets conseil Rabat)
-   - Plaquette PDF coffrets fin d'année / Aïd / Ramadan
-   - Page dédiée `/corporate` avec formulaire devis
+### Étape 1.4 — Injecter les vrais IDs (moi, code)
+- Remplacer les placeholders dans `index.html`
+- Ajouter le snippet TikTok Pixel
+- Brancher `trackWhatsAppClick`, `trackOrderSubmit` sur les 3 plateformes
+- Ajouter un event `purchase_intent` à la soumission du formulaire WhatsApp
 
 ---
 
-## 3. KPIs à 90 jours
+## 🔴 PHASE 2 — Présence locale Google (Semaine 1-2)
 
-| Métrique | Aujourd'hui | Objectif J+90 |
-|---|---|---|
-| Authority Score | 0 | 8-12 |
-| Backlinks (dofollow) | 0 | 15+ |
-| Avis Google | 0 | 25+ |
-| Followers Instagram | ? | +2000 |
-| Commandes WhatsApp/mois | ? | 100+ |
-| Trafic organique mensuel | ~0 | 500-800 sessions |
-| Conversion WhatsApp click | ? | 12%+ |
+Levier #1 au Maroc local. Gratuit. ROI immédiat.
+
+### Étape 2.1 — Google Business Profile (toi)
+- Créer/réclamer la fiche sur business.google.com
+- Catégorie : "Pâtisserie" + secondaires "Traiteur", "Boutique de cadeaux"
+- Ajouter horaires, téléphone, lien zeysweet.com
+- Upload 10+ photos pro (produits, packaging, vitrine)
+
+### Étape 2.2 — Récolter 25 avis Google en 30 jours (toi + moi)
+- **Toi** : envoyer le lien d'avis à tes 50 dernières clientes via WhatsApp
+- **Moi (code)** : ajouter sur `/avis` un bouton CTA "Laisser un avis Google" avec lien direct vers ta fiche GBP, tracking event `gbp_review_click`
+
+### Étape 2.3 — Posts hebdomadaires GBP (toi)
+- 1 post/semaine : offres, nouveautés, behind-the-scenes
 
 ---
 
-## 4. Ce que je peux implémenter en code (étape suivante)
+## 🟠 PHASE 3 — Combler les manques SEO/GEO (Semaine 2-3)
 
-Si tu approuves, je peux livrer dans une seule itération :
+### Étape 3.1 — Cibler "dattes fourrées" (moi, code)
+- Variante orthographique = 590 recherches/mois vs 170 actuelles
+- Ajouter en synonyme dans : Hero, Products, FAQ, page Ramadan, meta descriptions
+- Créer une page dédiée `/dattes-fourrees-rabat` (variante SEO)
 
-1. Corrections accessibilité (contrastes WCAG AA)
-2. Hooks analytics : `whatsapp_click`, `add_to_cart`, `view_product` (prêts à recevoir tes vrais IDs GA4/Meta/TikTok)
-3. Nouvelle page `/parrainage` avec mécanique de partage WhatsApp pré-rempli
-4. Nouvelle page `/corporate` avec formulaire devis (Cloud backend)
-5. Extension FAQ (4 → 12 questions) — boost GEO
-6. Nouvelle page locale `/dattes-ramadan-rabat` (saisonnier)
-7. Bouton "Laisser un avis Google" sur `/avis` pour booster la fiche GBP
+### Étape 3.2 — og:image partageable (moi, code)
+- Générer une image og 1200×630 (cookie + dattes + branding)
+- Injecter via Helmet pour Home, Produits, Blog
 
-**Ce qui reste hors-code (à faire par toi)** :
+### Étape 3.3 — Étendre le contenu GEO (moi, code)
+- Ajouter 6 Q/R supplémentaires dans la FAQ (allergènes, vegan, halal, conservation, livraison rapide, paiement)
+- Créer un guide long-form `/guide/cadeau-gourmand-rabat` (1200 mots, cible IA génératives)
+
+---
+
+## 🟠 PHASE 4 — Autorité du domaine / Backlinks (Semaine 3-6)
+
+Objectif : passer de Authority Score 0 → 10+
+
+### Étape 4.1 — Annuaires marocains (toi, 1h de travail)
+- Pages Jaunes Maroc, Yelo.ma, Avito Pro, Jumia local
+- Cohérence NAP (Nom, Adresse, Téléphone) identique partout
+
+### Étape 4.2 — Articles invités (toi)
+- Pitcher 3 blogs : Welovebuzz, MarocMama, Hespress Lifestyle
+- Angle : "L'histoire derrière Zey's Sweetness" ou "Le retour des douceurs artisanales à Rabat"
+
+### Étape 4.3 — Partenariats locaux (toi)
+- Wedding planners Rabat : échange visibilité (coffrets dégustation)
+- Traiteurs corporate : commission sur recommandation
+
+---
+
+## 🟡 PHASE 5 — Mécanique virale (Semaine 4-8)
+
+### Étape 5.1 — Plan vidéo TikTok/Reels (toi, 5 vidéos/semaine)
+- Scripts déjà préparés (`videoCampaigns.ts`) — lancer la production
+- Liens bio : `/wa/cookie-signature`, `/wa/asmr-dattes`, etc.
+- 2 collabs/mois micro-influenceuses Rabat (1k–50k followers)
+
+### Étape 5.2 — Programme parrainage opérationnel (moi, code + Cloud)
+- Activer Lovable Cloud
+- Table `referrals` : code unique par cliente, tracking des conversions
+- Mécanique "-15 % pour toi, -15 % pour ton amie"
+- Notification WhatsApp auto à la marraine quand sa filleule commande
+
+### Étape 5.3 — UGC contest mensuel (toi + moi)
+- **Toi** : règlement + repost sur Insta
+- **Moi (code)** : page `/concours` avec formulaire upload photo (Cloud Storage)
+
+---
+
+## 🟢 PHASE 6 — Accélération payante (Mois 2-3)
+
+### Étape 6.1 — Meta Ads géolocalisé (toi)
+- Budget test 1500 MAD/mois
+- Audience : Rabat + Témara, 22-45 ans, intérêts wedding/food/gifts
+- Créatives : tes meilleures vidéos UGC
+
+### Étape 6.2 — Retargeting WhatsApp clickers (moi + toi)
+- Audience custom Meta = visiteurs qui ont cliqué WhatsApp sans commander
+- Offre : "-10 % première commande, valable 48h"
+
+### Étape 6.3 — Outreach B2B LinkedIn (toi)
+- 50 RH/mois : banques, ambassades, cabinets conseil Rabat
+- Plaquette PDF coffrets fin d'année / Aïd / Ramadan
+- Page `/corporate` existe déjà — ajouter formulaire devis (moi, code si pas déjà fait)
+
+---
+
+## 📋 Checklist de ce que JE peux coder en une itération
+
+Si tu valides ce plan, je livre dans le prochain build :
+
+1. ✅ Remplacer placeholders GA4/Meta/TikTok dans `index.html` *(j'ai besoin de tes 3 IDs)*
+2. ✅ Bouton "Laisser un avis Google" sur `/avis` *(j'ai besoin du lien GBP)*
+3. ✅ Cibler "dattes fourrées" partout + page dédiée
+4. ✅ og:image générée + injection Helmet par route
+5. ✅ FAQ +6 Q/R, guide cadeau long-form
+6. ✅ Activer Lovable Cloud + table parrainage + tracking codes
+7. ✅ Page `/concours` UGC avec upload photo
+
+## 📋 Ce qui reste à TA charge
+
+- Créer comptes GA4, Meta Pixel, TikTok Pixel → me donner les IDs
 - Créer la fiche Google Business Profile
-- Fournir les vrais IDs GA4 / Meta Pixel / TikTok Pixel
-- Stratégie de contenu TikTok/Reels (tournage)
-- Outreach influenceurs et annuaires
+- Récolter avis Google
+- Produire les vidéos TikTok/Reels
+- Inscrire le site aux annuaires
+- Pitcher blogs + influenceurs
 - Budget Meta Ads
 
-Veux-tu que je démarre par les 7 points code ci-dessus ?
+---
+
+## 🎯 Résultat attendu à J+90
+
+| Métrique | Aujourd'hui | Objectif |
+|---|---|---|
+| Score global site | 72/100 | **92/100** |
+| Authority Score | 0 | 10–12 |
+| Avis Google | 0 | 25+ |
+| Commandes/mois | inconnu | 100+ |
+| Trafic organique | ~0 | 500–800/mois |
