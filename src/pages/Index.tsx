@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
-import Products from "@/components/Products";
+import Menu from "@/components/Menu";
 import Story from "@/components/Story";
 import Cinematic from "@/components/Cinematic";
 import Gifts from "@/components/Gifts";
@@ -152,7 +152,7 @@ const Index = () => {
       <main>
         <Hero />
         <TrustBar />
-        <Products />
+        <Menu />
         <Story />
         <Cinematic />
         <Gifts />
