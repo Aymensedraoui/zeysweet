@@ -12,8 +12,6 @@ import Gallery from "@/components/Gallery";
 import OrderCTA from "@/components/OrderCTA";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import CartDrawer from "@/components/CartDrawer";
-import WhatsAppModal from "@/components/WhatsAppModal";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollProgress from "@/components/ScrollProgress";
 import { useEffect } from "react";
@@ -164,8 +162,6 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
-      <CartDrawer />
-      <WhatsAppModal />
       <FloatingWhatsApp />
     </div>
   );

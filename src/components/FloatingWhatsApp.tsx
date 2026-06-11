@@ -5,14 +5,13 @@ import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
 
 export default function FloatingWhatsApp() {
-  const { cart, giftMessage, lang, setModalOpen } = useStore();
+  const { lang } = useStore();
   const [shown, setShown] = useState(false);
   useEffect(() => { const t = setTimeout(() => setShown(true), 1500); return () => clearTimeout(t); }, []);
 
   const handle = () => {
     trackWhatsAppClick("floating");
-    if (cart.length) setModalOpen(true);
-    else window.open(buildWhatsAppLink([], giftMessage, lang, { source: "floating" }), "_blank");
+    window.open(buildWhatsAppLink([], "", lang, { source: "floating" }), "_blank");
   };
 
   return (
