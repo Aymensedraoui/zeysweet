@@ -1,12 +1,13 @@
 import { MessageCircle, MapPin, Clock, Instagram } from "lucide-react";
 import { useStore, buildWhatsAppLink, WHATSAPP_NUMBER } from "@/lib/store";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
 
 export default function Contact() {
-  const { lang, cart, giftMessage, setModalOpen } = useStore();
+  const { lang } = useStore();
   const onOrder = () => {
-    if (cart.length) setModalOpen(true);
-    else window.open(buildWhatsAppLink([], giftMessage, lang, { source: "contact" }), "_blank");
+    trackWhatsAppClick("contact");
+    window.open(buildWhatsAppLink([], "", lang, { source: "contact" }), "_blank");
   };
 
   const cards = [

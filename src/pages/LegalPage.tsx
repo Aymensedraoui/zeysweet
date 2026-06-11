@@ -3,8 +3,6 @@ import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CartDrawer from "@/components/CartDrawer";
-import WhatsAppModal from "@/components/WhatsAppModal";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 type Slug = "mentions-legales" | "cgv" | "confidentialite";
@@ -83,8 +81,6 @@ export default function LegalPage() {
         </div>
       </main>
       <Footer />
-      <CartDrawer />
-      <WhatsAppModal />
       <FloatingWhatsApp />
     </div>
   );

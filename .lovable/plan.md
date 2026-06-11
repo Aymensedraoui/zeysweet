@@ -1,85 +1,68 @@
-# Refonte de la section « Nos Douceurs »
+# Option A — WhatsApp direct everywhere
 
-Objectif : séparer cookies et dattes, restaurer la dimension visuelle (photos), et hiérarchiser proprement (boîtes > unités, Maxi/Mini groupés).
+Align the site with the brand promise: one tap → pre-filled WhatsApp. Remove the orphaned cart/checkout flow entirely.
 
-## Nouvelle structure
+## Goals
+- Zero friction ordering, consistent across the whole site
+- No more "cart stays at 0" confusion
+- Lighter code, less to maintain
+- Preserve premium artisanal feel (no Glovo-like checkout)
 
-```text
-─── NOTRE CARTE ───
-       Nos Douceurs
-   (intro 1 ligne)
+## What gets removed
+- `src/components/CartDrawer.tsx` — deleted
+- `src/components/WhatsAppModal.tsx` — deleted
+- Cart icon + badge in `src/components/Navbar.tsx`
+- Cart-related state in `src/lib/store.ts`: `cart`, `cartOpen`, `setCartOpen`, `add`, `remove`, `setQty`, `modalOpen`, `setModalOpen`, `customer`, `setCustomer`, `promoApplied`, `setPromoApplied`, `firstOrderUsed`, `markFirstOrderUsed`, `giftMessage`, `setGiftMessage`
+- Helpers no longer used: `cartSubtotal`, `promoDiscount`, `ZONE_FEE`, `MIN_ORDER_MAD`, `PROMO_CODE`, `DeliveryZone`, customer type
+- Mounting of `<CartDrawer />` and `<WhatsAppModal />` in `src/pages/Index.tsx` (and anywhere else)
+- i18n keys under `cart.*` and `mod.*` in `src/lib/i18n.ts`
+- Any "Ajouter au panier" / cart CTAs in `Products.tsx`, `Gifts.tsx`, `OrderCTA.tsx`, `HowToOrder.tsx`, `Hero.tsx` — replaced by direct WhatsApp links using `buildWhatsAppLink([], "", lang, { source })`
 
-╔══════════════ Nos Cookies ══════════════╗
-║                                          ║
-║  ┌──────────────┐    ┌──────────────┐   ║
-║  │  [PHOTO NY]  │    │  [PHOTO AM]  │   ║
-║  │              │    │              │   ║
-║  │ New York     │    │ American     │   ║
-║  │ Cookies      │    │ Cookies      │   ║
-║  │ description  │    │ description  │   ║
-║  │              │    │              │   ║
-║  │ ─ MAXI ─     │    │ ─ MAXI ─     │   ║
-║  │ Boîte de 4   │    │ Boîte de 4   │   ║
-║  │ Boîte de 6 ★ │    │ Boîte de 8 ★ │   ║
-║  │ Boîte de 10  │    │ Boîte de 12  │   ║
-║  │ Unité 30 MAD │    │ Unité 20 MAD │   ║
-║  │              │    │              │   ║
-║  │ ─ MINI ─     │    │ ─ MINI ─     │   ║
-║  │ Boîte de 10  │    │ Boîte de 4   │   ║
-║  │ Boîte de 20  │    │ Boîte de 8   │   ║
-║  │ Unité 15 MAD │    │ Boîte de 12  │   ║
-║  │              │    │ Unité 10 MAD │   ║
-║  │ [WhatsApp]   │    │ [WhatsApp]   │   ║
-║  └──────────────┘    └──────────────┘   ║
-╚══════════════════════════════════════════╝
+## What stays
+- `src/components/Menu.tsx` — already WhatsApp-direct, untouched
+- `FloatingWhatsApp.tsx` — simplified: always opens WhatsApp directly (no more `if (cart.length) setModalOpen`)
+- `buildWhatsAppLink()` in `store.ts` — kept, but simplified signature: only `(lang, { source, productLabel?, price? })`. Used everywhere as the single entry point.
+- `WHATSAPP_NUMBER`, `CONTACT_EMAIL`, `CONTACT_PHONE_DISPLAY` constants
+- Language store (`lang`, `setLang`)
+- Analytics `trackWhatsAppClick(source)` — kept; `trackOrderSubmit` removed
 
-╔════════════ Nos Dattes Farcies ══════════╗
-║  ┌─────────────┬──────────────────────┐  ║
-║  │             │ Format cadeau        │  ║
-║  │  [PHOTO     │ Dattes Farcies aux   │  ║
-║  │   DATTES    │ Cajou                │  ║
-║  │   pleine    │ Boîte de 12          │  ║
-║  │   hauteur]  │ 120 MAD              │  ║
-║  │             │ description premium  │  ║
-║  │             │ [Commander WhatsApp] │  ║
-║  └─────────────┴──────────────────────┘  ║
-╚══════════════════════════════════════════╝
-
-  ── Bandeau infos pratiques (4 colonnes) ──
+## New unified pattern
+Every CTA on the site becomes:
+```tsx
+<a
+  href={waUrl({ source: "hero", productLabel?, price? })}
+  target="_blank" rel="noopener"
+  onClick={() => trackWhatsAppClick("hero")}
+  className="btn-rose"
+>
+  Commander sur WhatsApp
+</a>
 ```
 
-## Changements visuels
+## Files touched
+| File | Action |
+|---|---|
+| `src/components/CartDrawer.tsx` | delete |
+| `src/components/WhatsAppModal.tsx` | delete |
+| `src/lib/store.ts` | slim down to lang + WA helpers |
+| `src/lib/i18n.ts` | remove `cart.*` and `mod.*` keys |
+| `src/components/Navbar.tsx` | remove cart icon/badge |
+| `src/components/FloatingWhatsApp.tsx` | always direct WA |
+| `src/components/Hero.tsx` | CTA → direct WA |
+| `src/components/Products.tsx` | "Ajouter" → direct WA |
+| `src/components/Gifts.tsx` | CTA → direct WA |
+| `src/components/OrderCTA.tsx` | CTA → direct WA |
+| `src/components/HowToOrder.tsx` | CTA → direct WA |
+| `src/pages/Index.tsx` | drop `<CartDrawer />` + `<WhatsAppModal />` |
+| `src/components/Menu.tsx` | unchanged |
 
-- **Sous-titres de section** (`Nos Cookies`, `Nos Dattes Farcies`) en font display, séparés par un ornement.
-- **Photos restaurées** : chaque carte cookie a un en-tête image (aspect 4/3), la carte dattes a une image pleine hauteur sur 40 % de la largeur.
-- **Groupement Maxi / Mini** à l'intérieur de chaque carte cookie, sous-titre discret en uppercase tracking.
-- **Labels raccourcis** : « Boîte de 6 » au lieu de « Boîte de 6 New York Cookies Maxi » (le contexte est déjà donné par la carte + le sous-groupe).
-- **Boîtes** : rangées en bg cream avec bordure douce, prix en font-hand caramel, CTA WhatsApp rose.
-- **Unités** : ligne simple, prix discret, lien texte « Commander → ».
-- **Badges conservés** : `Le plus commandé`, `Idéal à partager`, `Format cadeau` — un seul badge par carte de boîte, pas surchargé.
-- **Section Dattes pleine largeur** : layout horizontal (image gauche, contenu droit), traité comme un bandeau cadeau premium, pas comme une 3ème carte cookie.
+## Verification
+- Build passes (no dangling imports)
+- Click each CTA in preview → opens WhatsApp with pre-filled message
+- No "0" cart badge anywhere
+- Floating WA always opens chat directly
 
-## Photos
-
-- **Générer 2 nouvelles photos cookies** dans `src/assets/` :
-  - `product-cookie-newyork.jpg` — cookie épais, généreux, débordant de chocolat fondant, vue rapprochée, lumière chaude, fond cream/papier kraft, style éditorial.
-  - `product-cookie-american.jpg` — cookie plus classique, plus plat, pépites visibles, ambiance plus quotidienne mais soignée, même palette pour cohérence de marque.
-- **Réutiliser** `product-dates.jpg` (existante) pour la section dattes.
-- Toutes en cohérence avec la palette existante (cream, cocoa, rose, caramel).
-
-## Détails techniques (pour l'implémentation)
-
-- Refactor `src/components/Menu.tsx` :
-  - Séparer `FAMILIES` en `COOKIE_FAMILIES` (NY + American) et constante `DATES` (objet unique).
-  - Ajouter `image` et `format` (`maxi` | `mini`) sur chaque item cookie pour le groupement.
-  - Nouveau composant interne `CookieCard` (image + groupes Maxi/Mini + CTA).
-  - Nouveau composant interne `DatesBanner` (layout 2 colonnes, image + contenu).
-  - Conserver `waUrl()`, `familyWaUrl()`, `BADGE_LABEL`, tracking inchangés.
-- Imports images : `import nyImg from "@/assets/product-cookie-newyork.jpg"` etc.
-- Aucun changement sur `src/lib/store.ts`, `src/pages/Index.tsx`, `src/components/FloatingWhatsApp.tsx` — le flux WhatsApp reste identique.
-- Mobile : cartes cookies passent en stack vertical, bandeau dattes passe en stack vertical (image au-dessus, contenu en-dessous).
-
-## Hors scope
-
-- Pas de changement sur le cart system existant ni sur les autres sections (Hero, Story, Gifts, FAQ).
-- Pas de nouvelle traduction AR au-delà de l'existant — les CTA WhatsApp continuent de respecter `lang`.
+## Out of scope
+- No design redesign — only logic cleanup
+- No changes to Menu structure, Hero copy, or images
+- No new translations beyond removing dead keys

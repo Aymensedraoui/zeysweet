@@ -1,11 +1,11 @@
 import { Plus } from "lucide-react";
 import { products } from "@/lib/products";
-import { useStore, localized } from "@/lib/store";
+import { useStore, localized, buildWhatsAppLink } from "@/lib/store";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
-import { toast } from "sonner";
 
 export default function Products() {
-  const { add, lang, setCartOpen } = useStore();
+  const { lang } = useStore();
   return (
     <section id="products" className="py-24 lg:py-32 paper-texture">
       <div className="container mx-auto">
@@ -17,7 +17,7 @@ export default function Products() {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6 lg:gap-10 max-w-3xl mx-auto reveal-stagger">
-          {products.map((p, i) => {
+          {products.map((p) => {
             const badgeText =
               p.badge === "nouveau"
                 ? t("products.badge.nouveau", lang)
@@ -26,6 +26,11 @@ export default function Products() {
                 : null;
             const badgeCls = p.badge === "nouveau" ? "bg-pistachio text-cocoa" : "bg-rose text-cocoa";
             const name = localized(p.name, lang);
+            const waLink = buildWhatsAppLink([], "", lang, {
+              source: `product-${p.id}`,
+              productLabel: name,
+              price: p.price,
+            });
             return (
               <article
                 key={p.id}
@@ -54,17 +59,16 @@ export default function Products() {
                     <span className="font-hand text-3xl text-caramel">
                       {p.price} {lang === "fr" ? "MAD" : "درهم"}
                     </span>
-                    <button
-                      onClick={() => {
-                        add(p);
-                        setCartOpen(true);
-                        toast.success(t("products.added", lang), { description: name });
-                      }}
+                    <a
+                      href={waLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackWhatsAppClick(`product-${p.id}`)}
                       className="btn-rose !py-2.5 !px-4 text-sm"
                       aria-label={`${t("products.add", lang)} ${name}`}
                     >
                       <Plus className="w-4 h-4" /> {t("products.add", lang)}
-                    </button>
+                    </a>
                   </div>
                 </div>
               </article>
