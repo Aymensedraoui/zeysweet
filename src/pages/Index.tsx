@@ -152,7 +152,7 @@ const Index = () => {
       <main>
         <Hero />
         <TrustBar />
-        <Products />
+        <Menu />
         <Story />
         <Cinematic />
         <Gifts />
