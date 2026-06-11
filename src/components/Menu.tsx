@@ -108,28 +108,24 @@ export default function Menu() {
         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
           <p className="font-hand text-2xl text-caramel">— Notre Carte —</p>
           <h2 className="font-display font-bold italic text-4xl lg:text-5xl text-cocoa mt-2">
-            Nos Douceurs
+            Composez votre boîte
           </h2>
           <p className="text-cocoa/70 mt-5 text-base lg:text-lg">
-            Formats disponibles à l'unité et en boîte, pour vos envies du quotidien,
-            vos cadeaux gourmands et vos commandes à partager.
+            7 saveurs, deux formats, des boîtes sur mesure. Choisissez votre taille,
+            mixez librement vos cookies, on s'occupe du reste.
           </p>
         </div>
 
-        {/* Cookies section */}
+        {/* Box Builder */}
         <div className="max-w-6xl mx-auto mb-16 lg:mb-20">
           <div className="flex items-center gap-4 mb-8 lg:mb-10">
             <span className="h-px flex-1 bg-cocoa/15" />
             <h3 className="font-display font-bold italic text-2xl lg:text-3xl text-cocoa whitespace-nowrap">
-              Nos Cookies
+              Box Builder · Mix & Match
             </h3>
             <span className="h-px flex-1 bg-cocoa/15" />
           </div>
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
-            {COOKIES.map((c) => (
-              <CookieCard key={c.id} cookie={c} lang={lang} />
-            ))}
-          </div>
+          <BoxBuilder />
         </div>
 
         {/* Dates section */}
