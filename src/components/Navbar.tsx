@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ShoppingBag, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
@@ -12,14 +12,12 @@ const links = [
 ];
 
 export default function Navbar() {
-  const { cart, setCartOpen, lang, setLang, giftMessage, setModalOpen } = useStore();
+  const { lang, setLang } = useStore();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const count = cart.reduce((s, i) => s + i.qty, 0);
   const onOrder = () => {
     trackWhatsAppClick("navbar");
-    if (cart.length) setModalOpen(true);
-    else window.open(buildWhatsAppLink([], giftMessage, lang, { source: "navbar" }), "_blank");
+    window.open(buildWhatsAppLink([], "", lang, { source: "navbar" }), "_blank");
   };
 
   useEffect(() => {
@@ -65,18 +63,6 @@ export default function Navbar() {
             </button>
             <button onClick={onOrder} className="hidden sm:inline-flex btn-rose btn-glow !py-2.5 !px-5 text-sm" aria-label={t("a11y.whatsapp", lang)}>
               {t("nav.cta", lang)}
-            </button>
-            <button
-              onClick={() => setCartOpen(true)}
-              className="relative p-2 rounded-full hover:bg-cocoa/5 transition"
-              aria-label={t("nav.cart", lang)}
-            >
-              <ShoppingBag className="w-5 h-5 text-cocoa" />
-              {count > 0 && (
-                <span className="absolute -top-1 -right-1 bg-caramel text-cream text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                  {count}
-                </span>
-              )}
             </button>
             <button
               onClick={() => setOpen(true)}

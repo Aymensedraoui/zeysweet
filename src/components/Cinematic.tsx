@@ -1,12 +1,11 @@
 import cookie from "@/assets/cookie-cinematic.jpg";
-import { useStore, localized } from "@/lib/store";
-import { products } from "@/lib/products";
-import { toast } from "sonner";
+import { useStore, buildWhatsAppLink } from "@/lib/store";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
 
 export default function Cinematic() {
-  const { add, lang } = useStore();
-  const cookieProduct = products.find((p) => p.id === "cookie")!;
+  const { lang } = useStore();
+  const waLink = buildWhatsAppLink([], "", lang, { source: "cinematic", productLabel: "Cookie Signature" });
 
   return (
     <section className="gradient-cocoa text-cream py-24 lg:py-32 relative overflow-hidden">
@@ -32,15 +31,15 @@ export default function Cinematic() {
             <li className="flex gap-3"><span className="text-caramel">✦</span> {t("cine.b2", lang)}</li>
             <li className="flex gap-3"><span className="text-caramel">✦</span> {t("cine.b3", lang)}</li>
           </ul>
-          <button
-            onClick={() => {
-              add(cookieProduct);
-              toast.success(`${localized(cookieProduct.name, lang)} ✓`);
-            }}
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick("cinematic")}
             className="btn-caramel btn-glow"
           >
             {t("cine.cta", lang)}
-          </button>
+          </a>
         </div>
       </div>
     </section>
