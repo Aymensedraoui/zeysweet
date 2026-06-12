@@ -584,11 +584,76 @@ function CihBlock({
   orderRef: string;
   waUrl: string;
 }) {
+  const [proof, setProof] = useState<File | null>(null);
+  const [proofUrl, setProofUrl] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!proof) {
+      setProofUrl(null);
+      return;
+    }
+    const url = URL.createObjectURL(proof);
+    setProofUrl(url);
+    return () => URL.revokeObjectURL(url);
+  }, [proof]);
+
   const copy = async (label: string, value: string) => {
     const ok = await copyToClipboard(value);
     if (ok) toast.success(`${label} copié`);
     else toast.error("Copie impossible");
   };
+
+  const onPickFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const f = e.target.files?.[0];
+    if (!f) return;
+    if (!f.type.startsWith("image/")) {
+      toast.error("Veuillez choisir une image");
+      return;
+    }
+    if (f.size > 8 * 1024 * 1024) {
+      toast.error("Image trop lourde (max 8 Mo)");
+      return;
+    }
+    setProof(f);
+    toast.success("Preuve ajoutée — partagez-la sur WhatsApp");
+  };
+
+  const sendOnWhatsApp = async () => {
+    // Best UX on mobile: native share with the file directly into WhatsApp
+    if (
+      proof &&
+      typeof navigator !== "undefined" &&
+      // @ts-expect-error - canShare with files is not in all TS libs
+      navigator.canShare?.({ files: [proof] })
+    ) {
+      try {
+        await navigator.share({
+          files: [proof],
+          text: decodeURIComponent(waUrl.split("?text=")[1] ?? ""),
+          title: `Preuve de virement ${orderRef}`,
+        });
+        return;
+      } catch {
+        // user cancelled or unsupported — fall through to wa.me
+      }
+    }
+    // Desktop fallback: try to copy image to clipboard so user can paste in WA
+    if (proof && typeof window !== "undefined" && "ClipboardItem" in window) {
+      try {
+        // @ts-expect-error - ClipboardItem typing
+        await navigator.clipboard.write([
+          // @ts-expect-error - ClipboardItem typing
+          new ClipboardItem({ [proof.type]: proof }),
+        ]);
+        toast.success("Image copiée — collez-la dans WhatsApp (Ctrl+V)");
+      } catch {
+        toast.message("Joignez l'image manuellement dans WhatsApp");
+      }
+    }
+    window.open(waUrl, "_blank", "noopener,noreferrer");
+  };
+
   const rows: { label: string; value: string }[] = [
     { label: "Bénéficiaire", value: BANK_INFO.accountHolder },
     { label: "Banque", value: BANK_INFO.bankName },
@@ -600,7 +665,7 @@ function CihBlock({
   return (
     <div className="mt-6 rounded-2xl bg-cream/70 border border-cocoa/10 p-5 text-left space-y-4">
       <p className="text-sm text-cocoa">
-        Effectuez le virement avec les infos ci-dessous, puis envoyez la preuve sur WhatsApp pour que l'on prépare votre commande.
+        Effectuez le virement avec les infos ci-dessous, puis joignez la preuve et envoyez-la sur WhatsApp.
       </p>
       <div className="rounded-xl border border-cocoa/10 bg-card divide-y divide-cocoa/10">
         {rows.map((r) => (
@@ -626,18 +691,73 @@ function CihBlock({
           </div>
         ))}
       </div>
-      <a
-        href={waUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn-rose btn-glow w-full !py-3 inline-flex justify-center text-sm"
+
+      {/* Proof of transfer uploader */}
+      <div className="rounded-xl border border-dashed border-cocoa/20 bg-card p-4">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-cocoa/60 font-semibold">
+          Preuve de virement
+        </p>
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/*"
+          capture="environment"
+          className="hidden"
+          onChange={onPickFile}
+        />
+        {!proof ? (
+          <button
+            onClick={() => inputRef.current?.click()}
+            className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-xl border border-cocoa/15 bg-cream/60 hover:bg-rose/10 hover:border-rose px-4 py-3 text-sm text-cocoa transition"
+          >
+            <Upload className="w-4 h-4" />
+            Joindre la capture du virement
+          </button>
+        ) : (
+          <div className="mt-3 flex items-center gap-3">
+            {proofUrl && (
+              <img
+                src={proofUrl}
+                alt="Preuve de virement"
+                className="w-16 h-16 rounded-lg object-cover border border-cocoa/15"
+              />
+            )}
+            <div className="flex-1 min-w-0">
+              <p className="text-sm text-cocoa truncate">{proof.name}</p>
+              <p className="text-[11px] text-cocoa/55">
+                {(proof.size / 1024).toFixed(0)} Ko
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                setProof(null);
+                if (inputRef.current) inputRef.current.value = "";
+              }}
+              aria-label="Retirer l'image"
+              className="shrink-0 w-9 h-9 rounded-full border border-cocoa/15 text-cocoa/70 hover:text-rose hover:border-rose flex items-center justify-center"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+        <p className="mt-2 text-[11px] text-cocoa/55">
+          Image (JPG/PNG), 8 Mo max. Sur mobile, on l'envoie directement dans WhatsApp.
+        </p>
+      </div>
+
+      <button
+        onClick={sendOnWhatsApp}
+        className="btn-rose btn-glow w-full !py-3 inline-flex justify-center items-center gap-2 text-sm"
       >
-        <MessageCircle className="w-4 h-4 mr-1" />
-        Envoyer la preuve sur WhatsApp
-      </a>
+        {proof ? <Share2 className="w-4 h-4" /> : <MessageCircle className="w-4 h-4" />}
+        {proof ? "Envoyer la preuve sur WhatsApp" : "Ouvrir WhatsApp"}
+      </button>
       <p className="text-[11px] text-cocoa/55 text-center">
-        Astuce : joignez la capture d'écran du virement à votre message WhatsApp.
+        {proof
+          ? "Astuce : si l'image ne se joint pas automatiquement, collez-la (Ctrl+V) dans la conversation."
+          : "Astuce : joignez ici la capture, on l'envoie ensuite dans WhatsApp."}
       </p>
     </div>
   );
 }
+
