@@ -620,15 +620,14 @@ function CihBlock({
   };
 
   const sendOnWhatsApp = async () => {
+    const nav = navigator as Navigator & {
+      canShare?: (data: { files?: File[]; text?: string; title?: string }) => boolean;
+      share?: (data: { files?: File[]; text?: string; title?: string }) => Promise<void>;
+    };
     // Best UX on mobile: native share with the file directly into WhatsApp
-    if (
-      proof &&
-      typeof navigator !== "undefined" &&
-      // @ts-expect-error - canShare with files is not in all TS libs
-      navigator.canShare?.({ files: [proof] })
-    ) {
+    if (proof && nav.canShare?.({ files: [proof] }) && nav.share) {
       try {
-        await navigator.share({
+        await nav.share({
           files: [proof],
           text: decodeURIComponent(waUrl.split("?text=")[1] ?? ""),
           title: `Preuve de virement ${orderRef}`,
@@ -641,10 +640,9 @@ function CihBlock({
     // Desktop fallback: try to copy image to clipboard so user can paste in WA
     if (proof && typeof window !== "undefined" && "ClipboardItem" in window) {
       try {
-        // @ts-expect-error - ClipboardItem typing
-        await navigator.clipboard.write([
-          // @ts-expect-error - ClipboardItem typing
-          new ClipboardItem({ [proof.type]: proof }),
+        const CI = (window as unknown as { ClipboardItem: new (items: Record<string, Blob>) => unknown }).ClipboardItem;
+        await (navigator.clipboard as unknown as { write: (items: unknown[]) => Promise<void> }).write([
+          new CI({ [proof.type]: proof }),
         ]);
         toast.success("Image copiée — collez-la dans WhatsApp (Ctrl+V)");
       } catch {
@@ -653,6 +651,7 @@ function CihBlock({
     }
     window.open(waUrl, "_blank", "noopener,noreferrer");
   };
+
 
   const rows: { label: string; value: string }[] = [
     { label: "Bénéficiaire", value: BANK_INFO.accountHolder },
