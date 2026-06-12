@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -9,7 +9,11 @@ import {
   Banknote,
   AlertCircle,
   PartyPopper,
+  Upload,
+  X,
+  Share2,
 } from "lucide-react";
+
 import { useCart, useCartSubtotal, MIN_ORDER_MAD } from "@/lib/cart";
 import {
   buildOrderMessage,
