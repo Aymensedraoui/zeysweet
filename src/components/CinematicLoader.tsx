@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import loaderAsset from "@/assets/loader-cinematic.mp4.asset.json";
 
-const MIN_DURATION_MS = 1600;
+const MIN_DURATION_MS = 3800;
 const SESSION_KEY = "zs_loader_shown";
 
 export default function CinematicLoader() {
