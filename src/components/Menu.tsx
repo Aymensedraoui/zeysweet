@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useStore, WHATSAPP_NUMBER } from "@/lib/store";
 import { trackWhatsAppClick } from "@/lib/analytics";
-import { Gift, ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
+import { useCart } from "@/lib/cart";
+import { toast } from "sonner";
+import { Gift, ArrowLeft, ArrowRight, Sparkles, ShoppingBag } from "lucide-react";
 import datesImg from "@/assets/product-dates.jpg";
 import BoxBuilder, { type Line } from "./BoxBuilder";
 import americanHero from "@/assets/american-classic-hero.png.asset.json";
@@ -47,7 +49,16 @@ function waUrlForFamily(title: string, lang: "fr" | "ar") {
 function DatesBanner({ lang }: { lang: "fr" | "ar" }) {
   const price = 120;
   const productLabel = "Dattes Farcies aux Cajou — Boîte de 12";
-  return (
+  const addItem = useCart((s) => s.addItem);
+  const addToCart = () => {
+    addItem({
+      kind: "dates",
+      title: productLabel,
+      unitPrice: price,
+      image: datesImg,
+    });
+    toast.success("Ajoutée au panier 🛒");
+  };
     <article className="bg-card rounded-3xl shadow-card card-premium overflow-hidden grid md:grid-cols-5">
       <div className="md:col-span-2 aspect-[4/3] md:aspect-auto md:min-h-[360px] overflow-hidden">
         <img
