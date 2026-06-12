@@ -6,12 +6,12 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { useCart, MIN_ORDER_MAD } from "@/lib/cart";
+import { useCart, useCartSubtotal, MIN_ORDER_MAD } from "@/lib/cart";
 
 export default function CartDrawer() {
-  const { items, isOpen, setOpen, updateQty, removeItem, subtotal } = useCart();
+  const { items, isOpen, setOpen, updateQty, removeItem } = useCart();
   const navigate = useNavigate();
-  const total = subtotal();
+  const total = useCartSubtotal();
   const underMin = total > 0 && total < MIN_ORDER_MAD;
 
   const goCheckout = () => {

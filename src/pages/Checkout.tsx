@@ -10,7 +10,7 @@ import {
   AlertCircle,
   PartyPopper,
 } from "lucide-react";
-import { useCart, MIN_ORDER_MAD } from "@/lib/cart";
+import { useCart, useCartSubtotal, MIN_ORDER_MAD } from "@/lib/cart";
 import {
   buildOrderMessage,
   buildOrderWaUrl,
@@ -54,8 +54,8 @@ const MODE_META: Record<
 export default function Checkout() {
   const navigate = useNavigate();
   const lang = useStore((s) => s.lang);
-  const { items, subtotal, clear } = useCart();
-  const total = subtotal();
+  const { items, clear } = useCart();
+  const total = useCartSubtotal();
   const [step, setStep] = useState<Step>(1);
   const [mode, setMode] = useState<PaymentMode>("whatsapp");
   const [orderRef] = useState(generateOrderRef);
@@ -95,6 +95,7 @@ export default function Checkout() {
     customer.address.trim().length >= 4;
 
   const confirm = () => {
+    if (underMin || items.length === 0) return;
     trackWhatsAppClick(`checkout-${mode}`);
     trackOrderSubmit({ value: total, items: items.length, source: `checkout-${mode}` });
     window.open(waUrl, "_blank", "noopener,noreferrer");
@@ -136,6 +137,16 @@ export default function Checkout() {
         )}
 
         {step !== "done" && <Stepper step={step as 1 | 2 | 3} />}
+
+        {step !== "done" && underMin && (
+          <div className="mt-5 flex items-start gap-2 rounded-2xl border border-rose/30 bg-rose/10 px-4 py-3 text-sm text-rose">
+            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+            <span>
+              Commande minimum <strong>{MIN_ORDER_MAD} MAD</strong>. Total actuel : {total} MAD —
+              ajoutez encore <strong>{MIN_ORDER_MAD - total} MAD</strong> pour valider.
+            </span>
+          </div>
+        )}
 
         <div className="grid lg:grid-cols-[1fr_360px] gap-6 lg:gap-8 mt-6">
           <div className="rounded-[28px] border border-cocoa/10 bg-card shadow-card p-6 lg:p-8">
@@ -192,7 +203,7 @@ export default function Checkout() {
                 <div className="mt-7 flex justify-end">
                   <button
                     onClick={() => setStep(2)}
-                    disabled={!step1Valid}
+                    disabled={!step1Valid || underMin}
                     className="btn-rose !py-3 !px-6 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Étape suivante →
@@ -268,7 +279,8 @@ export default function Checkout() {
                   </button>
                   <button
                     onClick={() => setStep(3)}
-                    className="btn-rose !py-3 !px-6 text-sm"
+                    disabled={underMin}
+                    className="btn-rose !py-3 !px-6 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Voir le récapitulatif →
                   </button>
@@ -449,8 +461,8 @@ function Field({
 }
 
 function Summary() {
-  const { items, subtotal } = useCart();
-  const total = subtotal();
+  const items = useCart((s) => s.items);
+  const total = useCartSubtotal();
   return (
     <aside className="rounded-[28px] border border-cocoa/10 bg-card shadow-card p-6 h-fit lg:sticky lg:top-24">
       <p className="text-[11px] uppercase tracking-[0.18em] text-cocoa/60 font-semibold">
