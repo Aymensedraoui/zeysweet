@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { useStore, WHATSAPP_NUMBER } from "@/lib/store";
 import { trackWhatsAppClick } from "@/lib/analytics";
-import { Gift } from "lucide-react";
+import { Gift, ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 import datesImg from "@/assets/product-dates.jpg";
-import BoxBuilder from "./BoxBuilder";
+import BoxBuilder, { type Line } from "./BoxBuilder";
+import americanHero from "@/assets/american-classic-hero.jpg.asset.json";
+import newyorkHero from "@/assets/newyork-cookie-hero.jpg.asset.json";
 
 function waUrlForItem(productLabel: string, price: number, source: string, lang: "fr" | "ar") {
   const lines =
