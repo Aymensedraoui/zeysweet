@@ -10,7 +10,7 @@ import {
   AlertCircle,
   PartyPopper,
 } from "lucide-react";
-import { useCart, MIN_ORDER_MAD } from "@/lib/cart";
+import { useCart, useCartSubtotal, MIN_ORDER_MAD } from "@/lib/cart";
 import {
   buildOrderMessage,
   buildOrderWaUrl,
