@@ -203,7 +203,7 @@ export default function Checkout() {
                 <div className="mt-7 flex justify-end">
                   <button
                     onClick={() => setStep(2)}
-                    disabled={!step1Valid}
+                    disabled={!step1Valid || underMin}
                     className="btn-rose !py-3 !px-6 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Étape suivante →
