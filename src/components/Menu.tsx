@@ -98,8 +98,32 @@ function DatesBanner({ lang }: { lang: "fr" | "ar" }) {
   );
 }
 
+const LINES: { id: Line; name: string; tagline: string; desc: string; flavorsLabel: string; priceFrom: string; image: string; accent: string }[] = [
+  {
+    id: "american",
+    name: "American Classic",
+    tagline: "Soft-baked, fondant, signature",
+    desc: "Le cookie tel qu'on l'aime : doré, soft-baked, pépites de chocolat au lait et fleur de sel. Une seule saveur, parfaitement maîtrisée.",
+    flavorsLabel: "Original — Chocolat & fleur de sel",
+    priceFrom: "dès 35 MAD",
+    image: americanHero.url,
+    accent: "from-caramel/20 to-cream",
+  },
+  {
+    id: "newyork",
+    name: "New York Cookie",
+    tagline: "Épais, fourré, généreux",
+    desc: "Le cookie style new-yorkais : épais, moelleux à cœur, fourré à la commande. 7 saveurs à mixer librement dans votre boîte.",
+    flavorsLabel: "7 saveurs · Mix & Match",
+    priceFrom: "dès 110 MAD",
+    image: newyorkHero.url,
+    accent: "from-rose/20 to-cream",
+  },
+];
+
 export default function Menu() {
   const lang = useStore((s) => s.lang);
+  const [selectedLine, setSelectedLine] = useState<Line | null>(null);
 
   return (
     <section id="products" className="py-24 lg:py-32 paper-texture">
@@ -108,25 +132,74 @@ export default function Menu() {
         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
           <p className="font-hand text-2xl text-caramel">— Notre Carte —</p>
           <h2 className="font-display font-bold italic text-4xl lg:text-5xl text-cocoa mt-2">
-            Composez votre boîte
+            {selectedLine
+              ? `Composez votre boîte ${LINES.find((l) => l.id === selectedLine)?.name}`
+              : "Deux signatures, un savoir-faire"}
           </h2>
           <p className="text-cocoa/70 mt-5 text-base lg:text-lg">
-            7 saveurs, deux formats, des boîtes sur mesure. Choisissez votre taille,
-            mixez librement vos cookies, on s'occupe du reste.
+            {selectedLine
+              ? "Choisissez votre format, votre taille, on s'occupe du reste."
+              : "Choisissez votre gamme : l'American Classic soft-baked ou la New York épaisse & fourrée."}
           </p>
+          <p className="text-xs text-cocoa/55 mt-3">Commande minimum 70 MAD · Livraison Rabat & Témara</p>
         </div>
 
-        {/* Box Builder */}
+        {/* Chooser OR Builder */}
         <div className="max-w-6xl mx-auto mb-16 lg:mb-20">
-          <div className="flex items-center gap-4 mb-8 lg:mb-10">
-            <span className="h-px flex-1 bg-cocoa/15" />
-            <h3 className="font-display font-bold italic text-2xl lg:text-3xl text-cocoa whitespace-nowrap">
-              Box Builder · Mix & Match
-            </h3>
-            <span className="h-px flex-1 bg-cocoa/15" />
-          </div>
-          <BoxBuilder />
+          {selectedLine === null ? (
+            <div className="grid md:grid-cols-2 gap-5 lg:gap-7">
+              {LINES.map((l) => (
+                <button
+                  key={l.id}
+                  onClick={() => setSelectedLine(l.id)}
+                  className="group relative text-left rounded-[28px] overflow-hidden border border-cocoa/10 bg-card shadow-card hover:shadow-[0_24px_60px_-20px_hsl(20_30%_20%/0.35)] transition-all duration-500 hover:-translate-y-1"
+                >
+                  <div className="aspect-[4/3] overflow-hidden relative">
+                    <img
+                      src={l.image}
+                      alt={`${l.name} — Zey's Sweetness`}
+                      loading="lazy"
+                      className="w-full h-full object-cover img-warm transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${l.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-multiply`} />
+                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-cream/95 backdrop-blur text-[11px] uppercase tracking-[0.2em] font-semibold text-cocoa">
+                      {l.flavorsLabel}
+                    </span>
+                  </div>
+                  <div className="p-6 lg:p-8">
+                    <p className="font-hand text-lg text-caramel leading-none">— {l.tagline} —</p>
+                    <h3 className="font-display font-bold italic text-3xl lg:text-4xl text-cocoa mt-1.5">
+                      {l.name}
+                    </h3>
+                    <p className="text-sm text-cocoa/70 mt-3 leading-relaxed">{l.desc}</p>
+                    <div className="flex items-center justify-between mt-5 pt-5 border-t border-cocoa/10">
+                      <span className="font-hand text-2xl text-caramel">{l.priceFrom}</span>
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-cocoa group-hover:text-rose transition-colors">
+                        Composer ma boîte
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </div>
+                  <span className="absolute top-4 right-4 w-9 h-9 rounded-full bg-cream/95 backdrop-blur flex items-center justify-center text-cocoa group-hover:bg-rose group-hover:text-cream transition-all">
+                    <Sparkles className="w-4 h-4" />
+                  </span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div>
+              <button
+                onClick={() => setSelectedLine(null)}
+                className="inline-flex items-center gap-2 text-sm text-cocoa/70 hover:text-rose mb-5 transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Changer de gamme
+              </button>
+              <BoxBuilder line={selectedLine} />
+            </div>
+          )}
         </div>
+
 
         {/* Dates section */}
         <div className="max-w-6xl mx-auto">
