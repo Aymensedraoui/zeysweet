@@ -54,8 +54,8 @@ const MODE_META: Record<
 export default function Checkout() {
   const navigate = useNavigate();
   const lang = useStore((s) => s.lang);
-  const { items, subtotal, clear } = useCart();
-  const total = subtotal();
+  const { items, clear } = useCart();
+  const total = useCartSubtotal();
   const [step, setStep] = useState<Step>(1);
   const [mode, setMode] = useState<PaymentMode>("whatsapp");
   const [orderRef] = useState(generateOrderRef);
