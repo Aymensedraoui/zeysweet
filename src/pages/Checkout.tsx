@@ -95,6 +95,7 @@ export default function Checkout() {
     customer.address.trim().length >= 4;
 
   const confirm = () => {
+    if (underMin || items.length === 0) return;
     trackWhatsAppClick(`checkout-${mode}`);
     trackOrderSubmit({ value: total, items: items.length, source: `checkout-${mode}` });
     window.open(waUrl, "_blank", "noopener,noreferrer");
