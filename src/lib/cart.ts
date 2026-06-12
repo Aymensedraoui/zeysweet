@@ -86,3 +86,13 @@ export const useCart = create<CartState>()(
 );
 
 export const MIN_ORDER_MAD = 70;
+
+// Reactive selectors — always recompute when items change so totals
+// stay perfectly in sync between drawer, navbar badge and checkout.
+export const useCartItems = () => useCart((s) => s.items);
+export const useCartSubtotal = () =>
+  useCart((s) =>
+    s.items.reduce((sum, i) => sum + (Number(i.unitPrice) || 0) * (Number(i.qty) || 0), 0)
+  );
+export const useCartCount = () =>
+  useCart((s) => s.items.reduce((n, i) => n + (Number(i.qty) || 0), 0));
