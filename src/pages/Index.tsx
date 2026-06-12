@@ -174,6 +174,7 @@ const Index = () => {
           accent="touche royale"
         />
         <Gifts />
+        <SectionDivider videoUrl={dividerCaramel.url} label="L'art de la pâtisserie" />
         <HowToOrder />
         <ScrollCinematic
           videoUrl={scroll3.url}
@@ -182,6 +183,7 @@ const Index = () => {
           accent="émotion"
         />
         <Testimonials />
+        <SectionDivider videoUrl={dividerCaramel.url} label="Maison Zey's Sweetness" />
         <FAQ />
         <Gallery />
         <OrderCTA />
