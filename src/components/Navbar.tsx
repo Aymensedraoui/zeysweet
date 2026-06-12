@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
+import CartButton from "./CartButton";
 
 const links = [
   { href: "#products", k: "nav.products" as const },
@@ -61,6 +62,7 @@ export default function Navbar() {
             >
               {t("nav.lang", lang)}
             </button>
+            <CartButton />
             <button onClick={onOrder} className="hidden sm:inline-flex btn-rose btn-glow !py-2.5 !px-5 text-sm" aria-label={t("a11y.whatsapp", lang)}>
               {t("nav.cta", lang)}
             </button>

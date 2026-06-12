@@ -1,7 +1,9 @@
 import { useMemo, useState } from "react";
-import { Minus, Plus, Check, Sparkles, Gift, Users, AlertCircle } from "lucide-react";
+import { Minus, Plus, Check, Sparkles, Gift, Users, AlertCircle, ShoppingBag } from "lucide-react";
 import { useStore, WHATSAPP_NUMBER } from "@/lib/store";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { useCart } from "@/lib/cart";
+import { toast } from "sonner";
 
 import imgOriginal from "@/assets/cookie-original.jpg";
 import imgRedVelvet from "@/assets/cookie-redvelvet.jpg";
@@ -128,6 +130,7 @@ function buildBoxLink(opts: {
 
 export default function BoxBuilder({ line }: { line: Line }) {
   const lang = useStore((s) => s.lang) as Lang;
+  const addItem = useCart((s) => s.addItem);
   const CATALOG = line === "newyork" ? NY_BOXES : AMERICAN_BOXES;
   const [format, setFormat] = useState<Format>("maxi");
   const [boxIndex, setBoxIndex] = useState(1);
@@ -188,6 +191,27 @@ export default function BoxBuilder({ line }: { line: Line }) {
   });
 
   const canOrder = isComplete && !underMinimum;
+
+  function addToCart() {
+    const heroImg = line === "american" ? americanHero.url : FLAVORS[0].image;
+    addItem({
+      kind: "cookie-box",
+      line,
+      format,
+      size: box.size,
+      flavors:
+        line === "newyork"
+          ? FLAVORS.filter((f) => qty[f.id] > 0).map((f) => ({
+              id: f.id,
+              name: f.name,
+              qty: qty[f.id],
+            }))
+          : undefined,
+      title: `Boîte ${box.size} cookies ${LINE_LABEL[line]} ${FORMAT_LABEL[format].fr}`,
+      unitPrice: box.price,
+      image: heroImg,
+    });
+  }
 
   return (
     <div className="relative">
@@ -442,18 +466,30 @@ export default function BoxBuilder({ line }: { line: Line }) {
                 )}
               </p>
             </div>
-            <div className="flex items-center gap-4 shrink-0">
+            <div className="flex items-center gap-3 shrink-0 flex-wrap">
               <span className="font-hand text-3xl text-caramel leading-none">{box.price} MAD</span>
               {canOrder ? (
-                <a
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick(`box-${line}`)}
-                  className="btn-rose btn-glow !py-3 !px-5 text-sm"
-                >
-                  Commander sur WhatsApp
-                </a>
+                <>
+                  <button
+                    onClick={() => {
+                      addToCart();
+                      toast.success("Boîte ajoutée au panier 🛒");
+                    }}
+                    className="btn-rose btn-glow !py-3 !px-5 text-sm inline-flex items-center gap-2"
+                  >
+                    <ShoppingBag className="w-4 h-4" />
+                    Ajouter au panier
+                  </button>
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackWhatsAppClick(`box-${line}-direct`)}
+                    className="text-xs text-cocoa/65 hover:text-rose underline-offset-4 hover:underline"
+                  >
+                    ou commander direct sur WhatsApp
+                  </a>
+                </>
               ) : (
                 <button
                   disabled

@@ -13,6 +13,8 @@ import Press from "./pages/Press.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import WaRedirect from "./pages/WaRedirect.tsx";
 import Campaigns from "./pages/Campaigns.tsx";
+import Checkout from "./pages/Checkout.tsx";
+import CartDrawer from "./components/CartDrawer.tsx";
 
 const queryClient = new QueryClient();
 
@@ -40,8 +42,10 @@ const App = () => (
           <Route path="/wa/:videoId" element={<WaRedirect />} />
           <Route path="/campagnes" element={<Campaigns />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CartDrawer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
