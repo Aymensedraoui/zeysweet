@@ -10,7 +10,7 @@ import imgOreo from "@/assets/cookie-oreo.jpg";
 import imgLotus from "@/assets/cookie-lotus.jpg";
 import imgNutella from "@/assets/cookie-nutella.jpg";
 import imgFramboise from "@/assets/cookie-framboise.jpg";
-import americanHero from "@/assets/american-classic-hero.jpg.asset.json";
+import americanHero from "@/assets/american-classic-hero.png.asset.json";
 
 type Lang = "fr" | "ar";
 type Format = "maxi" | "mini";
