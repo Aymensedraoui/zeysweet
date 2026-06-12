@@ -16,9 +16,11 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollProgress from "@/components/ScrollProgress";
 import CinematicLoader from "@/components/CinematicLoader";
 import ScrollCinematic from "@/components/ScrollCinematic";
+import SectionDivider from "@/components/SectionDivider";
 import scroll1 from "@/assets/scroll-1-chocolate.mp4.asset.json";
 import scroll2 from "@/assets/scroll-2-dates.mp4.asset.json";
 import scroll3 from "@/assets/scroll-3-gift.mp4.asset.json";
+import dividerCaramel from "@/assets/divider-caramel.mp4.asset.json";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useStore } from "@/lib/store";
@@ -172,6 +174,7 @@ const Index = () => {
           accent="touche royale"
         />
         <Gifts />
+        <SectionDivider videoUrl={dividerCaramel.url} label="L'art de la pâtisserie" />
         <HowToOrder />
         <ScrollCinematic
           videoUrl={scroll3.url}
@@ -180,6 +183,7 @@ const Index = () => {
           accent="émotion"
         />
         <Testimonials />
+        <SectionDivider videoUrl={dividerCaramel.url} label="Maison Zey's Sweetness" />
         <FAQ />
         <Gallery />
         <OrderCTA />

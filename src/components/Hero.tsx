@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import heroCookie from "@/assets/hero-cookie.jpg";
+import heroBgVideo from "@/assets/hero-bg-cinematic.mp4.asset.json";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
@@ -43,8 +44,22 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen pt-[72px] flex flex-col">
-      <div className="container mx-auto flex-1 grid lg:grid-cols-2 gap-12 items-center py-12 lg:py-20">
+    <section className="relative min-h-screen pt-[72px] flex flex-col overflow-hidden">
+      {/* Cinematic background video — desktop only */}
+      <div className="absolute inset-0 hidden md:block" aria-hidden="true">
+        <video
+          src={heroBgVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/75 to-background" />
+      </div>
+      <div className="container mx-auto flex-1 grid lg:grid-cols-2 gap-12 items-center py-12 lg:py-20 relative">
+
         <div className="space-y-6 lg:space-y-8 max-w-xl">
           <p className="font-hand text-2xl text-caramel animate-fade-up" style={{ animationDelay: "0.1s" }}>
             {t("hero.eyebrow", lang)}
