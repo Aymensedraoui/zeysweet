@@ -59,6 +59,7 @@ function DatesBanner({ lang }: { lang: "fr" | "ar" }) {
     });
     toast.success("Ajoutée au panier 🛒");
   };
+  return (
     <article className="bg-card rounded-3xl shadow-card card-premium overflow-hidden grid md:grid-cols-5">
       <div className="md:col-span-2 aspect-[4/3] md:aspect-auto md:min-h-[360px] overflow-hidden">
         <img
@@ -88,14 +89,21 @@ function DatesBanner({ lang }: { lang: "fr" | "ar" }) {
           </div>
         </div>
         <div className="flex flex-wrap gap-3 pt-2">
+          <button
+            onClick={addToCart}
+            className="btn-rose text-sm inline-flex items-center gap-2"
+          >
+            <ShoppingBag className="w-4 h-4" />
+            Ajouter au panier
+          </button>
           <a
             href={waUrlForItem(productLabel, price, "menu-dattes-12", lang)}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("menu-dattes-12")}
-            className="btn-rose text-sm"
+            className="btn-outline-cocoa text-sm"
           >
-            Commander sur WhatsApp
+            Commander direct WhatsApp
           </a>
           <a
             href={waUrlForFamily("Dattes Farcies (mariage / corporate)", lang)}
