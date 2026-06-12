@@ -130,6 +130,7 @@ function buildBoxLink(opts: {
 
 export default function BoxBuilder({ line }: { line: Line }) {
   const lang = useStore((s) => s.lang) as Lang;
+  const addItem = useCart((s) => s.addItem);
   const CATALOG = line === "newyork" ? NY_BOXES : AMERICAN_BOXES;
   const [format, setFormat] = useState<Format>("maxi");
   const [boxIndex, setBoxIndex] = useState(1);
@@ -190,6 +191,27 @@ export default function BoxBuilder({ line }: { line: Line }) {
   });
 
   const canOrder = isComplete && !underMinimum;
+
+  function addToCart() {
+    const heroImg = line === "american" ? americanHero.url : FLAVORS[0].image;
+    addItem({
+      kind: "cookie-box",
+      line,
+      format,
+      size: box.size,
+      flavors:
+        line === "newyork"
+          ? FLAVORS.filter((f) => qty[f.id] > 0).map((f) => ({
+              id: f.id,
+              name: f.name,
+              qty: qty[f.id],
+            }))
+          : undefined,
+      title: `Boîte ${box.size} cookies ${LINE_LABEL[line]} ${FORMAT_LABEL[format].fr}`,
+      unitPrice: box.price,
+      image: heroImg,
+    });
+  }
 
   return (
     <div className="relative">
