@@ -138,6 +138,16 @@ export default function Checkout() {
 
         {step !== "done" && <Stepper step={step as 1 | 2 | 3} />}
 
+        {step !== "done" && underMin && (
+          <div className="mt-5 flex items-start gap-2 rounded-2xl border border-rose/30 bg-rose/10 px-4 py-3 text-sm text-rose">
+            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+            <span>
+              Commande minimum <strong>{MIN_ORDER_MAD} MAD</strong>. Total actuel : {total} MAD —
+              ajoutez encore <strong>{MIN_ORDER_MAD - total} MAD</strong> pour valider.
+            </span>
+          </div>
+        )}
+
         <div className="grid lg:grid-cols-[1fr_360px] gap-6 lg:gap-8 mt-6">
           <div className="rounded-[28px] border border-cocoa/10 bg-card shadow-card p-6 lg:p-8">
             {step === 1 && (
