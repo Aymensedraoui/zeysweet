@@ -13,6 +13,8 @@ import Press from "./pages/Press.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import WaRedirect from "./pages/WaRedirect.tsx";
 import Campaigns from "./pages/Campaigns.tsx";
+import Checkout from "./pages/Checkout.tsx";
+import CartDrawer from "./components/CartDrawer.tsx";
 
 const queryClient = new QueryClient();
 
