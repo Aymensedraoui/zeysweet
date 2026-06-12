@@ -14,6 +14,11 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollProgress from "@/components/ScrollProgress";
+import CinematicLoader from "@/components/CinematicLoader";
+import ScrollCinematic from "@/components/ScrollCinematic";
+import scroll1 from "@/assets/scroll-1-chocolate.mp4.asset.json";
+import scroll2 from "@/assets/scroll-2-dates.mp4.asset.json";
+import scroll3 from "@/assets/scroll-3-gift.mp4.asset.json";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useStore } from "@/lib/store";
@@ -145,16 +150,35 @@ const Index = () => {
         <script type="application/ld+json">{JSON.stringify(COOKIE_PRODUCT_JSONLD)}</script>
         <script type="application/ld+json">{JSON.stringify(DATTES_PRODUCT_JSONLD)}</script>
       </Helmet>
+      <CinematicLoader />
       <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
         <TrustBar />
+        <ScrollCinematic
+          videoUrl={scroll1.url}
+          eyebrow="Fait main · Rabat"
+          title="Le goût du"
+          accent="chocolat fondant"
+        />
         <Menu />
         <Story />
         <Cinematic />
+        <ScrollCinematic
+          videoUrl={scroll2.url}
+          eyebrow="Signature"
+          title="Dattes farcies,"
+          accent="touche royale"
+        />
         <Gifts />
         <HowToOrder />
+        <ScrollCinematic
+          videoUrl={scroll3.url}
+          eyebrow="Coffrets"
+          title="Offrir une"
+          accent="émotion"
+        />
         <Testimonials />
         <FAQ />
         <Gallery />
