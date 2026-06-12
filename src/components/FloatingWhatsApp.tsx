@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
 
 export default function FloatingWhatsApp() {
   const { lang } = useStore();
+  const { pathname } = useLocation();
   const [shown, setShown] = useState(false);
   useEffect(() => { const t = setTimeout(() => setShown(true), 1500); return () => clearTimeout(t); }, []);
+
+  if (pathname.startsWith("/checkout")) return null;
 
   const handle = () => {
     trackWhatsAppClick("floating");
