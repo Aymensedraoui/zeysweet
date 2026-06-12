@@ -279,7 +279,8 @@ export default function Checkout() {
                   </button>
                   <button
                     onClick={() => setStep(3)}
-                    className="btn-rose !py-3 !px-6 text-sm"
+                    disabled={underMin}
+                    className="btn-rose !py-3 !px-6 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Voir le récapitulatif →
                   </button>
