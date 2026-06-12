@@ -40,8 +40,10 @@ const App = () => (
           <Route path="/wa/:videoId" element={<WaRedirect />} />
           <Route path="/campagnes" element={<Campaigns />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CartDrawer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
