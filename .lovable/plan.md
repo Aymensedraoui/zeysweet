@@ -1,68 +1,83 @@
-# Option A — WhatsApp direct everywhere
 
-Align the site with the brand promise: one tap → pre-filled WhatsApp. Remove the orphaned cart/checkout flow entirely.
+# Two Cookie Lines — American Classic & New York
 
-## Goals
-- Zero friction ordering, consistent across the whole site
-- No more "cart stays at 0" confusion
-- Lighter code, less to maintain
-- Preserve premium artisanal feel (no Glovo-like checkout)
+## What changes for the customer
 
-## What gets removed
-- `src/components/CartDrawer.tsx` — deleted
-- `src/components/WhatsAppModal.tsx` — deleted
-- Cart icon + badge in `src/components/Navbar.tsx`
-- Cart-related state in `src/lib/store.ts`: `cart`, `cartOpen`, `setCartOpen`, `add`, `remove`, `setQty`, `modalOpen`, `setModalOpen`, `customer`, `setCustomer`, `promoApplied`, `setPromoApplied`, `firstOrderUsed`, `markFirstOrderUsed`, `giftMessage`, `setGiftMessage`
-- Helpers no longer used: `cartSubtotal`, `promoDiscount`, `ZONE_FEE`, `MIN_ORDER_MAD`, `PROMO_CODE`, `DeliveryZone`, customer type
-- Mounting of `<CartDrawer />` and `<WhatsAppModal />` in `src/pages/Index.tsx` (and anywhere else)
-- i18n keys under `cart.*` and `mod.*` in `src/lib/i18n.ts`
-- Any "Ajouter au panier" / cart CTAs in `Products.tsx`, `Gifts.tsx`, `OrderCTA.tsx`, `HowToOrder.tsx`, `Hero.tsx` — replaced by direct WhatsApp links using `buildWhatsAppLink([], "", lang, { source })`
+The menu becomes a two-step experience:
 
-## What stays
-- `src/components/Menu.tsx` — already WhatsApp-direct, untouched
-- `FloatingWhatsApp.tsx` — simplified: always opens WhatsApp directly (no more `if (cart.length) setModalOpen`)
-- `buildWhatsAppLink()` in `store.ts` — kept, but simplified signature: only `(lang, { source, productLabel?, price? })`. Used everywhere as the single entry point.
-- `WHATSAPP_NUMBER`, `CONTACT_EMAIL`, `CONTACT_PHONE_DISPLAY` constants
-- Language store (`lang`, `setLang`)
-- Analytics `trackWhatsAppClick(source)` — kept; `trackOrderSubmit` removed
+1. **Choose your line** — two large editorial cards side-by-side:
+   - **American Classic** — the flat, soft-baked chocolate chip. Original flavor only.
+   - **New York** — the thick, stuffed, generous style. 7 flavors to mix & match.
+2. **Build your box** — the existing Box Builder opens for the chosen line, with a small "← Change line" link to go back.
 
-## New unified pattern
-Every CTA on the site becomes:
-```tsx
-<a
-  href={waUrl({ source: "hero", productLabel?, price? })}
-  target="_blank" rel="noopener"
-  onClick={() => trackWhatsAppClick("hero")}
-  className="btn-rose"
->
-  Commander sur WhatsApp
-</a>
+This keeps the premium feel of the builder while making the brand story crystal clear: two distinct products, not one menu of variants.
+
+## Pricing (locked in from your answers)
+
+**New York Cookie**
+- Maxi: 4 → 110 · 6 → 160 · 10 → 250 MAD
+- Mini: 10 → 130 · 20 → 260 MAD
+
+**American Classic** (Original only)
+- Maxi: 4 → 70 · 8 → 140 · 12 → 190 MAD
+- Mini: 4 → 35 · 8 → 65 · 12 → 99 MAD
+
+**Minimum order: 70 MAD** — shown as a subtle note on the chooser and disabled state on under-minimum boxes (only American Mini 4-pack at 35 MAD and 8-pack at 65 MAD fall under, so those two will display a "Minimum 70 MAD — ajoutez une autre boîte ou choisissez un format plus grand" hint and the WhatsApp CTA will be disabled for those single-box orders).
+
+## Page structure
+
+```text
+Notre Carte
+─────────────────────────────
+[Step shown when no line picked]
+
+  ┌──────────────────┐   ┌──────────────────┐
+  │  AMERICAN        │   │  NEW YORK        │
+  │  CLASSIC         │   │  COOKIE          │
+  │  [photo 1]       │   │  [photo 2]       │
+  │  Soft-baked      │   │  Thick & stuffed │
+  │  Original        │   │  7 flavors       │
+  │  dès 35 MAD      │   │  dès 110 MAD     │
+  │  [Composer →]    │   │  [Composer →]    │
+  └──────────────────┘   └──────────────────┘
+
+[After click → builder for chosen line replaces chooser]
+
+← Changer de gamme
+  [BoxBuilder configured for that line]
+
+─────────────────────────────
+Nos Dattes Farcies (unchanged)
 ```
 
-## Files touched
-| File | Action |
-|---|---|
-| `src/components/CartDrawer.tsx` | delete |
-| `src/components/WhatsAppModal.tsx` | delete |
-| `src/lib/store.ts` | slim down to lang + WA helpers |
-| `src/lib/i18n.ts` | remove `cart.*` and `mod.*` keys |
-| `src/components/Navbar.tsx` | remove cart icon/badge |
-| `src/components/FloatingWhatsApp.tsx` | always direct WA |
-| `src/components/Hero.tsx` | CTA → direct WA |
-| `src/components/Products.tsx` | "Ajouter" → direct WA |
-| `src/components/Gifts.tsx` | CTA → direct WA |
-| `src/components/OrderCTA.tsx` | CTA → direct WA |
-| `src/components/HowToOrder.tsx` | CTA → direct WA |
-| `src/pages/Index.tsx` | drop `<CartDrawer />` + `<WhatsAppModal />` |
-| `src/components/Menu.tsx` | unchanged |
+## Box Builder behavior per line
 
-## Verification
-- Build passes (no dangling imports)
-- Click each CTA in preview → opens WhatsApp with pre-filled message
-- No "0" cart badge anywhere
-- Floating WA always opens chat directly
+- **New York**: keeps the current 7-flavor mix & match grid. Maxi/Mini toggle with the new boxes above. (Mini drops the 6-pack — only 10 & 20 now per your pricing.)
+- **American Classic**: builder collapses to a simpler view — no flavor grid (single flavor). Maxi/Mini toggle + 3 box sizes each. Single "Commander" CTA per selected box. The flavor step is replaced by a short product description card with the American photo and tasting notes.
 
-## Out of scope
-- No design redesign — only logic cleanup
-- No changes to Menu structure, Hero copy, or images
-- No new translations beyond removing dead keys
+Both builders share the same summary bar + WhatsApp message generator, with the line name and format included in the pre-filled text (e.g. `🍪 Boîte de 6 cookies New York Maxi — 160 MAD`).
+
+## Files to change
+
+- **`src/components/Menu.tsx`** — add a `selectedLine` state (`null | 'american' | 'newyork'`). When `null`, render the two-card chooser. When set, render `<BoxBuilder line={selectedLine} />` with a back link.
+- **`src/components/BoxBuilder.tsx`** — accept a `line` prop. Branch box catalog, format options, and the flavor step:
+  - `line === 'newyork'` → current 7-flavor grid, NY box prices above.
+  - `line === 'american'` → hide flavor grid, show a single "Original — chocolat noir & pépites, fleur de sel" hero card, American box prices above.
+  - Update `buildBoxLink` to include the line name in the WhatsApp message.
+  - Add 70 MAD minimum check → disable CTA + show hint when `box.price < 70`.
+- **`src/assets/`** — upload the two attached photos as Lovable Assets:
+  - `american-classic-hero.jpg` (image 1, flat chocolate chip on rack)
+  - `newyork-cookie-hero.jpg` (image 2, thick stuffed cookie on rack)
+  Used for the chooser cards and the American builder hero.
+
+## What stays the same
+
+- Dattes Farcies banner, practical info strip, FAQ, contact, all other sections.
+- WhatsApp-only checkout flow.
+- Visual language (cocoa/cream/rose palette, hand + display fonts, paper texture).
+
+## Out of scope (ask if you want it)
+
+- Cross-line bundles (one American + one NY in a single WhatsApp message).
+- Per-flavor photos on the chooser cards.
+- Animated transition between chooser and builder (can add Motion if you want a polished slide).
