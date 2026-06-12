@@ -150,16 +150,35 @@ const Index = () => {
         <script type="application/ld+json">{JSON.stringify(COOKIE_PRODUCT_JSONLD)}</script>
         <script type="application/ld+json">{JSON.stringify(DATTES_PRODUCT_JSONLD)}</script>
       </Helmet>
+      <CinematicLoader />
       <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
         <TrustBar />
+        <ScrollCinematic
+          videoUrl={scroll1.url}
+          eyebrow="Fait main · Rabat"
+          title="Le goût du"
+          accent="chocolat fondant"
+        />
         <Menu />
         <Story />
         <Cinematic />
+        <ScrollCinematic
+          videoUrl={scroll2.url}
+          eyebrow="Signature"
+          title="Dattes farcies,"
+          accent="touche royale"
+        />
         <Gifts />
         <HowToOrder />
+        <ScrollCinematic
+          videoUrl={scroll3.url}
+          eyebrow="Coffrets"
+          title="Offrir une"
+          accent="émotion"
+        />
         <Testimonials />
         <FAQ />
         <Gallery />
