@@ -461,8 +461,8 @@ function Field({
 }
 
 function Summary() {
-  const { items, subtotal } = useCart();
-  const total = subtotal();
+  const items = useCart((s) => s.items);
+  const total = useCartSubtotal();
   return (
     <aside className="rounded-[28px] border border-cocoa/10 bg-card shadow-card p-6 h-fit lg:sticky lg:top-24">
       <p className="text-[11px] uppercase tracking-[0.18em] text-cocoa/60 font-semibold">
