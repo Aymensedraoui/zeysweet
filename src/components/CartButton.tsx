@@ -1,8 +1,8 @@
 import { ShoppingBag } from "lucide-react";
-import { useCart } from "@/lib/cart";
+import { useCart, useCartCount } from "@/lib/cart";
 
 export default function CartButton({ className = "" }: { className?: string }) {
-  const count = useCart((s) => s.items.reduce((n, i) => n + i.qty, 0));
+  const count = useCartCount();
   const setOpen = useCart((s) => s.setOpen);
 
   return (
