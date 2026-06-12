@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import heroCookie from "@/assets/hero-cookie.jpg";
+import heroBgVideo from "@/assets/hero-bg-cinematic.mp4.asset.json";
 import { useStore, buildWhatsAppLink } from "@/lib/store";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
