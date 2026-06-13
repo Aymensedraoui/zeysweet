@@ -27,6 +27,7 @@ import {
 import { BANK_INFO, isBankInfoConfigured } from "@/lib/bankInfo";
 import { useStore } from "@/lib/store";
 import { trackWhatsAppClick, trackOrderSubmit } from "@/lib/analytics";
+import { persistOrder, uploadProofAndSign, attachProofUrl } from "@/lib/orders";
 import { toast } from "sonner";
 
 type Step = 1 | 2 | 3 | "done";
