@@ -518,12 +518,14 @@ function Summary() {
 function ConfirmationView({
   mode,
   orderRef,
+  orderId,
   total,
   waUrl,
   onNew,
 }: {
   mode: PaymentMode;
   orderRef: string;
+  orderId: string | null;
   total: number;
   waUrl: string;
   onNew: () => void;
