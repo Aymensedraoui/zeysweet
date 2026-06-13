@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Star, MessageCircle, Copy, Check } from "lucide-react";
+import { Star, MessageCircle, Copy, Check, Heart } from "lucide-react";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,7 +10,9 @@ import { toast } from "sonner";
 
 const BASE = "https://zeysweet.com";
 const URL = `${BASE}/avis`;
-// TODO: vérifier ce Place ID — à confirmer dans Google Business Profile officiel
+// TODO ⚠️ Place ID Google à VÉRIFIER dans Google Business Profile officiel.
+// Trouver le bon ID : https://developers.google.com/maps/documentation/places/web-service/place-id
+// Tant qu'il n'est pas confirmé, le lien "Laisser un avis" peut renvoyer sur une mauvaise fiche.
 const GOOGLE_REVIEW_LINK = "https://search.google.com/local/writereview?placeid=ChIJrQRPdYKqCw0RNMbSfaXmVhI";
 const SHARE_TEXT =
   "Bonjour 🌸 Merci d'avoir commandé chez Zey's Sweetness ! Si nos douceurs vous ont plu, votre avis Google nous aiderait énormément (1 minute) : ";
@@ -18,12 +20,11 @@ const SHARE_TEXT =
 export default function Reviews() {
   const [copied, setCopied] = useState(false);
 
-  const reviews = [
-    { name: "Salma", city: "Agdal", rating: 5, date: "2026-04-12", txt: "Les cookies sont à tomber, fondants à l'intérieur. Livrés tièdes, parfaits pour le café." },
-    { name: "Yasmine", city: "Hay Riad", rating: 5, date: "2026-04-05", txt: "J'ai commandé un coffret pour ma belle-mère, elle était bluffée. Présentation top." },
-    { name: "Hicham", city: "Souissi", rating: 5, date: "2026-03-28", txt: "Les dattes au cajou sont addictives. Service WhatsApp ultra rapide." },
-    { name: "Nadia", city: "Témara", rating: 5, date: "2026-03-22", txt: "Livraison pile à l'heure, emballage soigné. On en recommande déjà." },
-  ];
+  // ⚠️ Les avis affichés ici doivent venir de vraies clientes (capture d'écran
+  // ou copier-coller WhatsApp/Instagram, AVEC leur accord). Tant que le tableau
+  // est vide, la page affiche un état "bientôt" honnête plutôt que des faux avis.
+  // Pour ajouter un avis : pousser un objet { name, city, rating, date, txt }.
+  const reviews: { name: string; city: string; rating: number; date: string; txt: string }[] = [];
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -34,37 +35,43 @@ export default function Reviews() {
     ],
   };
 
-  const reviewsLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${BASE}/#business`,
-    name: "Zey's Sweetness",
-    url: BASE,
-    image: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f6e68386-17a6-43bd-abf1-f47ef502d00b/id-preview-db51dcb7--a640c7ed-e3d9-4125-a3d2-94cdfcad68c9.lovable.app-1777241430790.png",
-    telephone: "+212620355325",
-    priceRange: "MAD 35–280",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Rabat",
-      addressRegion: "Rabat-Salé-Kénitra",
-      addressCountry: "MA",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: String(reviews.length),
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: reviews.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: `${r.name} (${r.city})` },
-      reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5" },
-      datePublished: r.date,
-      reviewBody: r.txt,
-    })),
-  };
-
+  // Le bloc LocalBusiness/Review n'est injecté que s'il y a de vrais avis,
+  // sinon Google peut signaler un schéma Review sans contenu = pénalité.
+  const reviewsLd =
+    reviews.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "@id": `${BASE}/#business`,
+          name: "Zey's Sweetness",
+          url: BASE,
+          image: `${BASE}/og-image.jpg`,
+          telephone: "+212620355325",
+          priceRange: "MAD 35–280",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Rabat",
+            addressRegion: "Rabat-Salé-Kénitra",
+            addressCountry: "MA",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: (
+              reviews.reduce((s, r) => s + r.rating, 0) / reviews.length
+            ).toFixed(1),
+            reviewCount: String(reviews.length),
+            bestRating: "5",
+            worstRating: "1",
+          },
+          review: reviews.map((r) => ({
+            "@type": "Review",
+            author: { "@type": "Person", name: `${r.name} (${r.city})` },
+            reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5" },
+            datePublished: r.date,
+            reviewBody: r.txt,
+          })),
+        }
+      : null;
 
   const copyShare = async () => {
     await navigator.clipboard.writeText(SHARE_TEXT + GOOGLE_REVIEW_LINK);
@@ -95,7 +102,9 @@ export default function Reviews() {
           content="Ce que les clientes disent de Zey's Sweetness — Rabat & Témara."
         />
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(reviewsLd)}</script>
+        {reviewsLd && (
+          <script type="application/ld+json">{JSON.stringify(reviewsLd)}</script>
+        )}
       </Helmet>
 
       <ScrollProgress />
@@ -168,23 +177,48 @@ export default function Reviews() {
           </div>
 
           <div className="mt-16">
-            <h2 className="font-display text-2xl font-bold text-cocoa mb-6">Quelques retours récents</h2>
-            <div className="grid md:grid-cols-2 gap-5">
-              {reviews.map((r) => (
-                <figure key={r.name + r.date} className="p-5 rounded-xl bg-cream border border-cocoa/10">
-                  <div className="flex gap-1 mb-2" aria-hidden>
-                    {Array.from({ length: r.rating }).map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-rose text-rose" />
-                    ))}
-                  </div>
-                  <blockquote className="text-cocoa/85 text-sm leading-relaxed">« {r.txt} »</blockquote>
-                  <figcaption className="mt-3 text-xs text-cocoa/55">— {r.name} · {r.city}</figcaption>
-                </figure>
-              ))}
-            </div>
-            <p className="mt-6 text-xs text-cocoa/55">
-              Témoignages sélectionnés parmi les retours WhatsApp et Instagram, publiés avec accord.
-            </p>
+            <h2 className="font-display text-2xl font-bold text-cocoa mb-6">
+              {reviews.length > 0 ? "Quelques retours récents" : "Les premiers retours arrivent"}
+            </h2>
+
+            {reviews.length > 0 ? (
+              <>
+                <div className="grid md:grid-cols-2 gap-5">
+                  {reviews.map((r) => (
+                    <figure key={r.name + r.date} className="p-5 rounded-xl bg-cream border border-cocoa/10">
+                      <div className="flex gap-1 mb-2" aria-hidden>
+                        {Array.from({ length: r.rating }).map((_, i) => (
+                          <Star key={i} className="w-3.5 h-3.5 fill-rose text-rose" />
+                        ))}
+                      </div>
+                      <blockquote className="text-cocoa/85 text-sm leading-relaxed">« {r.txt} »</blockquote>
+                      <figcaption className="mt-3 text-xs text-cocoa/55">— {r.name} · {r.city}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+                <p className="mt-6 text-xs text-cocoa/55">
+                  Témoignages sélectionnés parmi les retours WhatsApp et Instagram, publiés avec accord.
+                </p>
+              </>
+            ) : (
+              <div className="rounded-2xl border border-dashed border-cocoa/15 bg-cream/60 p-8 text-center">
+                <Heart className="w-8 h-8 text-rose mx-auto mb-3" />
+                <p className="font-display italic text-xl text-cocoa">
+                  Nous démarrons la maison à Rabat.
+                </p>
+                <p className="mt-2 text-sm text-cocoa/70 max-w-md mx-auto">
+                  Les premiers avis clients seront publiés ici dès leur accord. Pour l'instant, place au goût et au service — on a hâte de vous lire.
+                </p>
+                <a
+                  href={GOOGLE_REVIEW_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-rose !py-2.5 !px-5 text-sm mt-5 inline-flex"
+                >
+                  Être la première à laisser un avis
+                </a>
+              </div>
+            )}
           </div>
         </section>
       </main>

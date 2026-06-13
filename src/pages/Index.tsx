@@ -153,9 +153,12 @@ const Index = () => {
         <script type="application/ld+json">{JSON.stringify(DATTES_PRODUCT_JSONLD)}</script>
       </Helmet>
       <CinematicLoader />
+      <a href="#main" className="skip-link">
+        {lang === "ar" ? "انتقل إلى المحتوى الرئيسي" : "Aller au contenu principal"}
+      </a>
       <ScrollProgress />
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
         <TrustBar />
         <ScrollCinematic
@@ -183,7 +186,7 @@ const Index = () => {
           accent="émotion"
         />
         <Testimonials />
-        <SectionDivider videoUrl={dividerCaramel.url} label="Maison Zey's Sweetness" />
+        <SectionDivider videoUrl={scroll2.url} label="Maison Zey's Sweetness" />
         <FAQ />
         <Gallery />
         <OrderCTA />

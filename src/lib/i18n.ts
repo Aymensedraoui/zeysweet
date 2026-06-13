@@ -146,6 +146,13 @@ export const dict = {
   "cart.min":           { fr: "Commande minimum",   ar: "الحد الأدنى للطلب" },
   "cart.min.warn":      { fr: "Ajoutez encore", ar: "أضف بعد" },
   "cart.min.warn2":     { fr: "MAD pour valider votre commande.", ar: "درهم لتأكيد طلبك." },
+  "cart.compose":       { fr: "Composez une boîte pour commencer.", ar: "اختر علبة للبدء." },
+  "cart.dec":           { fr: "Diminuer",                ar: "إنقاص" },
+  "cart.inc":           { fr: "Augmenter",               ar: "زيادة" },
+  "cart.remove":        { fr: "Retirer",                 ar: "حذف" },
+  "cart.min.add":       { fr: "Commande minimum {min} MAD — ajoutez encore {diff} MAD.", ar: "الحد الأدنى {min} درهم — أضف {diff} درهم بعد." },
+  "cart.go":            { fr: "Passer commande →",       ar: "متابعة الطلب →" },
+  "cart.modes":         { fr: "3 modes de paiement · WhatsApp, virement CIH, à la livraison", ar: "3 طرق دفع · واتساب، تحويل CIH، عند التسليم" },
 
   // Modal
   "mod.eyebrow":        { fr: "Presque prêt !",     ar: "تقريبا جاهز !" },
