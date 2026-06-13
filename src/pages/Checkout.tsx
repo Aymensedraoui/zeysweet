@@ -559,7 +559,7 @@ function ConfirmationView({
         </div>
       )}
 
-      {mode === "cih" && <CihBlock total={total} orderRef={orderRef} waUrl={waUrl} />}
+      {mode === "cih" && <CihBlock total={total} orderRef={orderRef} orderId={orderId} waUrl={waUrl} />}
 
       {mode === "cod" && (
         <div className="mt-6 rounded-2xl bg-cream/70 border border-cocoa/10 p-5 text-left">
