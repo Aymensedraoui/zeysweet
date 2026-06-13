@@ -661,6 +661,16 @@ function CihBlock({
   ];
   return (
     <div className="mt-6 rounded-2xl bg-cream/70 border border-cocoa/10 p-5 text-left space-y-4">
+      {!bankReady && (
+        <div className="flex items-start gap-2 rounded-xl border border-rose/40 bg-rose/10 px-4 py-3 text-sm text-rose">
+          <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+          <span>
+            <strong>Coordonnées CIH non configurées.</strong> Pour finaliser le virement,
+            la cliente doit nous contacter directement sur WhatsApp — nous lui transmettrons
+            le RIB de vive voix. (Note interne : remplir <code>src/lib/bankInfo.ts</code>.)
+          </span>
+        </div>
+      )}
       <p className="text-sm text-cocoa">
         Effectuez le virement avec les infos ci-dessous, puis joignez la preuve et envoyez-la sur WhatsApp.
       </p>
