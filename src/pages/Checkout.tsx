@@ -96,10 +96,22 @@ export default function Checkout() {
     customer.city.trim().length >= 2 &&
     customer.address.trim().length >= 4;
 
-  const confirm = () => {
+  const [orderId, setOrderId] = useState<string | null>(null);
+
+  const confirm = async () => {
     if (underMin || items.length === 0) return;
     trackWhatsAppClick(`checkout-${mode}`);
     trackOrderSubmit({ value: total, items: items.length, source: `checkout-${mode}` });
+    // Fire-and-forget backend persistence — never block the WA hand-off.
+    persistOrder({
+      ref: orderRef,
+      lang,
+      customer,
+      items,
+      total,
+      mode,
+      source: `checkout-${mode}`,
+    }).then((id) => setOrderId(id));
     window.open(waUrl, "_blank", "noopener,noreferrer");
     setStep("done");
   };
