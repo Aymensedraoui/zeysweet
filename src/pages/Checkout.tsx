@@ -768,6 +768,10 @@ function CihBlock({
             <div className="flex-1 min-w-0">
               <p className="text-sm text-cocoa truncate">{proof.name}</p>
               <p className="text-[11px] text-cocoa/55">
+                {uploading ? "Envoi en cours…" : proofSignedUrl ? "✓ Enregistrée" : null}
+              </p>
+              <p className="text-[11px] text-cocoa/55">
+
                 {(proof.size / 1024).toFixed(0)} Ko
               </p>
             </div>
