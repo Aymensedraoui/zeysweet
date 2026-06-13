@@ -124,7 +124,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="bg-cocoa text-cream py-5 overflow-hidden border-y border-cream/5">
+      <div className="relative z-10 bg-cocoa text-cream py-5 overflow-hidden border-y border-cream/5">
         <div className="flex gap-12 animate-marquee whitespace-nowrap">
           {[...Array(2)].map((_, k) => (
             <div key={k} className="flex gap-12 items-center font-display italic text-2xl">
