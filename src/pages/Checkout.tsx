@@ -619,7 +619,10 @@ function CihBlock({
     else toast.error("Copie impossible");
   };
 
-  const onPickFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [uploading, setUploading] = useState(false);
+  const [proofSignedUrl, setProofSignedUrl] = useState<string | null>(null);
+
+  const onPickFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (!f) return;
     if (!f.type.startsWith("image/")) {
@@ -631,7 +634,16 @@ function CihBlock({
       return;
     }
     setProof(f);
-    toast.success("Preuve ajoutée — partagez-la sur WhatsApp");
+    setUploading(true);
+    const res = await uploadProofAndSign(orderRef, f);
+    setUploading(false);
+    if (res) {
+      setProofSignedUrl(res.signedUrl);
+      if (orderId) attachProofUrl(orderId, res.signedUrl);
+      toast.success("Preuve enregistrée — partagez-la sur WhatsApp");
+    } else {
+      toast.success("Preuve ajoutée — partagez-la sur WhatsApp");
+    }
   };
 
   const sendOnWhatsApp = async () => {
