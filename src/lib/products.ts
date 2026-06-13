@@ -4,17 +4,10 @@ import giftCustom from "@/assets/gift-custom.jpg";
 import { Product } from "./store";
 
 // === LAUNCH CATALOGUE ===
-// We are launching with two signature products this week.
-// The rest of the catalogue (brownie, cheesecake, cake, box) will be
-// re-enabled once production is ready — keep imports above commented to
-// restore quickly.
-//
-// import brownie from "@/assets/product-brownie.jpg";
-// import cheesecake from "@/assets/product-cheesecake.jpg";
-// import cake from "@/assets/product-cake.jpg";
-// import giftbox from "@/assets/product-giftbox.jpg";
-// import giftDiscovery from "@/assets/gift-discovery.jpg";
-// import giftPremium from "@/assets/gift-premium.jpg";
+// We are launching with two signature products. When new products are added
+// (brownie, cheesecake, cake, premium gift boxes), re-import their images
+// from src/assets and add entries below.
+
 
 export const products: Product[] = [
   {

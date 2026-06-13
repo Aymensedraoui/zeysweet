@@ -24,7 +24,7 @@ import {
   type CustomerInfo,
   type PaymentMode,
 } from "@/lib/checkout";
-import { BANK_INFO } from "@/lib/bankInfo";
+import { BANK_INFO, isBankInfoConfigured } from "@/lib/bankInfo";
 import { useStore } from "@/lib/store";
 import { trackWhatsAppClick, trackOrderSubmit } from "@/lib/analytics";
 import { toast } from "sonner";
@@ -71,11 +71,8 @@ export default function Checkout() {
     note: "",
   });
 
-  useEffect(() => {
-    if (items.length === 0 && step !== "done") {
-      // empty cart guard
-    }
-  }, [items.length, step]);
+  // (cart-empty state is handled by the early return below)
+
 
   const message = useMemo(
     () =>
@@ -653,6 +650,7 @@ function CihBlock({
   };
 
 
+  const bankReady = isBankInfoConfigured();
   const rows: { label: string; value: string }[] = [
     { label: "Bénéficiaire", value: BANK_INFO.accountHolder },
     { label: "Banque", value: BANK_INFO.bankName },
