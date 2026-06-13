@@ -27,6 +27,7 @@ import {
 import { BANK_INFO, isBankInfoConfigured } from "@/lib/bankInfo";
 import { useStore } from "@/lib/store";
 import { trackWhatsAppClick, trackOrderSubmit } from "@/lib/analytics";
+import { persistOrder, uploadProofAndSign, attachProofUrl } from "@/lib/orders";
 import { toast } from "sonner";
 
 type Step = 1 | 2 | 3 | "done";
@@ -95,10 +96,22 @@ export default function Checkout() {
     customer.city.trim().length >= 2 &&
     customer.address.trim().length >= 4;
 
-  const confirm = () => {
+  const [orderId, setOrderId] = useState<string | null>(null);
+
+  const confirm = async () => {
     if (underMin || items.length === 0) return;
     trackWhatsAppClick(`checkout-${mode}`);
     trackOrderSubmit({ value: total, items: items.length, source: `checkout-${mode}` });
+    // Fire-and-forget backend persistence — never block the WA hand-off.
+    persistOrder({
+      ref: orderRef,
+      lang,
+      customer,
+      items,
+      total,
+      mode,
+      source: `checkout-${mode}`,
+    }).then((id) => setOrderId(id));
     window.open(waUrl, "_blank", "noopener,noreferrer");
     setStep("done");
   };
@@ -357,6 +370,7 @@ export default function Checkout() {
               <ConfirmationView
                 mode={mode}
                 orderRef={orderRef}
+                orderId={orderId}
                 total={total}
                 waUrl={waUrl}
                 onNew={() => {
@@ -504,12 +518,14 @@ function Summary() {
 function ConfirmationView({
   mode,
   orderRef,
+  orderId,
   total,
   waUrl,
   onNew,
 }: {
   mode: PaymentMode;
   orderRef: string;
+  orderId: string | null;
   total: number;
   waUrl: string;
   onNew: () => void;
@@ -543,7 +559,7 @@ function ConfirmationView({
         </div>
       )}
 
-      {mode === "cih" && <CihBlock total={total} orderRef={orderRef} waUrl={waUrl} />}
+      {mode === "cih" && <CihBlock total={total} orderRef={orderRef} orderId={orderId} waUrl={waUrl} />}
 
       {mode === "cod" && (
         <div className="mt-6 rounded-2xl bg-cream/70 border border-cocoa/10 p-5 text-left">
@@ -575,10 +591,12 @@ function ConfirmationView({
 function CihBlock({
   total,
   orderRef,
+  orderId,
   waUrl,
 }: {
   total: number;
   orderRef: string;
+  orderId: string | null;
   waUrl: string;
 }) {
   const [proof, setProof] = useState<File | null>(null);
@@ -601,7 +619,10 @@ function CihBlock({
     else toast.error("Copie impossible");
   };
 
-  const onPickFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [uploading, setUploading] = useState(false);
+  const [proofSignedUrl, setProofSignedUrl] = useState<string | null>(null);
+
+  const onPickFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (!f) return;
     if (!f.type.startsWith("image/")) {
@@ -613,28 +634,43 @@ function CihBlock({
       return;
     }
     setProof(f);
-    toast.success("Preuve ajoutée — partagez-la sur WhatsApp");
+    setUploading(true);
+    const res = await uploadProofAndSign(orderRef, f);
+    setUploading(false);
+    if (res) {
+      setProofSignedUrl(res.signedUrl);
+      if (orderId) attachProofUrl(orderId, res.signedUrl);
+      toast.success("Preuve enregistrée — partagez-la sur WhatsApp");
+    } else {
+      toast.success("Preuve ajoutée — partagez-la sur WhatsApp");
+    }
   };
 
   const sendOnWhatsApp = async () => {
+    // If we have a signed URL for the proof, append it to the message so
+    // the seller gets a one-click link even if the image attach fails.
+    const baseText = decodeURIComponent(waUrl.split("?text=")[1] ?? "");
+    const text = proofSignedUrl
+      ? `${baseText}\n\n📎 Preuve : ${proofSignedUrl}`
+      : baseText;
+    const finalWaUrl = `${waUrl.split("?text=")[0]}?text=${encodeURIComponent(text)}`;
+
     const nav = navigator as Navigator & {
       canShare?: (data: { files?: File[]; text?: string; title?: string }) => boolean;
       share?: (data: { files?: File[]; text?: string; title?: string }) => Promise<void>;
     };
-    // Best UX on mobile: native share with the file directly into WhatsApp
     if (proof && nav.canShare?.({ files: [proof] }) && nav.share) {
       try {
         await nav.share({
           files: [proof],
-          text: decodeURIComponent(waUrl.split("?text=")[1] ?? ""),
+          text,
           title: `Preuve de virement ${orderRef}`,
         });
         return;
       } catch {
-        // user cancelled or unsupported — fall through to wa.me
+        /* fall through */
       }
     }
-    // Desktop fallback: try to copy image to clipboard so user can paste in WA
     if (proof && typeof window !== "undefined" && "ClipboardItem" in window) {
       try {
         const CI = (window as unknown as { ClipboardItem: new (items: Record<string, Blob>) => unknown }).ClipboardItem;
@@ -646,7 +682,7 @@ function CihBlock({
         toast.message("Joignez l'image manuellement dans WhatsApp");
       }
     }
-    window.open(waUrl, "_blank", "noopener,noreferrer");
+    window.open(finalWaUrl, "_blank", "noopener,noreferrer");
   };
 
 
@@ -732,6 +768,10 @@ function CihBlock({
             <div className="flex-1 min-w-0">
               <p className="text-sm text-cocoa truncate">{proof.name}</p>
               <p className="text-[11px] text-cocoa/55">
+                {uploading ? "Envoi en cours…" : proofSignedUrl ? "✓ Enregistrée" : null}
+              </p>
+              <p className="text-[11px] text-cocoa/55">
+
                 {(proof.size / 1024).toFixed(0)} Ko
               </p>
             </div>
