@@ -370,6 +370,7 @@ export default function Checkout() {
               <ConfirmationView
                 mode={mode}
                 orderRef={orderRef}
+                orderId={orderId}
                 total={total}
                 waUrl={waUrl}
                 onNew={() => {
