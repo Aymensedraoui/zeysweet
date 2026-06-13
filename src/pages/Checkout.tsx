@@ -591,10 +591,12 @@ function ConfirmationView({
 function CihBlock({
   total,
   orderRef,
+  orderId,
   waUrl,
 }: {
   total: number;
   orderRef: string;
+  orderId: string | null;
   waUrl: string;
 }) {
   const [proof, setProof] = useState<File | null>(null);
