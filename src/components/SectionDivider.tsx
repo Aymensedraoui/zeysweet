@@ -6,8 +6,8 @@ type Props = {
 };
 
 /**
- * Thin cinematic divider between sections.
- * Desktop only, lazy-loaded, ornamental.
+ * Cinematic ribbon divider between sections.
+ * Desktop only, lazy-loaded video with a readable label band.
  */
 export default function SectionDivider({ videoUrl, label }: Props) {
   const ref = useRef<HTMLDivElement>(null);
@@ -37,8 +37,7 @@ export default function SectionDivider({ videoUrl, label }: Props) {
   return (
     <div
       ref={ref}
-      aria-hidden="true"
-      className="relative w-full h-24 md:h-32 overflow-hidden bg-cocoa hidden md:block"
+      className="relative w-full h-40 md:h-56 overflow-hidden bg-cocoa hidden md:block"
     >
       {loaded && (
         <video
@@ -52,13 +51,19 @@ export default function SectionDivider({ videoUrl, label }: Props) {
           className="absolute inset-0 w-full h-full object-cover"
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-r from-cocoa via-cocoa/40 to-cocoa" />
-      <div className="absolute inset-0 bg-gradient-to-b from-cocoa/60 to-cocoa/60" />
+      {/* Soft side fades only — keep the video visible in the middle */}
+      <div className="absolute inset-0 bg-gradient-to-r from-cocoa via-transparent to-cocoa" />
+      <div className="absolute inset-0 bg-gradient-to-b from-cocoa/30 via-transparent to-cocoa/40" />
+
       {label && (
-        <div className="relative h-full flex items-center justify-center">
-          <span className="font-hand text-rose text-xl tracking-widest opacity-80">
-            ✦ {label} ✦
-          </span>
+        <div className="relative h-full flex items-center justify-center px-6">
+          <div className="flex items-center gap-5 px-8 py-3 rounded-full bg-cocoa/60 backdrop-blur-sm border border-rose/30 shadow-warm">
+            <span className="text-rose text-lg">✦</span>
+            <span className="font-display italic text-cream text-2xl md:text-3xl tracking-wide whitespace-nowrap">
+              {label}
+            </span>
+            <span className="text-rose text-lg">✦</span>
+          </div>
         </div>
       )}
     </div>
