@@ -647,24 +647,30 @@ function CihBlock({
   };
 
   const sendOnWhatsApp = async () => {
+    // If we have a signed URL for the proof, append it to the message so
+    // the seller gets a one-click link even if the image attach fails.
+    const baseText = decodeURIComponent(waUrl.split("?text=")[1] ?? "");
+    const text = proofSignedUrl
+      ? `${baseText}\n\n📎 Preuve : ${proofSignedUrl}`
+      : baseText;
+    const finalWaUrl = `${waUrl.split("?text=")[0]}?text=${encodeURIComponent(text)}`;
+
     const nav = navigator as Navigator & {
       canShare?: (data: { files?: File[]; text?: string; title?: string }) => boolean;
       share?: (data: { files?: File[]; text?: string; title?: string }) => Promise<void>;
     };
-    // Best UX on mobile: native share with the file directly into WhatsApp
     if (proof && nav.canShare?.({ files: [proof] }) && nav.share) {
       try {
         await nav.share({
           files: [proof],
-          text: decodeURIComponent(waUrl.split("?text=")[1] ?? ""),
+          text,
           title: `Preuve de virement ${orderRef}`,
         });
         return;
       } catch {
-        // user cancelled or unsupported — fall through to wa.me
+        /* fall through */
       }
     }
-    // Desktop fallback: try to copy image to clipboard so user can paste in WA
     if (proof && typeof window !== "undefined" && "ClipboardItem" in window) {
       try {
         const CI = (window as unknown as { ClipboardItem: new (items: Record<string, Blob>) => unknown }).ClipboardItem;
@@ -676,7 +682,7 @@ function CihBlock({
         toast.message("Joignez l'image manuellement dans WhatsApp");
       }
     }
-    window.open(waUrl, "_blank", "noopener,noreferrer");
+    window.open(finalWaUrl, "_blank", "noopener,noreferrer");
   };
 
 
