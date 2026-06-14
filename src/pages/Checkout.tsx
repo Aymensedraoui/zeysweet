@@ -702,9 +702,9 @@ function CihBlock({
           <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
           <span>
             <strong>Coordonnées CIH non configurées.</strong> Pour finaliser le virement,
-            la cliente doit nous contacter directement sur WhatsApp — nous lui transmettrons
-            le RIB de vive voix. (Note interne : remplir <code>src/lib/bankInfo.ts</code>.)
+            contactez-nous sur WhatsApp — nous vous transmettrons le RIB directement.
           </span>
+
         </div>
       )}
       <p className="text-sm text-cocoa">
