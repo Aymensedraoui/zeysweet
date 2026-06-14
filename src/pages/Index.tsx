@@ -159,7 +159,7 @@ const Index = () => {
       <Navbar />
       <main id="main">
         <Hero />
-        <TrustBar />
+        
         <ScrollCinematic
           videoUrl={scroll1.url}
           eyebrow="Fait main · Rabat"
