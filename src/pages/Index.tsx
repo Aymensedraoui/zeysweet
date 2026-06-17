@@ -185,10 +185,8 @@ const Index = () => {
           accent="émotion"
         />
         <Testimonials />
-        <SectionDivider videoUrl={scroll2.url} label="Maison Zey's Sweetness" />
         <FAQ />
         <Gallery />
-        <OrderCTA />
         <Contact />
       </main>
       <Footer />

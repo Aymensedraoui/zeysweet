@@ -95,6 +95,15 @@ export default function Navbar() {
               </a>
             ))}
           </nav>
+          <div className="pb-10 px-6 flex justify-center">
+            <button
+              onClick={() => { setOpen(false); onOrder(); }}
+              className="btn-rose btn-glow w-full max-w-sm"
+              aria-label={t("a11y.whatsapp", lang)}
+            >
+              {t("nav.cta", lang)} · WhatsApp
+            </button>
+          </div>
         </div>
       )}
     </>
