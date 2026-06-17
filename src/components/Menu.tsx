@@ -210,14 +210,43 @@ export default function Menu() {
             </div>
           ) : (
             <div>
+              {/* Inline back button — branded, clearly visible */}
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+                <button
+                  onClick={() => {
+                    setSelectedLine(null);
+                    requestAnimationFrame(() => {
+                      document.getElementById("products")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    });
+                  }}
+                  className="group inline-flex items-center gap-2 rounded-full border-2 border-cocoa/20 bg-card hover:border-rose hover:bg-rose/5 px-4 py-2.5 text-sm font-semibold text-cocoa shadow-sm hover:shadow-md transition-all"
+                  aria-label="Revenir au choix des gammes"
+                >
+                  <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
+                  Changer de gamme
+                </button>
+                <span className="text-xs text-cocoa/55 hidden sm:inline">
+                  Vous composez : <span className="font-semibold text-cocoa">{LINES.find((l) => l.id === selectedLine)?.name}</span>
+                </span>
+              </div>
+
+              <BoxBuilder line={selectedLine} />
+
+              {/* Floating mobile back-pill — always reachable */}
               <button
-                onClick={() => setSelectedLine(null)}
-                className="inline-flex items-center gap-2 text-sm text-cocoa/70 hover:text-rose mb-5 transition-colors"
+                onClick={() => {
+                  setSelectedLine(null);
+                  requestAnimationFrame(() => {
+                    document.getElementById("products")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  });
+                }}
+                className="md:hidden fixed left-4 z-40 inline-flex items-center gap-2 rounded-full bg-cocoa text-cream px-4 py-3 text-xs font-semibold shadow-warm border border-cream/20 backdrop-blur active:scale-95 transition-transform"
+                style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.5rem)" }}
+                aria-label="Revenir au choix des gammes"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Changer de gamme
               </button>
-              <BoxBuilder line={selectedLine} />
             </div>
           )}
         </div>

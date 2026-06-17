@@ -23,10 +23,10 @@ export default function FloatingWhatsApp() {
       onClick={handle}
       aria-label={t("a11y.whatsapp", lang)}
       title={t("a11y.whatsapp", lang)}
-      className={`fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-warm transition-all duration-500 ${
+      className={`fixed right-6 z-40 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-warm transition-all duration-500 ${
         shown ? "scale-100 opacity-100" : "scale-0 opacity-0"
       }`}
-      style={{ background: "#25D366" }}
+      style={{ background: "#25D366", bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.5rem)" }}
     >
       <span className="absolute inset-0 rounded-full animate-pulse-ring" style={{ background: "#25D366" }} />
       <MessageCircle className="w-7 h-7 relative z-10" />
