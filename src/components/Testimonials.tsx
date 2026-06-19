@@ -66,6 +66,9 @@ export default function Testimonials() {
             />
           ))}
         </div>
+        <div className="mt-8">
+          <a href="#products" className="text-sm text-cocoa/70 hover:text-rose underline-offset-4 hover:underline">↑ Retour à la carte</a>
+        </div>
       </div>
     </section>
   );

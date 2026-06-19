@@ -27,7 +27,10 @@ export default function Story() {
           </h2>
           <p className="text-cocoa/75 text-lg">{t("story.p1", lang)}</p>
           <p className="text-cocoa/70">{t("story.p2", lang)}</p>
-          <a href="#order" className="btn-outline-cocoa">{t("story.cta", lang)}</a>
+          <div className="flex flex-wrap items-center gap-4 pt-1">
+            <a href="#products" className="btn-outline-cocoa">{t("story.cta", lang)}</a>
+            <a href="#products" className="text-sm text-cocoa/70 hover:text-rose underline-offset-4 hover:underline">↑ Retour à la carte</a>
+          </div>
         </div>
       </div>
     </section>
