@@ -65,7 +65,7 @@ function DatesBanner({ lang }: { lang: "fr" | "ar" }) {
         <img
           src={datesImg}
           alt="Dattes Medjool farcies aux noix de cajou — Zey's Sweetness, Rabat & Témara"
-          loading="lazy"
+          loading="lazy" decoding="async"
           width={1024}
           height={768}
           className="w-full h-full object-cover img-warm"
@@ -180,7 +180,7 @@ export default function Menu() {
                     <img
                       src={l.image}
                       alt={`${l.name} — Zey's Sweetness`}
-                      loading="lazy"
+                      loading="lazy" decoding="async"
                       className="w-full h-full object-cover img-warm transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
                     />
                     <div className={`absolute inset-0 bg-gradient-to-t ${l.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-multiply`} />

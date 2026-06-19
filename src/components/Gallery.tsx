@@ -36,7 +36,7 @@ export default function Gallery() {
               aria-label={`${it.alt} — voir sur Instagram`}
               className="relative aspect-square overflow-hidden rounded-2xl group block"
             >
-              <img src={it.src} alt={it.alt} loading="lazy" className="w-full h-full object-cover img-warm group-hover:scale-110 transition-transform duration-700" />
+              <img src={it.src} alt={it.alt} loading="lazy" decoding="async" className="w-full h-full object-cover img-warm group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-cocoa/0 group-hover:bg-cocoa/40 transition flex items-center justify-center opacity-0 group-hover:opacity-100" aria-hidden="true">
                 <Instagram className="w-8 h-8 text-cream" />
               </div>

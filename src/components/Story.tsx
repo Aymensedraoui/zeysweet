@@ -12,7 +12,7 @@ export default function Story() {
           <img
             src={portrait}
             alt="Zey, fondatrice de Zey's Sweetness, dans sa cuisine"
-            loading="lazy"
+            loading="lazy" decoding="async"
             className="relative rounded-3xl shadow-warm img-warm w-full max-w-[520px] mx-auto"
           />
           <div className="absolute -bottom-6 -right-2 sm:right-8 bg-cocoa text-cream rounded-full px-5 py-3 font-hand text-xl shadow-lg rotate-3">

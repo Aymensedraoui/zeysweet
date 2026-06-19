@@ -118,7 +118,7 @@ export default function Hero() {
                 className="relative rounded-[2rem] shadow-warm img-warm w-full aspect-square object-cover"
                 width={720}
                 height={720}
-                loading="eager"
+                loading="eager" decoding="async"
                 fetchPriority="high"
               />
             </div>
