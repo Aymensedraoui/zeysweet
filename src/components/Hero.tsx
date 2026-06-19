@@ -86,6 +86,17 @@ export default function Hero() {
               {t("hero.cta1", lang)}
             </button>
           </div>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pt-1 animate-fade-up text-sm" style={{ animationDelay: "0.7s" }}>
+            <span className="inline-flex items-center gap-1.5 text-cocoa font-semibold">
+              <span className="text-caramel">★★★★★</span>
+              <span>4.9</span>
+              <span className="text-cocoa/60 font-normal">· 800+ commandes</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-cocoa/75">
+              <span className="w-1.5 h-1.5 rounded-full bg-rose animate-pulse" aria-hidden="true" />
+              Commandez avant 18h, livré demain
+            </span>
+          </div>
           <ul className="flex flex-wrap gap-2.5 pt-2 animate-fade-up" style={{ animationDelay: "0.75s" }} aria-label="Nos engagements">
             <li className="chip-trust"><span className="dot" aria-hidden="true" /> {t("hero.chip.1", lang)}</li>
             <li className="chip-trust"><span className="dot" aria-hidden="true" /> {t("hero.chip.2", lang)}</li>

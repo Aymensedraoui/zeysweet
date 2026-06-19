@@ -159,31 +159,40 @@ const Index = () => {
       <Navbar />
       <main id="main">
         <Hero />
-        
-        <ScrollCinematic
-          videoUrl={scroll1.url}
-          eyebrow="Fait main · Rabat"
-          title="Le goût du"
-          accent="chocolat fondant"
-        />
+
+        {/* Heavy cinematic blocks: desktop only — mobile keeps it lean for conversion */}
+        <div className="hidden md:block">
+          <ScrollCinematic
+            videoUrl={scroll1.url}
+            eyebrow="Fait main · Rabat"
+            title="Le goût du"
+            accent="chocolat fondant"
+          />
+        </div>
         <Menu />
         <Story />
-        <Cinematic />
-        <ScrollCinematic
-          videoUrl={scroll2.url}
-          eyebrow="Signature"
-          title="Dattes farcies,"
-          accent="touche royale"
-        />
+        <div className="hidden md:block">
+          <Cinematic />
+          <ScrollCinematic
+            videoUrl={scroll2.url}
+            eyebrow="Signature"
+            title="Dattes farcies,"
+            accent="touche royale"
+          />
+        </div>
         <Gifts />
-        <SectionDivider videoUrl={dividerCaramel.url} label="L'art de la pâtisserie" />
+        <div className="hidden md:block">
+          <SectionDivider videoUrl={dividerCaramel.url} label="L'art de la pâtisserie" />
+        </div>
         <HowToOrder />
-        <ScrollCinematic
-          videoUrl={scroll3.url}
-          eyebrow="Coffrets"
-          title="Offrir une"
-          accent="émotion"
-        />
+        <div className="hidden md:block">
+          <ScrollCinematic
+            videoUrl={scroll3.url}
+            eyebrow="Coffrets"
+            title="Offrir une"
+            accent="émotion"
+          />
+        </div>
         <Testimonials />
         <FAQ />
         <Gallery />

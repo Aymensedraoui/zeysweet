@@ -447,7 +447,18 @@ function Field({
   multiline?: boolean;
 }) {
   const cls =
-    "w-full rounded-xl border border-cocoa/15 bg-cream/50 px-4 py-2.5 text-sm text-cocoa placeholder:text-cocoa/40 focus:outline-none focus:ring-2 focus:ring-rose/40 focus:border-rose transition";
+    "w-full rounded-xl border border-cocoa/15 bg-cream/50 px-4 py-3 text-base text-cocoa placeholder:text-cocoa/40 focus:outline-none focus:ring-2 focus:ring-rose/40 focus:border-rose transition";
+  const labelLower = label.toLowerCase();
+  const isPhone = type === "tel" || labelLower.includes("téléphone");
+  const autoComplete = isPhone
+    ? "tel"
+    : labelLower.includes("nom")
+      ? "name"
+      : labelLower.includes("ville")
+        ? "address-level2"
+        : labelLower.includes("adresse")
+          ? "street-address"
+          : undefined;
   return (
     <label className="block">
       <span className="block text-xs font-semibold text-cocoa/75 mb-1.5">
@@ -465,6 +476,8 @@ function Field({
       ) : (
         <input
           type={type}
+          inputMode={isPhone ? "tel" : undefined}
+          autoComplete={autoComplete}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}

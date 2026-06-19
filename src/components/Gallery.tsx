@@ -43,10 +43,11 @@ export default function Gallery() {
             </a>
           ))}
         </div>
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 flex flex-wrap items-center justify-center gap-4">
           <a href="https://www.instagram.com/zeysweetness/" target="_blank" rel="noopener noreferrer" className="btn-outline-cocoa">
             <Instagram className="w-4 h-4" /> {t("gal.follow", lang)}
           </a>
+          <a href="#products" className="text-sm text-cocoa/70 hover:text-rose underline-offset-4 hover:underline">↑ Retour à la carte</a>
         </div>
       </div>
     </section>
