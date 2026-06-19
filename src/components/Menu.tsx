@@ -148,7 +148,7 @@ export default function Menu() {
   const [selectedLine, setSelectedLine] = useState<Line | null>(null);
 
   return (
-    <section id="products" className="py-24 lg:py-32 paper-texture">
+    <section id="products" className="py-24 lg:py-32 paper-texture scroll-mt-20">
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
