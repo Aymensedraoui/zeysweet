@@ -67,6 +67,13 @@ export default function Navbar() {
               {t("nav.cta", lang)}
             </button>
             <button
+              onClick={onOrder}
+              className="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose text-cream shadow-warm active:scale-95 transition"
+              aria-label={t("a11y.whatsapp", lang)}
+            >
+              <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0012.06 0C5.5 0 .17 5.32.17 11.88c0 2.1.55 4.13 1.6 5.93L0 24l6.34-1.66a11.87 11.87 0 005.72 1.46h.01c6.56 0 11.89-5.32 11.89-11.88 0-3.18-1.24-6.16-3.44-8.44z"/></svg>
+            </button>
+            <button
               onClick={() => setOpen(true)}
               className="lg:hidden p-2"
               aria-label={t("nav.menu", lang)}
