@@ -28,7 +28,7 @@ export default function Gifts() {
                 style={{ animationDelay: `${i * 0.15}s` }}
               >
                 <div className="aspect-square overflow-hidden">
-                  <img src={g.image} alt={`${name} — coffret cadeau Zey's`} loading="lazy" className="w-full h-full object-cover img-warm hover:scale-105 transition-transform duration-700" />
+                  <img src={g.image} alt={`${name} — coffret cadeau Zey's`} loading="lazy" decoding="async" className="w-full h-full object-cover img-warm hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div className="p-6 space-y-3">
                   <h3 className="font-display font-bold text-2xl text-cocoa">{name}</h3>

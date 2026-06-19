@@ -41,7 +41,7 @@ export default function Products() {
                   <img
                     src={p.image}
                     alt={`${name} — Zey's Sweetness · Rabat & Témara`}
-                    loading="lazy"
+                    loading="lazy" decoding="async"
                     className="w-full h-full object-cover img-warm transition-transform duration-[1100ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.07]"
                   />
                 </div>

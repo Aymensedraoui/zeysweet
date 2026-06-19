@@ -16,7 +16,7 @@ export default function Cinematic() {
           <img
             src={cookie}
             alt="Stack de cookies signature"
-            loading="lazy"
+            loading="lazy" decoding="async"
             className="relative rounded-3xl shadow-warm img-warm w-full"
           />
         </div>

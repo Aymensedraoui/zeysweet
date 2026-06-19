@@ -356,7 +356,7 @@ export default function BoxBuilder({ line }: { line: Line }) {
                           <img
                             src={f.image}
                             alt={`Cookie ${f.name} — Zey's Sweetness`}
-                            loading="lazy"
+                            loading="lazy" decoding="async"
                             width={512}
                             height={512}
                             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
@@ -417,7 +417,7 @@ export default function BoxBuilder({ line }: { line: Line }) {
                 <img
                   src={americanHero.url}
                   alt="American Classic Cookie — chocolat & fleur de sel"
-                  loading="lazy"
+                  loading="lazy" decoding="async"
                   className="w-full h-full object-cover img-warm"
                 />
               </div>

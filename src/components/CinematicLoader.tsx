@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import loaderAsset from "@/assets/loader-cinematic.mp4.asset.json";
 
-const MIN_DURATION_MS = 1800;
 const SESSION_KEY = "zs_loader_shown";
 
 export default function CinematicLoader() {
   const [visible, setVisible] = useState(() => {
     if (typeof window === "undefined") return false;
-    // Only show once per tab session
     return !sessionStorage.getItem(SESSION_KEY);
   });
   const [leaving, setLeaving] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const startRef = useRef<number>(Date.now());
+  const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+  const MIN_DURATION_MS = isMobile ? 900 : 1800;
 
   useEffect(() => {
     if (!visible) return;
@@ -58,15 +58,18 @@ export default function CinematicLoader() {
         leaving ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      <video
-        ref={videoRef}
-        src={loaderAsset.url}
-        autoPlay
-        muted
-        playsInline
-        loop
-        className="absolute inset-0 w-full h-full object-cover opacity-70"
-      />
+      {!isMobile && (
+        <video
+          ref={videoRef}
+          src={loaderAsset.url}
+          autoPlay
+          muted
+          playsInline
+          loop
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        />
+      )}
       <div className="absolute inset-0 bg-gradient-to-b from-cocoa/40 via-cocoa/30 to-cocoa/80" />
 
       <div className="relative text-center space-y-5 px-6 animate-fade-in">

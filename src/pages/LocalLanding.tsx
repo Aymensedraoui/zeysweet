@@ -160,7 +160,7 @@ export default function LocalLanding() {
                 alt={`${page.product.name} — ${page.city}, Zey's Sweetness`}
                 width={1280}
                 height={800}
-                loading="eager"
+                loading="eager" decoding="async"
                 className="w-full h-auto object-cover"
               />
             </div>
