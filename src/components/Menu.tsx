@@ -252,20 +252,22 @@ export default function Menu() {
         </div>
 
 
-        {/* Dates section */}
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-4 mb-8 lg:mb-10">
-            <span className="h-px flex-1 bg-cocoa/15" />
-            <h3 className="font-display font-bold italic text-2xl lg:text-3xl text-cocoa whitespace-nowrap">
-              Nos Dattes Farcies
-            </h3>
-            <span className="h-px flex-1 bg-cocoa/15" />
+        {/* Dates section — hidden while user is composing a range to avoid distraction */}
+        {selectedLine === null && (
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-4 mb-8 lg:mb-10">
+              <span className="h-px flex-1 bg-cocoa/15" />
+              <h3 className="font-display font-bold italic text-2xl lg:text-3xl text-cocoa whitespace-nowrap">
+                Nos Dattes Farcies
+              </h3>
+              <span className="h-px flex-1 bg-cocoa/15" />
+            </div>
+            <DatesBanner lang={lang} />
           </div>
-          <DatesBanner lang={lang} />
-        </div>
+        )}
 
-        {/* Practical info */}
-        <div className="max-w-4xl mx-auto mt-16 lg:mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+        {/* Practical info — desktop only, redundant with Contact section on mobile */}
+        <div className="max-w-4xl mx-auto mt-16 lg:mt-20 hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
           {[
             { t: "Commande WhatsApp", s: "Direct, sans friction" },
             { t: "Réponse < 1 heure", s: "Pendant nos horaires" },
