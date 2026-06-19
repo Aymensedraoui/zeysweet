@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import loaderAsset from "@/assets/loader-cinematic.mp4.asset.json";
 
-const MIN_DURATION_MS = 1800;
 const SESSION_KEY = "zs_loader_shown";
 
 export default function CinematicLoader() {
   const [visible, setVisible] = useState(() => {
     if (typeof window === "undefined") return false;
-    // Only show once per tab session
     return !sessionStorage.getItem(SESSION_KEY);
   });
   const [leaving, setLeaving] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const startRef = useRef<number>(Date.now());
+  const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+  const MIN_DURATION_MS = isMobile ? 900 : 1800;
 
   useEffect(() => {
     if (!visible) return;
